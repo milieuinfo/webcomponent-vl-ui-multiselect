@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <title>vl-multiselect voorbeeld</title>
+</head>
+
+<script type="module" src="../vl-multiselect.src.js"></script>
+<script type="module" src="demo.js"></script>
+
+<body>
+<h1>vl-ui-multiselect demo</h1>
+<p>
+  <a href="https://overheid.vlaanderen.be/webuniversum/v3/documentation/forms/vl-ui-multiselect">
+    Meer voorbeelden en documentatie</a>.
+</p>
+
+<div>
+  <h2>Multiselect met optgroup</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-multiselect&gt;
+          &lt;optgroup label=&quot;Landen&quot;&gt;
+            &lt;option selected value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+            &lt;option  value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+            &lt;option  value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+          &lt;/optgroup&gt;
+          &lt;optgroup label=&quot;Steden&quot;&gt;
+            &lt;option selected value=&quot;Brugge&quot;&gt;Brugge&lt;/option&gt;
+            &lt;option  value=&quot;Brussel&quot;&gt;Brussel&lt;/option&gt;
+            &lt;option  value=&quot;Gent&quot;&gt;Gent&lt;/option&gt;
+          &lt;/optgroup&gt;
+        &lt;/vl-multiselect&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect>
+      <optgroup label="Landen">
+        <option selected value="België">België</option>
+        <option value="Duitsland">Duitsland</option>
+        <option value="Frankrijk">Frankrijk</option>
+      </optgroup>
+      <optgroup label="Steden">
+        <option selected value="Brugge">Brugge</option>
+        <option value="Brussel">Brussel</option>
+        <option value="Gent">Gent</option>
+      </optgroup>
+    </vl-multiselect>
+  </div>
+</div>
+
+</body>
+</html>
