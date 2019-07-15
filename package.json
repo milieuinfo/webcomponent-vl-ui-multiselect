@@ -31,6 +31,7 @@
     "@govflanders/vl-ui-multiselect": "^3.7.2",
     "@govflanders/vl-ui-select": "^3.7.2",
     "@govflanders/vl-ui-util": "3.7.2",
+    "@govflanders/vl-ui-pill": "3.7.2",
     "vl-ui-core": "1.4.2",
     "vl-ui-select": "^1.1.5"
   },

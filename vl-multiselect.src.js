@@ -38,12 +38,11 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
               is="vl-select"
               multiple 
               name="multiselect" 
-              class="vl-multiselect" 
-              data-vl-select 
+              class="vl-multiselect"
               data-vl-multiselect>
+              </select>
               <slot></slot>
-            </select>
-          </div>
+            </div>
         </div>
     `);
   }
@@ -57,19 +56,17 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
    */
   dress() {
     (async () => {
-      while (!window.multiselect || !this._selectDressed) {
+      while (!window.vl || !window.vl.select) {
         await new Promise(resolve => setTimeout(resolve, 100));
       }
-      console.log("<select> dressed ?", this._selectDressed);
-      this._multiselect().dress(this._selectElement);
-    })();
-  }
+      this._shadow.querySelector('slot').assignedElements().forEach((element) => {
+        this._selectElement.append(element);
+      });
 
-  _multiselect() {
-    if (!this._multi) {
-      this._multi = new multiselect();
-    }
-    return this._multi;
+      if (!this._selectDressed) {
+        vl.select.dress(this._selectElement);
+      }
+    })();
   }
 
   get _selectElement() {
