@@ -26,6 +26,10 @@ import '/node_modules/vl-ui-select/vl-select.js';
  */
 export class VlMultiSelect extends VlElement(HTMLElement) {
 
+  static get _observedAttributes() {
+    return ['select-search-empty-text', 'error'];
+  }
+
   constructor() {
     super(`
         <style>
@@ -35,10 +39,9 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
           <div class="js-vl-multiselect">
             <select 
               id="multiselect" 
-              is="vl-select"
               multiple 
               name="multiselect" 
-              class="vl-multiselect"
+              class="vl-multiselect vl-select"
               data-vl-multiselect>
               </select>
               <slot></slot>
@@ -75,6 +78,24 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
 
   get _selectDressed() {
     return !!this._selectElement.getAttribute('data-vl-select-dressed');
+  }
+
+  _select_search_empty_textChangedCallback(oldValue, newValue) {
+    if (newValue) {
+      this._selectElement.setAttribute("select-search-empty-text", newValue);
+    } else {
+      this._selectElement.removeAttribute("select-search-empty-text");
+    }
+  }
+
+  _errorChangedCallback(oldValue, newValue) {
+    console.log(oldValue, newValue);
+    if (newValue != null) {
+      console.log("setting error !!!!");
+      this._selectElement.setAttribute("error", newValue);
+    } else {
+      this._selectElement.removeAttribute("error");
+    }
   }
 }
 

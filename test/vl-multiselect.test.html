@@ -6,34 +6,25 @@
   <script src="../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../../web-component-tester/browser.js"></script>
 
-  <script type="module" src="../vl-data-table.src.js"></script>
+  <script type="module" src="../vl-multiselect.src.js"></script>
 </head>
 
 <body>
-<test-fixture id="vl-data-table-fixture">
+<test-fixture id="vl-multiselect-options-fixture">
   <template>
-    <table id="data-table" is="vl-data-table"></table>
+    <vl-multiselect id="multiselect-options">
+      <option></option>
+    </vl-multiselect>
   </template>
 </test-fixture>
 
 <script>
-  suite('<vl-data-table>', () => {
+  suite('<vl-multiselect>', () => {
     const should = chai.should();
 
     test('heeft de vl-data-table class', () => {
       const dataTable = fixture('vl-data-table-fixture');
       assert.isTrue(dataTable.classList.contains('vl-data-table'));
-    });
-
-    test('krijgt de juiste class wanneer de data-table een attribuut bevat', () => {
-      const dataTable = fixture('vl-data-table-fixture');
-      ['hover', 'matrix', 'lined', 'zebra'].forEach((attribuut) => {
-        assert.isFalse(dataTable.classList.contains('vl-data-table--' + attribuut));
-        dataTable.setAttribute(attribuut, '');
-        assert.isTrue(dataTable.classList.contains('vl-data-table--' + attribuut));
-        dataTable.removeAttribute(attribuut);
-        assert.isFalse(dataTable.classList.contains('vl-data-table--' + attribuut));
-      });
     });
   });
 </script>

@@ -15,19 +15,59 @@
 </p>
 
 <div>
-  <h2>Multiselect met optgroup</h2>
+  <h2>Multiselect met meerdere opties</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-multiselect&gt;
+          &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+          &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+          &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+        &lt;/vl-multiselect&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect>
+      <option value="België">België</option>
+      <option value="Duitsland">Duitsland</option>
+      <option value="Frankrijk">Frankrijk</option>
+    </vl-multiselect>
+  </div>
+</div>
+
+<div>
+  <h2>Multiselect met een voorgeselecteerde optie</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-multiselect&gt;
+          &lt;option selected value=&quot;Brugge&quot;&gt;Brugge&lt;/option&gt;
+          &lt;option value=&quot;Brussel&quot;&gt;Brussel&lt;/option&gt;
+          &lt;option value=&quot;Gent&quot;&gt;Gent&lt;/option&gt;
+        &lt;/vl-multiselect&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect>
+      <option selected value="Brugge">Brugge</option>
+      <option value="Brussel">Brussel</option>
+      <option value="Gent">Gent</option>
+    </vl-multiselect>
+  </div>
+</div>
+
+<div>
+  <h2>Multiselect met gegroepeerde opties</h2>
   <pre>
       <code class="line-numbers language-markup">
         &lt;vl-multiselect&gt;
           &lt;optgroup label=&quot;Landen&quot;&gt;
             &lt;option selected value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-            &lt;option  value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-            &lt;option  value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+            &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+            &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
           &lt;/optgroup&gt;
           &lt;optgroup label=&quot;Steden&quot;&gt;
             &lt;option selected value=&quot;Brugge&quot;&gt;Brugge&lt;/option&gt;
-            &lt;option  value=&quot;Brussel&quot;&gt;Brussel&lt;/option&gt;
-            &lt;option  value=&quot;Gent&quot;&gt;Gent&lt;/option&gt;
+            &lt;option value=&quot;Brussel&quot;&gt;Brussel&lt;/option&gt;
+            &lt;option value=&quot;Gent&quot;&gt;Gent&lt;/option&gt;
           &lt;/optgroup&gt;
         &lt;/vl-multiselect&gt;
       </code>
@@ -44,6 +84,26 @@
         <option value="Brussel">Brussel</option>
         <option value="Gent">Gent</option>
       </optgroup>
+    </vl-multiselect>
+  </div>
+</div>
+
+<div>
+  <h2>Multiselect met empty search text</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-multiselect&gt;
+          &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+          &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+          &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+        &lt;/vl-multiselect&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect error>
+      <option value="België">België</option>
+      <option value="Duitsland">Duitsland</option>
+      <option value="Frankrijk">Frankrijk</option>
     </vl-multiselect>
   </div>
 </div>
