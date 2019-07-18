@@ -89,10 +89,10 @@
 </div>
 
 <div>
-  <h2>Multiselect met empty search text</h2>
+  <h2>Multiselect met error</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-multiselect&gt;
+        &lt;vl-multiselect error&gt;
           &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
           &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
           &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
@@ -101,6 +101,46 @@
   </pre>
   <div class="demo">
     <vl-multiselect error>
+      <option value="België">België</option>
+      <option value="Duitsland">Duitsland</option>
+      <option value="Frankrijk">Frankrijk</option>
+    </vl-multiselect>
+  </div>
+</div>
+
+<div>
+  <h2>Multiselect met success</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-multiselect success&gt;
+          &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+          &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+          &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+        &lt;/vl-multiselect&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect success>
+      <option value="België">België</option>
+      <option value="Duitsland">Duitsland</option>
+      <option value="Frankrijk">Frankrijk</option>
+    </vl-multiselect>
+  </div>
+</div>
+
+<div>
+  <h2>Multiselect met disabled</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-multiselect disabled&gt;
+          &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+          &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+          &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+        &lt;/vl-multiselect&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect disabled>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>

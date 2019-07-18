@@ -27,7 +27,16 @@ import '/node_modules/vl-ui-select/vl-select.js';
 export class VlMultiSelect extends VlElement(HTMLElement) {
 
   static get _observedAttributes() {
-    return ['select-search-empty-text', 'error'];
+    return VlMultiSelect._observedDelegateAttributes;
+  }
+
+  /**
+   * Attributen wanneer deze op de vl-mutliselect gezet worden, ook gezet moeten worden op de vl-select.
+   * @return {string[]} de lijst van attributen die gedelegeerd moeten worden.
+   * @private
+   */
+  static get _observedDelegateAttributes() {
+    return ['data-vl-select-search-empty-text', 'error', 'success', 'disabled'];
   }
 
   constructor() {
@@ -40,6 +49,7 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
             <select 
               id="multiselect" 
               multiple 
+              is="vl-select"
               name="multiselect" 
               class="vl-multiselect vl-select"
               data-vl-multiselect>
@@ -62,9 +72,10 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
       while (!window.vl || !window.vl.select) {
         await new Promise(resolve => setTimeout(resolve, 100));
       }
-      this._shadow.querySelector('slot').assignedElements().forEach((element) => {
-        this._selectElement.append(element);
-      });
+      this._shadow.querySelector('slot').assignedElements().forEach(
+          (element) => {
+            this._selectElement.append(element);
+          });
 
       if (!this._selectDressed) {
         vl.select.dress(this._selectElement);
@@ -80,21 +91,21 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
     return !!this._selectElement.getAttribute('data-vl-select-dressed');
   }
 
-  _select_search_empty_textChangedCallback(oldValue, newValue) {
-    if (newValue) {
-      this._selectElement.setAttribute("select-search-empty-text", newValue);
-    } else {
-      this._selectElement.removeAttribute("select-search-empty-text");
-    }
+  attributeChangedCallback(attr, oldValue, newValue) {
+    VlMultiSelect._observedDelegateAttributes
+    .filter(attribute => attribute === attr)
+    .forEach(attribute => {
+      this.__delegateAttributeChangedCallback(newValue, attribute);
+    });
+
+    super.attributeChangedCallback(attr, oldValue, newValue);
   }
 
-  _errorChangedCallback(oldValue, newValue) {
-    console.log(oldValue, newValue);
+  __delegateAttributeChangedCallback(newValue, attribute) {
     if (newValue != null) {
-      console.log("setting error !!!!");
-      this._selectElement.setAttribute("error", newValue);
+      this._selectElement.setAttribute(attribute, newValue);
     } else {
-      this._selectElement.removeAttribute("error");
+      this._selectElement.removeAttribute(attribute);
     }
   }
 }
