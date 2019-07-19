@@ -1,26 +1,6 @@
 import {define, VlElement} from '/node_modules/vl-ui-core/vl-core.js';
 import '/node_modules/vl-ui-select/vl-select.js';
 
-(() => {
-  loadScript('util.js',
-      '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
-        loadScript('core.js',
-            '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
-              loadScript('multiselect.js', '../dist/multiselect.js');
-            });
-      });
-
-  function loadScript(id, src, onload) {
-    if (!document.head.querySelector('#' + id)) {
-      let script = document.createElement('script');
-      script.setAttribute('id', id);
-      script.setAttribute('src', src);
-      script.onload = onload;
-      document.head.appendChild(script);
-    }
-  }
-})();
-
 /**
 
  */
@@ -37,6 +17,10 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
    */
   static get _observedDelegateAttributes() {
     return ['data-vl-select-search-empty-text', 'error', 'success', 'disabled'];
+  }
+
+  static get _observedDelegatedEvents() {
+    return ['change'];
   }
 
   constructor() {
@@ -61,26 +45,33 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
   }
 
   connectedCallback() {
-    this.dress();
+    this.__dress();
+    VlMultiSelect._observedDelegatedEvents.forEach((eventName) => {
+      this._selectElement.addEventListener(eventName, (e) => {
+        this.dispatchEvent(new CustomEvent(eventName, e.payload));
+      })
+    });
+  }
+
+  disconnectedCallback() {
+    VlMultiSelect._observedDelegatedEvents.forEach((eventName) => {
+      this._selectElement.removeEventListener(eventName);
+    });
+    super.disconnectedCallback();
   }
 
   /**
    * Initialiseer de multiselect.
    */
-  dress() {
-    (async () => {
-      while (!window.vl || !window.vl.select) {
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-      this._shadow.querySelector('slot').assignedElements().forEach(
-          (element) => {
-            this._selectElement.append(element);
-          });
+  __dress() {
+    this._shadow.querySelector('slot').assignedElements()
+    .forEach((element) => {
+      this._selectElement.append(element);
+    });
 
-      if (!this._selectDressed) {
-        vl.select.dress(this._selectElement);
-      }
-    })();
+    if (!this._selectDressed) {
+      vl.select.dress(this._selectElement);
+    }
   }
 
   get _selectElement() {
@@ -110,4 +101,25 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
   }
 }
 
-define('vl-multiselect', VlMultiSelect);
+(() => {
+  loadScript('util.js', '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
+    loadScript('core.js', '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
+      loadScript('multiselect.js', '../dist/multiselect.js', () => {
+        window.customElements.whenDefined('vl-select')
+        .then(() => {
+          define('vl-multiselect', VlMultiSelect);
+        });
+      });
+    });
+  });
+
+  function loadScript(id, src, onload) {
+    if (!document.head.querySelector('#' + id)) {
+      let script = document.createElement('script');
+      script.setAttribute('id', id);
+      script.setAttribute('src', src);
+      script.onload = onload;
+      document.head.appendChild(script);
+    }
+  }
+})();
