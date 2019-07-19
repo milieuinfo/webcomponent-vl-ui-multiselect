@@ -2,7 +2,15 @@ import {define, VlElement} from '/node_modules/vl-ui-core/vl-core.js';
 import '/node_modules/vl-ui-select/vl-select.js';
 
 /**
-
+ * VlMultiSelect
+ * @class
+ * @classdesc Gebruik een multiselect om een gebruiker toe te laten om in een lijst van vooropgestelde keuzes te zoeken, en enkele of alle passende keuzes te selecteren. <a href="demo/vl-multiselect.html">Demo</a>.
+ *
+ * @extends VlElement
+ *
+ * @property {boolean} error - Attribuut wordt gebruikt om aan te duiden dat het select element verplicht is of ongeldige tekst bevat.
+ * @property {boolean} success - Attribuut wordt gebruikt om aan te duiden dat het select element correct werd ingevuld.
+ * @property {boolean} disabled - Attribuut wordt gebruikt om te voorkomen dat de gebruiker iets kan kiezen uit het select element.
  */
 export class VlMultiSelect extends VlElement(HTMLElement) {
 
@@ -35,7 +43,6 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
               multiple 
               is="vl-select"
               name="multiselect" 
-              class="vl-multiselect vl-select"
               data-vl-multiselect>
               </select>
               <slot></slot>
@@ -51,13 +58,6 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
         this.dispatchEvent(new CustomEvent(eventName, e.payload));
       })
     });
-  }
-
-  disconnectedCallback() {
-    VlMultiSelect._observedDelegatedEvents.forEach((eventName) => {
-      this._selectElement.removeEventListener(eventName);
-    });
-    super.disconnectedCallback();
   }
 
   /**
@@ -83,13 +83,17 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
-    VlMultiSelect._observedDelegateAttributes
-    .filter(attribute => attribute === attr)
+    let attributesToDelegate = VlMultiSelect._observedDelegateAttributes
+    .filter(attribute => attribute === attr);
+
+    attributesToDelegate
     .forEach(attribute => {
       this.__delegateAttributeChangedCallback(newValue, attribute);
     });
 
-    super.attributeChangedCallback(attr, oldValue, newValue);
+    if (attributesToDelegate.length === 0) {
+      super.attributeChangedCallback(attr, oldValue, newValue);
+    }
   }
 
   __delegateAttributeChangedCallback(newValue, attribute) {

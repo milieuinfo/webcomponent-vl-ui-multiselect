@@ -5,29 +5,68 @@
   <meta charset="utf-8">
   <script src="../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../../web-component-tester/browser.js"></script>
-
+  <script src="../node_modules/sinon/pkg/sinon.js"></script>
   <script type="module" src="../vl-multiselect.src.js"></script>
 </head>
-
 <body>
-<test-fixture id="vl-multiselect-options-fixture">
+<test-fixture id="vl-multiselect-fixture">
   <template>
-    <vl-multiselect id="multiselect-options">
-      <option></option>
-    </vl-multiselect>
+    <vl-multiselect id="multiselect"></vl-multiselect>
   </template>
 </test-fixture>
 
 <script>
-  suite('<vl-multiselect>', () => {
-    const should = chai.should();
+  suite('vl-multiselect', () => {
 
-    test('heeft de vl-data-table class', () => {
-      const dataTable = fixture('vl-data-table-fixture');
-      assert.isTrue(dataTable.classList.contains('vl-data-table'));
+    let select, multiselect;
+
+    setup((done) => {
+      customElements.whenDefined('vl-multiselect').then(() => {
+        multiselect = fixture('vl-multiselect-fixture');
+        select = multiselect._selectElement;
+        done();
+      });
+    });
+
+    test('js-vl-select div moet aanwezig zijn rond select voor CSS', () => {
+      const jsVlSelect = select.closest('.js-vl-select');
+      assert.isNotNull(jsVlSelect);
+    });
+
+    test('select heeft steeds data-vl-multiselect attribuut', () => {
+      assert.isTrue(select.getAttributeNames().includes('data-vl-multiselect'));
+    });
+
+    test('select heeft steeds data-vl-select-dressed attribuut', () => {
+      assert.isTrue(select.getAttributeNames().includes('data-vl-select-dressed'));
+    });
+
+    test('change events worden gepropageerd van vl-select naar vl-multiselect', (done) => {
+      multiselect.addEventListener('change', (e) => {
+        done();
+      });
+      select.dispatchEvent(new CustomEvent('change', {}));
+    });
+
+    test('attributen worden gedelegeerd van vl-multiselect naar vl-select', () => {
+      ['error', 'success', 'disabled'].forEach((attribuut) => {
+        multiselect.setAttribute(attribuut, '');
+        assert.isTrue(select.hasAttribute(attribuut));
+        multiselect.removeAttribute(attribuut)
+        assert.isFalse(select.hasAttribute(attribuut));
+      });
+    });
+
+    test('attributen worden omgezet naar CSS class', () => {
+      ['error', 'success', 'disabled'].forEach((attribuut) => {
+        multiselect.setAttribute(attribuut, '');
+        const wrapper = select.closest('.js-vl-select').parentNode;
+        assert.isTrue(wrapper.classList.contains('vl-select--' + attribuut));
+        multiselect.removeAttribute(attribuut)
+        assert.isFalse(wrapper.classList.contains('vl-select--' + attribuut));
+      });
     });
   });
 </script>
 </body>
-
 </html>
