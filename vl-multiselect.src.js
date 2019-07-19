@@ -53,11 +53,19 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
 
   connectedCallback() {
     this.__dress();
-    VlMultiSelect._observedDelegatedEvents.forEach((eventName) => {
-      this._selectElement.addEventListener(eventName, (e) => {
-        this.dispatchEvent(new CustomEvent(eventName, e.payload));
-      })
-    });
+
+    this._selectElement.addEventListener('change', (e) => {
+      this.dispatchEvent(new CustomEvent('change', {
+        'detail': {
+          'value': this._selectedOptions.map(s => s.value)
+        }
+      }));
+    })
+
+  }
+
+  get _selectedOptions() {
+    return Array.from(this._selectElement.selectedOptions);
   }
 
   /**

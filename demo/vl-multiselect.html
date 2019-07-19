@@ -147,6 +147,35 @@
     </vl-multiselect>
   </div>
 </div>
+<div>
+  <h2>Multiselect listen to change events</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+    &lt;vl-multiselect id=&quot;change-listener&quot;&gt;
+      &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+      &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+      &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+    &lt;/vl-multiselect&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+      document.getElementById('change-listener').addEventListener('change', (e) =&gt; {
+        console.dir(e);
+      });
+    &lt;/script&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect id="change-listener">
+      <option value="België">België</option>
+      <option value="Duitsland">Duitsland</option>
+      <option value="Frankrijk">Frankrijk</option>
+    </vl-multiselect>
+    <script type="text/javascript">
+      document.getElementById('change-listener').addEventListener('change', (e) => {
+        console.dir(e);
+      });
+    </script>
+  </div>
+</div>
 
 </body>
 </html>
