@@ -24,7 +24,7 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
    * @private
    */
   static get _observedDelegateAttributes() {
-    return ['data-vl-select-search-empty-text', 'error', 'success', 'disabled'];
+    return ['error', 'success', 'disabled'];
   }
 
   static get _observedDelegatedEvents() {
