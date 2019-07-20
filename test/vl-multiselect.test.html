@@ -37,8 +37,11 @@
       assert.isTrue(select.getAttributeNames().includes('data-vl-multiselect'));
     });
 
-    test('select heeft steeds data-vl-select-dressed attribuut', () => {
-      assert.isTrue(select.getAttributeNames().includes('data-vl-select-dressed'));
+    test('select heeft steeds data-vl-select-dressed attribuut', (done) => {
+      setTimeout(() => {
+        assert.isTrue(select.getAttributeNames().includes('data-vl-select-dressed'));
+        done();
+      }, 0);
     });
 
     test('change events worden gepropageerd van vl-select naar vl-multiselect', (done) => {
@@ -57,14 +60,17 @@
       });
     });
 
-    test('attributen worden omgezet naar CSS class', () => {
-      ['error', 'success', 'disabled'].forEach((attribuut) => {
-        multiselect.setAttribute(attribuut, '');
-        const wrapper = select.closest('.js-vl-select').parentNode;
-        assert.isTrue(wrapper.classList.contains('vl-select--' + attribuut));
-        multiselect.removeAttribute(attribuut)
-        assert.isFalse(wrapper.classList.contains('vl-select--' + attribuut));
-      });
+    test('attributen worden omgezet naar CSS class', (done) => {
+      setTimeout(() => {
+        ['error', 'success', 'disabled'].forEach((attribuut) => {
+          multiselect.setAttribute(attribuut, '');
+          const wrapper = select.closest('.js-vl-select').parentNode;
+          assert.isTrue(wrapper.classList.contains('vl-select--' + attribuut));
+          multiselect.removeAttribute(attribuut);
+          assert.isFalse(wrapper.classList.contains('vl-select--' + attribuut));
+        });
+        done();
+      }, 0);
     });
   });
 </script>
