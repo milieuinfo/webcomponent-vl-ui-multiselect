@@ -31,6 +31,14 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
     return ['change'];
   }
 
+  get _selectedOptions() {
+    return Array.from(this._selectElement.selectedOptions);
+  }
+
+  get _selectElement() {
+    return this._element.querySelector("#multiselect")
+  }
+
   constructor() {
     super(`
         <style>
@@ -52,7 +60,7 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
   }
 
   connectedCallback() {
-    this.__dress();
+    this.__init();
 
     this._selectElement.addEventListener('change', (e) => {
       this.dispatchEvent(new CustomEvent('change', {
@@ -64,30 +72,35 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
 
   }
 
-  get _selectedOptions() {
-    return Array.from(this._selectElement.selectedOptions);
-  }
-
   /**
    * Initialiseer de multiselect.
    */
-  __dress() {
+  __init() {
     this._shadow.querySelector('slot').assignedElements()
     .forEach((element) => {
       this._selectElement.append(element);
     });
 
-    if (!this._selectDressed) {
-      vl.select.dress(this._selectElement);
-    }
+    this.dress();
   }
 
-  get _selectElement() {
-    return this._element.querySelector("#multiselect")
+  /**
+   * Initialiseer de wrapped 'vl-select'
+   *
+   * @see https://www.npmjs.com/package/choices.js
+   * @param params object with callbackFn: function(select) with return value the items for `setChoices`
+   */
+  dress(params) {
+    this._selectElement.dress(params);
   }
 
-  get _selectDressed() {
-    return !!this._selectElement.getAttribute('data-vl-select-dressed');
+  /**
+   * Vernietigt de wrapped 'vl-select'
+   *
+   * @see https://www.npmjs.com/package/choices.js
+   */
+  undress() {
+    this._selectElement.undress();
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
