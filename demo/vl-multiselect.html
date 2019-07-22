@@ -149,7 +149,7 @@
   </div>
 </div>
 <div>
-  <h2>Multiselect listen to change events</h2>
+  <h2>Multiselect listen to change events (watch console logs)</h2>
   <pre>
       <code class="line-numbers language-markup">
         &lt;vl-multiselect data-vl-multiselect id=&quot;change-listener&quot;&gt;
@@ -159,7 +159,8 @@
         &lt;/vl-multiselect&gt;
         &lt;script type=&quot;text/javascript&quot;&gt;
           document.getElementById('change-listener').addEventListener('change', (e) =&gt; {
-            console.dir(e.detail.value);
+            console.dir(`e.detail.value => ${e.detail.value}`);
+            console.dir(`e.target.value => ${e.target.value}`);
           });
         &lt;/script&gt;
       </code>
@@ -172,7 +173,8 @@
     </vl-multiselect>
     <script type="text/javascript">
       document.getElementById('change-listener').addEventListener('change', (e) => {
-        console.dir(e.detail.value);
+        console.dir(`e.detail.value => ${e.detail.value}`);
+        console.dir(`e.target.value => ${e.target.value}`);
       });
     </script>
   </div>

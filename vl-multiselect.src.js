@@ -59,13 +59,13 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
     this.__init();
 
     this._selectElement.addEventListener('change', (e) => {
+      this.value = this._selectedOptions.map(s => s.value);
       this.dispatchEvent(new CustomEvent('change', {
         'detail': {
-          'value': this._selectedOptions.map(s => s.value)
+          'value': this.value
         }
       }));
     })
-
   }
 
   /**
@@ -133,16 +133,18 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
 }
 
 (() => {
-  loadScript('util.js', '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
-    loadScript('core.js', '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
-      loadScript('multiselect.js', '../dist/multiselect.js', () => {
-        window.customElements.whenDefined('vl-select')
-        .then(() => {
-          define('vl-multiselect', VlMultiSelect);
-        });
+  loadScript('util.js',
+      '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
+        loadScript('core.js',
+            '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
+              loadScript('multiselect.js', '../dist/multiselect.js', () => {
+                window.customElements.whenDefined('vl-select')
+                .then(() => {
+                  define('vl-multiselect', VlMultiSelect);
+                });
+              });
+            });
       });
-    });
-  });
 
   function loadScript(id, src, onload) {
     if (!document.head.querySelector('#' + id)) {

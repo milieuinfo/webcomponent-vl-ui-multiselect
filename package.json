@@ -42,7 +42,6 @@
     "vl-ui-util": "1.1.0"
   },
   "devDependencies": {
-    "vl-ui-util": "1.1.0",
     "http-server": "0.11.1",
     "np": "3.0.4",
     "replace": "1.0.0",
