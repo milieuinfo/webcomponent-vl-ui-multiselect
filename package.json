@@ -4,7 +4,8 @@
   "description": "Gebruik een multiselect om een gebruiker toe te laten om in een lijst van vooropgestelde keuzes te zoeken, en enkele of alle passende keuzes te selecteren",
   "main": "vl-multiselect.js",
   "scripts": {
-    "postinstall": "npm explore vl-ui-util -- npm run util",
+    "prepare": "npm run prepare:util",
+    "prepare:util": "npm explore vl-ui-util -- npm run util",
     "test": "wct -l chrome,firefox --npm",
     "release": "np",
     "release:prepare": "npm run release:prepare:build && npm run release:prepare:imports && npm run release:prepare:css && npm run release:prepare:commit",
@@ -34,20 +35,22 @@
     "@govflanders/vl-ui-util": "3.7.2",
     "@govflanders/vl-ui-pill": "3.7.2",
     "vl-ui-core": "1.4.3",
-    "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163",
-    "vl-ui-util": "1.1.3"
+    "vl-ui-select": "1.1.6"
   },
   "peerDependencies": {
-    "vl-ui-core": "^1.4.2"
+    "vl-ui-core": "^1.4.2",
+    "vl-ui-util": "1.1.0"
   },
   "devDependencies": {
+    "vl-ui-util": "1.1.0",
     "http-server": "0.11.1",
     "np": "3.0.4",
     "replace": "1.0.0",
     "sinon": "7.3.1",
     "uglify-es": "github:mishoo/UglifyJS2#harmony",
     "wct-browser-legacy": "1.0.2",
-    "web-component-tester": "6.9.2"
+    "web-component-tester": "6.9.2",
+    "vl-ui-util": "1.1.0"
   },
   "publishConfig": {
     "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
