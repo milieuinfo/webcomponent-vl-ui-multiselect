@@ -4,8 +4,7 @@
   "description": "Gebruik een multiselect om een gebruiker toe te laten om in een lijst van vooropgestelde keuzes te zoeken, en enkele of alle passende keuzes te selecteren",
   "main": "vl-multiselect.js",
   "scripts": {
-    "prepare": "npm run prepare:util",
-    "prepare:util": "npm explore vl-ui-util -- npm run util",
+    "postinstall": "npm explore vl-ui-util -- npm run util",
     "test": "wct -l chrome,firefox --npm",
     "release": "np",
     "release:prepare": "npm run release:prepare:build && npm run release:prepare:imports && npm run release:prepare:css && npm run release:prepare:commit",
