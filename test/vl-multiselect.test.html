@@ -9,20 +9,42 @@
   <script type="module" src="../vl-multiselect.src.js"></script>
 </head>
 <body>
-<test-fixture id="vl-multiselect-fixture">
+<test-fixture id="vl-multiselect-automatic">
+  <template>
+    <vl-multiselect data-vl-multiselect id="multiselect"></vl-multiselect>
+  </template>
+</test-fixture>
+<test-fixture id="vl-multiselect-manual">
   <template>
     <vl-multiselect id="multiselect"></vl-multiselect>
   </template>
 </test-fixture>
 
 <script>
-  suite('vl-multiselect', () => {
+  suite('vl-multiselect-manual', () => {
+    let select, multiselect;
+
+    setup((done) => {
+      customElements.whenDefined('vl-multiselect').then(() => {
+        multiselect = fixture('vl-multiselect-manual');
+        select = multiselect._selectElement;
+        done();
+      });
+    });
+
+    test('js-vl-select div mag niet aanwezig zijn rond select, component blijft inert', () => {
+      const jsVlSelect = select.closest('.js-vl-select');
+      assert.isNull(jsVlSelect);
+    });
+  });
+
+  suite('vl-multiselect-automatic', () => {
 
     let select, multiselect;
 
     setup((done) => {
       customElements.whenDefined('vl-multiselect').then(() => {
-        multiselect = fixture('vl-multiselect-fixture');
+        multiselect = fixture('vl-multiselect-automatic');
         select = multiselect._selectElement;
         done();
       });
@@ -55,7 +77,7 @@
       ['error', 'success', 'disabled'].forEach((attribuut) => {
         multiselect.setAttribute(attribuut, '');
         assert.isTrue(select.hasAttribute(attribuut));
-        multiselect.removeAttribute(attribuut)
+        multiselect.removeAttribute(attribuut);
         assert.isFalse(select.hasAttribute(attribuut));
       });
     });

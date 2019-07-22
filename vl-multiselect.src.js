@@ -27,10 +27,6 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
     return ['error', 'success', 'disabled'];
   }
 
-  static get _observedDelegatedEvents() {
-    return ['change'];
-  }
-
   get _selectedOptions() {
     return Array.from(this._selectElement.selectedOptions);
   }
@@ -81,7 +77,17 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
       this._selectElement.append(element);
     });
 
-    this.dress();
+    if (this.__shouldDress()) {
+      this.dress();
+    }
+  }
+
+  /**
+   * @return {boolean} true if the 'vl-multiselect' should be dressed.
+   * @private
+   */
+  __shouldDress() {
+    return this.hasAttribute('data-vl-multiselect');
   }
 
   /**

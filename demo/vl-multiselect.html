@@ -5,6 +5,7 @@
 </head>
 
 <script type="module" src="../vl-multiselect.src.js"></script>
+<script type="module" src="lit-element-demo.js"></script>
 <script type="module" src="demo.js"></script>
 
 <body>
@@ -18,7 +19,7 @@
   <h2>Multiselect met meerdere opties</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-multiselect&gt;
+        &lt;vl-multiselect data-vl-multiselect&gt;
           &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
           &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
           &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
@@ -26,7 +27,7 @@
       </code>
   </pre>
   <div class="demo">
-    <vl-multiselect>
+    <vl-multiselect data-vl-multiselect>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
@@ -38,7 +39,7 @@
   <h2>Multiselect met een voorgeselecteerde optie</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-multiselect&gt;
+        &lt;vl-multiselect data-vl-multiselect&gt;
           &lt;option selected value=&quot;Brugge&quot;&gt;Brugge&lt;/option&gt;
           &lt;option value=&quot;Brussel&quot;&gt;Brussel&lt;/option&gt;
           &lt;option value=&quot;Gent&quot;&gt;Gent&lt;/option&gt;
@@ -46,7 +47,7 @@
       </code>
   </pre>
   <div class="demo">
-    <vl-multiselect>
+    <vl-multiselect data-vl-multiselect>
       <option selected value="Brugge">Brugge</option>
       <option value="Brussel">Brussel</option>
       <option value="Gent">Gent</option>
@@ -58,7 +59,7 @@
   <h2>Multiselect met gegroepeerde opties</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-multiselect&gt;
+        &lt;vl-multiselect data-vl-multiselect&gt;
           &lt;optgroup label=&quot;Landen&quot;&gt;
             &lt;option selected value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
             &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
@@ -73,7 +74,7 @@
       </code>
   </pre>
   <div class="demo">
-    <vl-multiselect>
+    <vl-multiselect data-vl-multiselect>
       <optgroup label="Landen">
         <option selected value="België">België</option>
         <option value="Duitsland">Duitsland</option>
@@ -92,7 +93,7 @@
   <h2>Multiselect met error</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-multiselect error&gt;
+        &lt;vl-multiselect data-vl-multiselect error&gt;
           &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
           &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
           &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
@@ -100,7 +101,7 @@
       </code>
   </pre>
   <div class="demo">
-    <vl-multiselect error>
+    <vl-multiselect data-vl-multiselect error>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
@@ -112,7 +113,7 @@
   <h2>Multiselect met success</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-multiselect success&gt;
+        &lt;vl-multiselect data-vl-multiselect success&gt;
           &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
           &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
           &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
@@ -120,7 +121,7 @@
       </code>
   </pre>
   <div class="demo">
-    <vl-multiselect success>
+    <vl-multiselect data-vl-multiselect success>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
@@ -132,7 +133,7 @@
   <h2>Multiselect met disabled</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-multiselect disabled&gt;
+        &lt;vl-multiselect data-vl-multiselect disabled&gt;
           &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
           &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
           &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
@@ -140,7 +141,7 @@
       </code>
   </pre>
   <div class="demo">
-    <vl-multiselect disabled>
+    <vl-multiselect data-vl-multiselect disabled>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
@@ -151,7 +152,7 @@
   <h2>Multiselect listen to change events</h2>
   <pre>
       <code class="line-numbers language-markup">
-    &lt;vl-multiselect id=&quot;change-listener&quot;&gt;
+    &lt;vl-multiselect data-vl-multiselect id=&quot;change-listener&quot;&gt;
       &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
       &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
       &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
@@ -164,7 +165,7 @@
       </code>
   </pre>
   <div class="demo">
-    <vl-multiselect id="change-listener">
+    <vl-multiselect data-vl-multiselect id="change-listener">
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
@@ -176,6 +177,16 @@
     </script>
   </div>
 </div>
+<div>
+  <h2>Lit Element Demo</h2>
+  <pre>
+      <code class="line-numbers language-markup">
 
+      </code>
+  </pre>
+  <div class="demo">
+    <lit-element-demo></lit-element-demo>
+  </div>
+</div>
 </body>
 </html>
