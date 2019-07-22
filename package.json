@@ -38,7 +38,8 @@
     "vl-ui-util": "1.1.0"
   },
   "peerDependencies": {
-    "vl-ui-core": "^1.4.2"
+    "vl-ui-core": "^1.4.2",
+    "vl-ui-util": "1.1.0"
   },
   "devDependencies": {
     "http-server": "0.11.1",
