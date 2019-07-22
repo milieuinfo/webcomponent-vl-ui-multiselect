@@ -9,14 +9,16 @@
   <script type="module" src="../vl-multiselect.src.js"></script>
 </head>
 <body>
-<test-fixture id="vl-multiselect-automatic">
-  <template>
-    <vl-multiselect data-vl-multiselect id="multiselect"></vl-multiselect>
-  </template>
-</test-fixture>
+
 <test-fixture id="vl-multiselect-manual">
   <template>
     <vl-multiselect id="multiselect"></vl-multiselect>
+  </template>
+</test-fixture>
+
+<test-fixture id="vl-multiselect-automatic">
+  <template>
+    <vl-multiselect data-vl-multiselect id="multiselect"></vl-multiselect>
   </template>
 </test-fixture>
 
@@ -32,9 +34,71 @@
       });
     });
 
-    test('js-vl-select div mag niet aanwezig zijn rond select, component blijft inert', () => {
-      const jsVlSelect = select.closest('.js-vl-select');
-      assert.isNull(jsVlSelect);
+    const __dressMultiselect = () => {
+      multiselect.dress({
+        callbackFn: (select) => {
+          return [
+            {value: 'One', label: 'Label One', disabled: true},
+            {value: 'Two', label: 'Label Two', selected: true},
+            {value: 'Three', label: 'Label Three'},
+          ];
+        }
+      });
+    };
+
+    test('js-vl-select div moet aanwezig zijn rond select voor CSS na manuele dress', () => {
+      assert.isNull(select.closest('.js-vl-select'));
+      __dressMultiselect();
+      assert.isNotNull(select.closest('.js-vl-select'));
+    });
+
+    test('select heeft steeds data-vl-multiselect attribuut', () => {
+      assert.isTrue(select.getAttributeNames().includes('data-vl-multiselect'));
+    });
+
+    test('select heeft steeds data-vl-select-dressed attribuut na manuele dress', (done) => {
+      assert.isFalse(select.getAttributeNames().includes('data-vl-select-dressed'));
+      __dressMultiselect();
+      setTimeout(() => {
+        assert.isTrue(select.getAttributeNames().includes('data-vl-select-dressed'));
+        done();
+      }, 0);
+    });
+
+    test('change events worden gepropageerd van vl-select naar vl-multiselect', (done) => {
+      multiselect.addEventListener('change', (e) => {
+        done();
+      });
+      select.dispatchEvent(new CustomEvent('change', {}));
+    });
+
+    test('attributen worden gedelegeerd van vl-multiselect naar vl-select', () => {
+      ['error', 'success', 'disabled'].forEach((attribuut) => {
+        multiselect.setAttribute(attribuut, '');
+        assert.isTrue(select.hasAttribute(attribuut));
+        multiselect.removeAttribute(attribuut);
+        assert.isFalse(select.hasAttribute(attribuut));
+      });
+    });
+
+    test('attributen worden omgezet naar CSS class no manuele dress', (done) => {
+      ['error', 'success', 'disabled'].forEach((attribuut) => {
+        multiselect.setAttribute(attribuut, '');
+        assert.isNull(select.closest('.js-vl-select'));
+      });
+
+      __dressMultiselect();
+
+      setTimeout(() => {
+        ['error', 'success', 'disabled'].forEach((attribuut) => {
+          multiselect.setAttribute(attribuut, '');
+          const wrapper = select.closest('.js-vl-select').parentNode;
+          assert.isTrue(wrapper.classList.contains('vl-select--' + attribuut));
+          multiselect.removeAttribute(attribuut);
+          assert.isFalse(wrapper.classList.contains('vl-select--' + attribuut));
+        });
+        done();
+      }, 0);
     });
   });
 

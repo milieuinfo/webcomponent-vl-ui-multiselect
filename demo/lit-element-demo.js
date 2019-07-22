@@ -9,13 +9,9 @@ export class LitElementDemo extends LitElement {
 
   constructor() {
     super();
-
-    this.choices = ['België', 'Duitsland', 'Frankrijk'];
   }
 
   firstUpdated() {
-    console.log('first updated !!!');
-
     customElements.whenDefined('vl-multiselect').then(() => {
       let multiselect = this.shadowRoot.getElementById('vl-multiselect');
       console.dir(multiselect);
@@ -32,8 +28,7 @@ export class LitElementDemo extends LitElement {
   }
 
   render() {
-    return html`
-    <vl-multiselect id="vl-multiselect"></vl-multiselect>`;
+    return html`<vl-multiselect id="vl-multiselect"></vl-multiselect>`;
   }
 }
 
