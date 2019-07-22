@@ -14,7 +14,7 @@
     "release:prepare:commit": "git add -f vl-multiselect.js && git commit --amend --no-edit && git pull",
     "release:prepare:imports": "npm run release:prepare:imports:core && npm run release:prepare:imports:dist",
     "release:prepare:imports:core": "replace '/node_modules/vl-ui-core/vl-core.src.js' '/node_modules/vl-ui-core/vl-core.js' vl-multiselect.js",
-    "release:prepare:imports:dist": "replace '../dist/multiselect.js' '/node_modules/vl-ui-select/dist/multiselect.js' vl-multiselect.js",
+    "release:prepare:imports:dist": "replace '../dist/multiselect.js' '/node_modules/vl-ui-multiselect/dist/multiselect.js' vl-multiselect.js",
     "release:testless": "np --yolo",
     "demo": "http-server"
   },
