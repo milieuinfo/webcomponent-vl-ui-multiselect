@@ -35,7 +35,7 @@
     "@govflanders/vl-ui-pill": "3.7.2",
     "vl-ui-core": "1.4.3",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163",
-    "vl-ui-util": "1.1.3"
+    "vl-ui-util": "1.1.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^1.4.2"
