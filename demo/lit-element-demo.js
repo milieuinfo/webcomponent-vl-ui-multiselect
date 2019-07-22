@@ -13,9 +13,7 @@ export class LitElementDemo extends LitElement {
 
   firstUpdated() {
     customElements.whenDefined('vl-multiselect').then(() => {
-      let multiselect = this.shadowRoot.getElementById('vl-multiselect');
-      console.dir(multiselect);
-      multiselect.dress({
+      this.shadowRoot.getElementById('vl-multiselect').dress({
         callbackFn: (select) => {
           return [
             {value: 'One', label: 'Label One', disabled: true},

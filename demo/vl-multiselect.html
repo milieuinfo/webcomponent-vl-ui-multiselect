@@ -152,16 +152,16 @@
   <h2>Multiselect listen to change events</h2>
   <pre>
       <code class="line-numbers language-markup">
-    &lt;vl-multiselect data-vl-multiselect id=&quot;change-listener&quot;&gt;
-      &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-      &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-      &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-    &lt;/vl-multiselect&gt;
-    &lt;script type=&quot;text/javascript&quot;&gt;
-      document.getElementById('change-listener').addEventListener('change', (e) =&gt; {
-        console.dir(e.detail.value);
-      });
-    &lt;/script&gt;
+        &lt;vl-multiselect data-vl-multiselect id=&quot;change-listener&quot;&gt;
+          &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+          &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+          &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+        &lt;/vl-multiselect&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+          document.getElementById('change-listener').addEventListener('change', (e) =&gt; {
+            console.dir(e.detail.value);
+          });
+        &lt;/script&gt;
       </code>
   </pre>
   <div class="demo">
@@ -177,11 +177,44 @@
     </script>
   </div>
 </div>
+
+<div>
+  <h2>Multiselect wordt manueel gedressed</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-multiselect&gt;
+          &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+          &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+          &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+        &lt;/vl-multiselect&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <vl-multiselect id="vl-multiselect-dynamisch"></vl-multiselect>
+
+    <button onclick="laadDynamisch()" type="button">Activeer dynamische data</button>
+
+    <script type="text/javascript">
+      function laadDynamisch() {
+        document.getElementById('vl-multiselect-dynamisch').dress({
+          callbackFn: (select) => {
+            return [
+              {value: 'One', label: 'Label One', disabled: true},
+              {value: 'Two', label: 'Label Two', selected: true},
+              {value: 'Three', label: 'Label Three'},
+            ];
+          }
+        });
+      }
+    </script>
+  </div>
+</div>
+
 <div>
   <h2>Lit Element Demo</h2>
   <pre>
       <code class="line-numbers language-markup">
-
+        &lt;lit-element-demo&gt;&lt;/lit-element-demo&gt;
       </code>
   </pre>
   <div class="demo">
