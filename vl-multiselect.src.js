@@ -32,7 +32,7 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
   }
 
   get _selectElement() {
-    return this._element.querySelector("#multiselect")
+    return this._element.querySelector("#multiselect");
   }
 
   constructor() {
