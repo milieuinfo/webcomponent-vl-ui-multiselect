@@ -1,5 +1,6 @@
 import {define, VlElement} from '/node_modules/vl-ui-core/vl-core.js';
 import '/node_modules/vl-ui-select/vl-select.js';
+import {VlSelect} from '/node_modules/vl-ui-select/vl-select.js';
 
 /**
  * VlMultiSelect
@@ -37,27 +38,30 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
 
   constructor() {
     super(`
-        <style>
-            @import '../style.css';
-        </style>
-        <div class="vl-form__input">
-          <div class="js-vl-multiselect">
-            <select 
-              id="multiselect" 
-              multiple 
-              is="vl-select"
-              name="multiselect" 
-              data-vl-multiselect>
-              </select>
-              <slot></slot>
-            </div>
+      <style>
+          @import '../style.css';
+      </style>
+      <div class="vl-form__input">
+        <div class="js-vl-multiselect">
+          <select 
+            id="multiselect" 
+            multiple 
+            is="vl-select"
+            name="multiselect" 
+            data-vl-multiselect>
+          </select>
+          <slot></slot>
         </div>
+      </div>
     `);
   }
 
   connectedCallback() {
-    this.__init();
-
+    if (window.safari) {
+      setTimeout(() => this.__init(), 0);
+    } else {
+      this.__init();
+    }
     this._selectElement.addEventListener('change', (e) => {
       this.value = this._selectedOptions.map(s => s.value);
       this.dispatchEvent(new CustomEvent('change', {
@@ -133,26 +137,39 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
 }
 
 (() => {
-  loadScript('util.js',
-      '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
-        loadScript('core.js',
-            '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
-              loadScript('multiselect.js', '../dist/multiselect.js', () => {
-                window.customElements.whenDefined('vl-select')
-                .then(() => {
-                  define('vl-multiselect', VlMultiSelect);
-                });
-              });
-            });
-      });
 
-  function loadScript(id, src, onload) {
-    if (!document.head.querySelector('#' + id)) {
-      let script = document.createElement('script');
-      script.setAttribute('id', id);
-      script.setAttribute('src', src);
-      script.onload = onload;
-      document.head.appendChild(script);
+  // cfr https://www.html5rocks.com/en/tutorials/speed/script-loading/
+  // download as fast as possible in the provided order
+
+  const awaitScript = (id, src) => {
+    if (document.head.querySelector('#' + id)) {
+      console.log(`script with id '${id}' is already loaded`);
+      return Promise.resolve();
     }
-  }
+
+    let script = document.createElement('script');
+    script.id = id;
+    script.src = src;
+    script.async = false;
+
+    const promise = new Promise((resolve, reject) => {
+      script.onload = () => {
+        resolve();
+      };
+    });
+
+    document.head.appendChild(script);
+    return promise;
+  };
+
+  Promise.all([
+    awaitScript('util', '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js'),
+    awaitScript('core', '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js'),
+    awaitScript('multiselect', '../dist/multiselect.js')])
+  .then(() => {
+    window.customElements.whenDefined('vl-select')
+    .then(() => {
+      define('vl-multiselect', VlMultiSelect);
+    });
+  });
 })();
