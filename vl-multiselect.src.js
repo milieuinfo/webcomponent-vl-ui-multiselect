@@ -1,6 +1,5 @@
 import {define, VlElement} from '/node_modules/vl-ui-core/vl-core.js';
 import '/node_modules/vl-ui-select/vl-select.js';
-import {VlSelect} from '/node_modules/vl-ui-select/vl-select.js';
 
 /**
  * VlMultiSelect
@@ -105,12 +104,59 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
   }
 
   /**
-   * Vernietigt de wrapped 'vl-select'
-   *
-   * @see https://www.npmjs.com/package/choices.js
+   * Activeer de component.
    */
-  undress() {
-    this._selectElement.undress();
+  enable() {
+    this._selectElement.enable();
+  }
+
+  /**
+   * Deactiveer de component.
+   */
+  disable() {
+    this._selectElement.disable();
+  }
+
+  /**
+   * Verwijder de actieve geselecteerde optie.
+   */
+  removeActive() {
+    this._selectElement.removeActive();
+  }
+
+  /**
+   * Zet de actieve optie door een waarde.
+   *
+   * @param value de gekozen waarde om actief te zijn voor deze component
+   */
+  setValueByChoice(value) {
+    this._selectElement.setValueByChoice(value);
+  }
+
+
+  /**
+   * Toon de dropdown met de mogelijke keuzes.
+   */
+  showDropdown() {
+    this._selectElement.showDropdown();
+
+  }
+
+  /**
+   * Verberg de dropdown met de mogelijke keuzes.
+   */
+  hideDropdown() {
+    this._selectElement.hideDropdown();
+  }
+
+  /**
+   * Verwijder alle geselecteerde keuzes.
+   */
+  clearSelectedOptions() {
+    this._selectedOptions.forEach(() => {
+      this.removeActive();
+    });
+    this.hideDropdown();
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
