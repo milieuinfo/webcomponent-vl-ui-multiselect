@@ -19,3 +19,9 @@
 // Util
 // ==========================================================================
 @import "vl-ui-util/src/scss/util";
+
+.js-vl-select {
+  .vl-select__list--dropdown {
+    z-index: 100;
+  }
+}
