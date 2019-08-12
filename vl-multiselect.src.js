@@ -104,6 +104,24 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
   }
 
   /**
+   * Zet de mogelijkheden die gekozen kunnen worden.
+   *
+   * @param {Object[]} choices met value en label attribuut
+   */
+  set choices(choices) {
+    this._selectElement.choices = choices;
+  }
+
+  /**
+   * Zet sorteer functie voor de mogelijke keuzes.
+   *
+   * @param {function(T, T)} bi-functie die de mogelijke keuzes sorteert.
+   */
+  set sortFilter(fn) {
+    this._selectElement.sortFilter = fn;
+  }
+
+  /**
    * Activeer de component.
    */
   enable() {

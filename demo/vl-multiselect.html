@@ -210,6 +210,47 @@
 </div>
 
 <div>
+  <h2>Multiselect keuzes worden manueel gezet</h2>
+  <pre>
+      <code class="line-numbers language-markup">&lt;script type=&quot;text/javascript&quot;&gt;
+        const laadDynamisch = () =&gt; {
+          document.getElementById('vl-multiselect-dynamisch').dress({
+            callbackFn: (select) =&gt; {
+              return [
+                {value: 'One', label: 'Label One', disabled: true},
+                {value: 'Two', label: 'Label Two', selected: true},
+                {value: 'Three', label: 'Label Three'},
+              ];
+            }
+          });
+        }
+      &lt;/script&gt;
+      &lt;button onclick=&quot;laadDynamisch()&quot; type=&quot;button&quot;&gt;Activeer dynamische data&lt;/button&gt;
+      &lt;br/&gt;
+      &lt;br/&gt;
+      &lt;vl-multiselect id=&quot;vl-multiselect-dynamisch&quot;&gt;&lt;/vl-multiselect&gt;</code>
+  </pre>
+  <div class="demo">
+    <script type="text/javascript">
+      const laadChoices = () => {
+        document.getElementById('vl-multiselect-keuzes').dress();
+        document.getElementById('vl-multiselect-keuzes').choices = [
+          {value: 'One', label: 'Label One', disabled: true},
+          {value: 'Two', label: 'Label Two', selected: true},
+          {value: 'Three', label: 'Label Three', selected: true},
+          {value: 'Four', label: 'Label Three'},
+          {value: 'Five', label: 'Label Three'}
+        ];
+      }
+    </script>
+    <button onclick="laadChoices()" type="button">Zet keuzes</button>
+    <br/>
+    <br/>
+    <vl-multiselect id="vl-multiselect-keuzes"></vl-multiselect>
+  </div>
+</div>
+
+<div>
   <h2>Multiselect methoden</h2>
   <pre>
     <code class="line-numbers language-markup">&lt;script type=&quot;text/javascript&quot;&gt;
