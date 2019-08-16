@@ -11,6 +11,8 @@ import '/node_modules/vl-ui-select/vl-select.js';
  * @property {boolean} error - Attribuut wordt gebruikt om aan te duiden dat het select element verplicht is of ongeldige tekst bevat.
  * @property {boolean} success - Attribuut wordt gebruikt om aan te duiden dat het select element correct werd ingevuld.
  * @property {boolean} disabled - Attribuut wordt gebruikt om te voorkomen dat de gebruiker iets kan kiezen uit het select element.
+ *
+ * @version <a href="http://www.github.com/milieuinfo/webcomponent-vl-ui-multiselect/releases/latest">Release notes</a>
  */
 export class VlMultiSelect extends VlElement(HTMLElement) {
 
