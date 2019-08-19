@@ -3,3 +3,4 @@ node_modules
 vl-multiselect.js
 .idea/
 *.css.map
+package-lock.json
