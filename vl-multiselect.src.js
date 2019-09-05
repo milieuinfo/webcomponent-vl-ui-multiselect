@@ -4,7 +4,7 @@ import '/node_modules/vl-ui-select/vl-select.js';
 /**
  * VlMultiSelect
  * @class
- * @classdesc Gebruik een multiselect om een gebruiker toe te laten om in een lijst van vooropgestelde keuzes te zoeken, en enkele of alle passende keuzes te selecteren. <a href="demo/vl-multiselect.html">Demo</a>.
+ * @classdesc Gebruik een multiselect om een gebruiker toe te laten om in een lijst van vooropgestelde keuzes te zoeken, en enkele of alle passende keuzes te selecteren.
  *
  * @extends VlElement
  *
@@ -12,7 +12,9 @@ import '/node_modules/vl-ui-select/vl-select.js';
  * @property {boolean} success - Attribuut wordt gebruikt om aan te duiden dat het select element correct werd ingevuld.
  * @property {boolean} disabled - Attribuut wordt gebruikt om te voorkomen dat de gebruiker iets kan kiezen uit het select element.
  *
- * @version <a href="http://www.github.com/milieuinfo/webcomponent-vl-ui-multiselect/releases/latest">Release notes</a>
+ * @see {@link http://www.github.com/milieuinfo/webcomponent-vl-ui-multiselect/releases/latest|Release notes}
+ * @see {@link http://www.github.com/milieuinfo/webcomponent-vl-ui-multiselect/issues|Issues}
+ * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-ui-multiselect.html|Demo}
  */
 export class VlMultiSelect extends VlElement(HTMLElement) {
 
