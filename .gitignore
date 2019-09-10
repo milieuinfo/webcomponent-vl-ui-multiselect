@@ -1,6 +1,5 @@
 node_modules
 .sass-cache
-*.css.map
-*.iml
+vl-multiselect.js
 .idea/
-node_modules/
+*.css.map
