@@ -33,7 +33,7 @@
     "@govflanders/vl-ui-multiselect": "3.7.2",
     "@govflanders/vl-ui-select": "3.7.2",
     "@govflanders/vl-ui-util": "3.7.2",
-    "@govflanders/vl-ui-pill": "3.7.2",
+    "@govflanders/vl-ui-pill": "3.9.0",
     "vl-ui-core": "1.4.4",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
