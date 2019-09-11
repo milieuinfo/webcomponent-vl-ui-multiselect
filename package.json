@@ -38,7 +38,7 @@
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
   "peerDependencies": {
-    "vl-ui-core": "^1.4.3",
+    "vl-ui-core": "^1.4.7",
     "vl-ui-util": "^1.2.3",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
@@ -46,7 +46,6 @@
     "http-server": "0.11.1",
     "np": "3.1.0",
     "replace": "1.1.1",
-    "sass": "^1.22.7",
     "sinon": "7.4.2",
     "uglify-es": "github:mishoo/UglifyJS2#harmony",
     "vl-ui-util": "^1.2.23",
