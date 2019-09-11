@@ -31,10 +31,10 @@
   "dependencies": {
     "@govflanders/vl-ui-core": "3.7.2",
     "@govflanders/vl-ui-multiselect": "3.7.2",
-    "@govflanders/vl-ui-select": "3.7.2",
     "@govflanders/vl-ui-pill": "3.7.2",
+    "@govflanders/vl-ui-select": "3.7.2",
     "@govflanders/vl-ui-util": "3.7.2",
-    "vl-ui-core": "1.4.6",
+    "vl-ui-core": "1.4.7",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
   "peerDependencies": {
