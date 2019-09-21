@@ -192,7 +192,7 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
    * Verwijder alle geselecteerde keuzes.
    */
   clearSelectedOptions() {
-    this._selectedOptions.forEach(() => {
+    this.values.forEach(() => {
       this.removeActive();
     });
     this.hideDropdown();
