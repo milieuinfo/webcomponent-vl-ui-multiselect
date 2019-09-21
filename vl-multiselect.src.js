@@ -57,6 +57,7 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
         </div>
       </div>
     `);
+    this.values = new Set();
   }
 
   connectedCallback() {
@@ -65,11 +66,19 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
     } else {
       this.__init();
     }
+
+
+
     this._selectElement.addEventListener('change', (e) => {
-      this.value = this._selectedOptions.map(s => s.value);
+      let value = e.detail.value;
+      if (this.values.has(value)) {
+        this.values.delete(value);
+      } else {
+        this.values.add(value);
+      }
       this.dispatchEvent(new CustomEvent('change', {
         'detail': {
-          'value': this.value
+          'values': [...this.values]
         }
       }));
     })
