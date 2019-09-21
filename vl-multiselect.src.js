@@ -67,21 +67,29 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
       this.__init();
     }
 
-
-
     this._selectElement.addEventListener('change', (e) => {
-      let value = e.detail.value;
-      if (this.values.has(value)) {
-        this.values.delete(value);
-      } else {
-        this.values.add(value);
+      if (this.__updateValues(e)) {
+        this.value = Array.from(this.values);
+        this.dispatchEvent(new CustomEvent('change', {
+          'detail': {
+            'values': this.value
+          }
+        }));
       }
-      this.dispatchEvent(new CustomEvent('change', {
-        'detail': {
-          'values': [...this.values]
-        }
-      }));
     })
+  }
+
+  __updateValues(e) {
+    if (e.detail == null || e.detail.value == null) {
+      return false;
+    }
+    let value = e.detail.value;
+    if (this.values.has(value)) {
+      this.values.delete(value);
+      return true;
+    }
+    this.values.add(value);
+    return true;
   }
 
   /**
@@ -188,6 +196,7 @@ export class VlMultiSelect extends VlElement(HTMLElement) {
       this.removeActive();
     });
     this.hideDropdown();
+    this.values = new Set();
   }
 
   attributeChangedCallback(attr, oldValue, newValue) {
