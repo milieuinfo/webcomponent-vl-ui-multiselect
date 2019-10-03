@@ -34,11 +34,11 @@
     "@govflanders/vl-ui-pill": "3.7.2",
     "@govflanders/vl-ui-select": "3.7.2",
     "@govflanders/vl-ui-util": "3.7.2",
-    "vl-ui-core": "1.4.7",
+    "vl-ui-core": "2.0.0",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
   "peerDependencies": {
-    "vl-ui-core": "^1.4.7",
+    "vl-ui-core": "^2.0.0",
     "vl-ui-util": "^2.0.0",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
