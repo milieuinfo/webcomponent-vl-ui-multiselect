@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-multiselect#readme",
   "dependencies": {
-    "@govflanders/vl-ui-core": "3.7.2",
+    "@govflanders/vl-ui-core": "3.9.2",
     "@govflanders/vl-ui-multiselect": "3.7.2",
     "@govflanders/vl-ui-pill": "3.7.2",
     "@govflanders/vl-ui-select": "3.7.2",
