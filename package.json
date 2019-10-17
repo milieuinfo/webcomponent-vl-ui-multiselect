@@ -29,17 +29,17 @@
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-multiselect#readme",
   "dependencies": {
-    "@govflanders/vl-ui-core": "3.9.1",
+    "@govflanders/vl-ui-core": "3.7.2",
     "@govflanders/vl-ui-multiselect": "3.7.2",
-    "@govflanders/vl-ui-pill": "3.9.1",
+    "@govflanders/vl-ui-pill": "3.7.2",
     "@govflanders/vl-ui-select": "3.7.2",
-    "@govflanders/vl-ui-util": "3.9.1",
-    "vl-ui-core": "2.1.0",
+    "@govflanders/vl-ui-util": "3.7.2",
+    "vl-ui-core": "1.4.7",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
   "peerDependencies": {
-    "vl-ui-core": "^2.0.0",
-    "vl-ui-util": "^2.0.0",
+    "vl-ui-core": "^1.4.7",
+    "vl-ui-util": "^1.2.3",
     "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
   },
   "devDependencies": {
