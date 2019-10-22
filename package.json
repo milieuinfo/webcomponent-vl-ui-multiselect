@@ -30,26 +30,29 @@
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-multiselect#readme",
   "dependencies": {
     "@govflanders/vl-ui-core": "3.9.1",
-    "@govflanders/vl-ui-multiselect": "3.7.2",
-    "@govflanders/vl-ui-pill": "3.9.1",
-    "@govflanders/vl-ui-select": "3.7.2",
+    "@govflanders/vl-ui-multiselect": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
     "vl-ui-core": "2.1.0",
-    "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
+    "vl-ui-select": "^1.2.2"
   },
   "peerDependencies": {
     "vl-ui-core": "^2.0.0",
     "vl-ui-util": "^2.0.0",
-    "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#UIG-163"
+    "vl-ui-select": "^1.2.0"
   },
   "devDependencies": {
+    "@govflanders/vl-ui-form-structure": "3.9.1",
+    "@govflanders/vl-ui-input-field": "3.9.1",
+    "@govflanders/vl-ui-pill": "3.9.1",
+    "@govflanders/vl-ui-select": "3.9.1",
     "http-server": "0.11.1",
     "np": "3.1.0",
     "replace": "1.1.1",
-    "sass": "^1.22.12",
+    "sass": "^1.23.0",
     "sinon": "7.5.0",
     "uglify-es": "github:mishoo/UglifyJS2#harmony",
-    "vl-ui-util": "^2.0.6",
+    "vl-ui-button": "^1.3.0",
+    "vl-ui-util": "^2.0.9",
     "wct-browser-legacy": "1.0.2",
     "web-component-tester": "6.9.2"
   },
