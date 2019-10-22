@@ -6,8 +6,10 @@
 
 <script type="module" src="demo.js"></script>
 <script type="module" src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
-<script type="module" src="lit-element-demo.js"></script>
+<script type="module" src="/node_modules/vl-ui-button/vl-button.js"></script>
+<script type="module" src="/node_modules/vl-ui-select/vl-select.js"></script>
 <script type="module" src="../vl-multiselect.src.js"></script>
+<link rel="stylesheet" type="text/css" href="../style.css">
 
 <body>
 <h1>vl-ui-multiselect demo</h1>
@@ -16,60 +18,47 @@
     Meer voorbeelden en documentatie</a>.
 </p>
 
-<div>
+<!-- <div>
   <h2>Multiselect met meerdere opties</h2>
   <pre>
-      <code class="line-numbers language-markup">&lt;vl-multiselect data-vl-multiselect&gt;
-        &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-        &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-        &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-      &lt;/vl-multiselect&gt;</code>
+      <code class="line-numbers language-markup">
+        
+      </code>
   </pre>
   <div class="demo">
-    <vl-multiselect data-vl-multiselect>
+    <select multiple is="vl-multiselect">
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
-    </vl-multiselect>
+    </select>
   </div>
 </div>
 
 <div>
   <h2>Multiselect met een voorgeselecteerde optie</h2>
   <pre>
-      <code class="line-numbers language-markup">&lt;vl-multiselect data-vl-multiselect&gt;
-        &lt;option selected value=&quot;Brugge&quot;&gt;Brugge&lt;/option&gt;
-        &lt;option value=&quot;Brussel&quot;&gt;Brussel&lt;/option&gt;
-        &lt;option value=&quot;Gent&quot;&gt;Gent&lt;/option&gt;
-      &lt;/vl-multiselect&gt;</code>
+      <code class="line-numbers language-markup">
+
+      </code>
   </pre>
   <div class="demo">
-    <vl-multiselect data-vl-multiselect>
+    <select multiple multiple is="vl-multiselect" data-vl-multiselect>
       <option selected value="Brugge">Brugge</option>
       <option value="Brussel">Brussel</option>
       <option value="Gent">Gent</option>
-    </vl-multiselect>
+    </select>
   </div>
 </div>
 
 <div>
   <h2>Multiselect met gegroepeerde opties</h2>
   <pre>
-      <code class="line-numbers language-markup">&lt;vl-multiselect data-vl-multiselect&gt;
-        &lt;optgroup label=&quot;Landen&quot;&gt;
-          &lt;option selected value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-          &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-          &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-        &lt;/optgroup&gt;
-        &lt;optgroup label=&quot;Steden&quot;&gt;
-          &lt;option selected value=&quot;Brugge&quot;&gt;Brugge&lt;/option&gt;
-          &lt;option value=&quot;Brussel&quot;&gt;Brussel&lt;/option&gt;
-          &lt;option value=&quot;Gent&quot;&gt;Gent&lt;/option&gt;
-        &lt;/optgroup&gt;
-      &lt;/vl-multiselect&gt;</code>
+      <code class="line-numbers language-markup">
+
+      </code>
   </pre>
   <div class="demo">
-    <vl-multiselect data-vl-multiselect>
+    <select multiple is="vl-multiselect" data-vl-multiselect>
       <optgroup label="Landen">
         <option selected value="België">België</option>
         <option value="Duitsland">Duitsland</option>
@@ -80,84 +69,71 @@
         <option value="Brussel">Brussel</option>
         <option value="Gent">Gent</option>
       </optgroup>
-    </vl-multiselect>
+    </select>
   </div>
 </div>
 
 <div>
   <h2>Multiselect met error</h2>
   <pre>
-      <code class="line-numbers language-markup">&lt;vl-multiselect data-vl-multiselect error&gt;
-        &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-        &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-        &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-      &lt;/vl-multiselect&gt;</code>
+      <code class="line-numbers language-markup">
+
+      </code>
   </pre>
   <div class="demo">
-    <vl-multiselect data-vl-multiselect error>
+    <select multiple is="vl-multiselect" data-vl-multiselect error>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
-    </vl-multiselect>
+    </select>
   </div>
 </div>
 
 <div>
   <h2>Multiselect met success</h2>
   <pre>
-      <code class="line-numbers language-markup">&lt;vl-multiselect data-vl-multiselect success&gt;
-        &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-        &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-        &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-      &lt;/vl-multiselect&gt;</code>
+      <code class="line-numbers language-markup">
+
+      </code>
   </pre>
   <div class="demo">
-    <vl-multiselect data-vl-multiselect success>
+    <select multiple is="vl-multiselect" data-vl-multiselect success>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
-    </vl-multiselect>
+    </select>
   </div>
 </div>
 
 <div>
   <h2>Multiselect met disabled</h2>
   <pre>
-      <code class="line-numbers language-markup">&lt;vl-multiselect data-vl-multiselect disabled&gt;
-        &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-        &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-        &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-      &lt;/vl-multiselect&gt;</code>
+      <code class="line-numbers language-markup">
+
+      </code>
   </pre>
   <div class="demo">
-    <vl-multiselect data-vl-multiselect disabled>
+    <select multiple is="vl-multiselect" data-vl-multiselect disabled>
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
-    </vl-multiselect>
+    </select>
   </div>
 </div>
+
 <div>
   <h2>Multiselect listen to change events (watch console logs)</h2>
   <pre>
-      <code class="line-numbers language-markup">&lt;vl-multiselect data-vl-multiselect id=&quot;change-listener&quot;&gt;
-        &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-        &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-        &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-      &lt;/vl-multiselect&gt;
-      &lt;script type=&quot;text/javascript&quot;&gt;
-        document.getElementById('change-listener').addEventListener('change', (e) =&gt; {
-          console.dir(`e.detail.value => ${e.detail.value}`);
-          console.dir(`e.target.value => ${e.target.value}`);
-        });
-      &lt;/script&gt;</code>
+      <code class="line-numbers language-markup">
+
+      </code>
   </pre>
   <div class="demo">
-    <vl-multiselect data-vl-multiselect id="change-listener">
+    <select multiple is="vl-multiselect" data-vl-multiselect id="change-listener">
       <option value="België">België</option>
       <option value="Duitsland">Duitsland</option>
       <option value="Frankrijk">Frankrijk</option>
-    </vl-multiselect>
+    </select>
     <script type="text/javascript">
       document.getElementById('change-listener').addEventListener('change', (e) => {
         console.dir(`e.detail.value => ${e.detail.value}`);
@@ -165,210 +141,51 @@
       });
     </script>
   </div>
-</div>
+</div> -->
 
 <div>
-  <h2>Multiselect wordt manueel gedressed</h2>
-  <pre>
+    <h2>Multiselect methoden</h2>
+    <pre>
       <code class="line-numbers language-markup">&lt;script type=&quot;text/javascript&quot;&gt;
-        const laadDynamisch = () =&gt; {
-          document.getElementById('vl-multiselect-dynamisch').dress({
-            callbackFn: (select) =&gt; {
-              return [
-                {value: 'One', label: 'Label One', disabled: true},
-                {value: 'Two', label: 'Label Two', selected: true},
-                {value: 'Three', label: 'Label Three'},
-              ];
-            }
-          });
-        }
-      &lt;/script&gt;
-      &lt;button onclick=&quot;laadDynamisch()&quot; type=&quot;button&quot;&gt;Activeer dynamische data&lt;/button&gt;
-      &lt;br/&gt;
-      &lt;br/&gt;
-      &lt;vl-multiselect id=&quot;vl-multiselect-dynamisch&quot;&gt;&lt;/vl-multiselect&gt;</code>
-  </pre>
-  <div class="demo">
-    <script type="text/javascript">
-      const laadDynamisch = () => {
-        document.getElementById('vl-multiselect-dynamisch').dress({
-          callbackFn: (select) => {
-            return [
-              {value: 'One', label: 'Label One', disabled: true},
-              {value: 'Two', label: 'Label Two', selected: true},
-              {value: 'Three', label: 'Label Three'},
-            ];
-          }
-        });
-      }
-    </script>
-    <button onclick="laadDynamisch()" type="button">Activeer dynamische data</button>
-    <br/>
-    <br/>
-    <vl-multiselect id="vl-multiselect-dynamisch"></vl-multiselect>
+      &lt;select id=&quot;vl-select-methoden&quot;
+              is=&quot;vl-select&quot;
+              data-vl-select-deletable&gt;
+        &lt;option placeholder value=&quot;&quot;&gt;Kies een land&lt;/option&gt;
+        &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
+        &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
+        &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
+        &lt;option value=&quot;Nederland&quot;&gt;Nederland&lt;/option&gt;
+        &lt;option value=&quot;Itali&euml;&quot;&gt;Itali&euml;&lt;/option&gt;
+      &lt;/select&gt;
+  
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).dress()&quot; type=&quot;button&quot;&gt;Dress&lt;/button&gt;
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).undress()&quot; type=&quot;button&quot;&gt;Undress&lt;/button&gt;
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).enable()&quot; type=&quot;button&quot;&gt;Enable&lt;/button&gt;
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).disable()&quot; type=&quot;button&quot;&gt;Disable&lt;/button&gt;
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).setValueByChoice(&apos;Duitsland&apos;)&quot; type=&quot;button&quot;&gt;Kies Duitsland&lt;/button&gt;
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).removeActive()&quot; type=&quot;button&quot;&gt;Verwijder selectie&lt;/button&gt;
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).showDropdown()&quot; type=&quot;button&quot;&gt;Show dropdown&lt;/button&gt;
+      &lt;button is=&quot;vl-button&quot; onclick=&quot;document.getElementById(&apos;vl-select-methoden&apos;).hideDropdown()&quot; type=&quot;button&quot;&gt;Hide dropdown&lt;/button&gt;</code>
+    </pre>
+    <div class="demo">
+      <select id="vl-multiselect-methoden" multiple is="vl-multiselect" id="vl-multiselect-methoden">
+        <option value="België">België</option>
+        <option value="Duitsland">Duitsland</option>
+        <option value="Frankrijk">Frankrijk</option>
+        <option value="Nederland">Nederland</option>
+        <option value="Italië">Italië</option>
+      </select>
+  
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').dress()" type="button">Dress</button>
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').undress()" type="button">Undress</button>
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').enable()" type="button">Enable</button>
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').disable()" type="button">Disable</button>
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').setValueByChoice('Duitsland')" type="button">Kies Duitsland</button>
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').removeActive()" type="button">Verwijder selectie</button>
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').showDropdown()" type="button">Show dropdown</button>
+      <button is="vl-button" onclick="document.getElementById('vl-multiselect-methoden').hideDropdown()" type="button">Hide dropdown</button>
+    </div>
   </div>
-</div>
-
 <div>
-  <h2>Multiselect keuzes worden manueel gezet</h2>
-  <pre>
-      <code class="line-numbers language-markup">&lt;script type=&quot;text/javascript&quot;&gt;
-        const laadDynamisch = () =&gt; {
-          document.getElementById('vl-multiselect-dynamisch').dress({
-            callbackFn: (select) =&gt; {
-              return [
-                {value: 'One', label: 'Label One', disabled: true},
-                {value: 'Two', label: 'Label Two', selected: true},
-                {value: 'Three', label: 'Label Three'},
-              ];
-            }
-          });
-        }
-      &lt;/script&gt;
-      &lt;button onclick=&quot;laadDynamisch()&quot; type=&quot;button&quot;&gt;Activeer dynamische data&lt;/button&gt;
-      &lt;br/&gt;
-      &lt;br/&gt;
-      &lt;vl-multiselect id=&quot;vl-multiselect-dynamisch&quot;&gt;&lt;/vl-multiselect&gt;</code>
-  </pre>
-  <div class="demo">
-    <script type="text/javascript">
-      const laadChoices = () => {
-        document.getElementById('vl-multiselect-keuzes').dress();
-        document.getElementById('vl-multiselect-keuzes').choices = [
-          {value: 'One', label: 'Label One', disabled: true},
-          {value: 'Two', label: 'Label Two', selected: true},
-          {value: 'Three', label: 'Label Three', selected: true},
-          {value: 'Four', label: 'Label Three'},
-          {value: 'Five', label: 'Label Three'}
-        ];
-      }
-    </script>
-    <button onclick="laadChoices()" type="button">Zet keuzes</button>
-    <br/>
-    <br/>
-    <vl-multiselect id="vl-multiselect-keuzes"></vl-multiselect>
-  </div>
-</div>
-
-<div>
-  <h2>Multiselect methoden</h2>
-  <pre>
-    <code class="line-numbers language-markup">&lt;script type=&quot;text/javascript&quot;&gt;
-      const multiselect = () =&gt; {
-        return document.getElementById('vl-multiselect-methoden');
-      };
-
-      const enable = () =&gt; {
-        multiselect().enable();
-      };
-
-      const disable = () =&gt; {
-        multiselect().disable();
-      };
-
-      const setValueByChoice = () =&gt; {
-        multiselect().setValueByChoice('Duitsland');
-      };
-
-      const clearSelectedOptions = () =&gt; {
-        multiselect().clearSelectedOptions();
-      };
-
-      const removeActive = () =&gt; {
-        multiselect().removeActive();
-      };
-
-      const showDropdown = () =&gt; {
-        multiselect().showDropdown();
-      };
-
-      const hideDropdown = () =&gt; {
-        multiselect().hideDropdown();
-      };
-
-    &lt;/script&gt;
-    &lt;br /&gt;
-    &lt;button onclick=&quot;enable()&quot; type=&quot;button&quot;&gt;enable()&lt;/button&gt;
-    &lt;button onclick=&quot;disable()&quot; type=&quot;button&quot;&gt;disable()&lt;/button&gt;
-    &lt;button onclick=&quot;setValueByChoice()&quot; type=&quot;button&quot;&gt;setValueByChoice('Duitsland')&lt;/button&gt;
-    &lt;button onclick=&quot;clearSelectedOptions()&quot; type=&quot;button&quot;&gt;clearSelectedOptions()&lt;/button&gt;
-    &lt;button onclick=&quot;removeActive()&quot; type=&quot;button&quot;&gt;removeActive()&lt;/button&gt;
-    &lt;button onclick=&quot;showDropdown()&quot; type=&quot;button&quot;&gt;showDropdown()&lt;/button&gt;
-    &lt;button onclick=&quot;hideDropdown()&quot; type=&quot;button&quot;&gt;hideDropdown()&lt;/button&gt;
-    &lt;br /&gt;
-    &lt;br /&gt;
-    &lt;vl-multiselect id=&quot;vl-multiselect-methoden&quot; data-vl-multiselect&gt;
-      &lt;option value=&quot;Belgi&euml;&quot;&gt;Belgi&euml;&lt;/option&gt;
-      &lt;option value=&quot;Duitsland&quot;&gt;Duitsland&lt;/option&gt;
-      &lt;option value=&quot;Frankrijk&quot;&gt;Frankrijk&lt;/option&gt;
-      &lt;option value=&quot;Nederland&quot;&gt;Nederland&lt;/option&gt;
-      &lt;option value=&quot;Itali&euml;&quot;&gt;Itali&euml;&lt;/option&gt;
-    &lt;/vl-multiselect&gt;</code>
-  </pre>
-  <div class="demo">
-    <script type="text/javascript">
-      const multiselect = () => {
-        return document.getElementById('vl-multiselect-methoden');
-      };
-
-      const enable = () => {
-        multiselect().enable();
-      };
-
-      const disable = () => {
-        multiselect().disable();
-      };
-
-      const setValueByChoice = () => {
-        multiselect().setValueByChoice('Duitsland');
-      };
-
-      const clearSelectedOptions = () => {
-        multiselect().clearSelectedOptions();
-      };
-
-      const removeActive = () => {
-        multiselect().removeActive();
-      };
-
-      const showDropdown = () => {
-        multiselect().showDropdown();
-      };
-
-      const hideDropdown = () => {
-        multiselect().hideDropdown();
-      };
-
-    </script>
-    <br/>
-    <button onclick="enable()" type="button">enable()</button>
-    <button onclick="disable()" type="button">disable()</button>
-    <button onclick="setValueByChoice()" type="button">setValueByChoice('Duitsland')</button>
-    <button onclick="clearSelectedOptions()" type="button">clearSelectedOptions()</button>
-    <button onclick="removeActive()" type="button">removeActive()</button>
-    <button onclick="showDropdown()" type="button">showDropdown()</button>
-    <button onclick="hideDropdown()" type="button">hideDropdown()</button>
-    <br/>
-    <br/>
-    <vl-multiselect id="vl-multiselect-methoden" data-vl-multiselect>
-      <option value="België">België</option>
-      <option value="Duitsland">Duitsland</option>
-      <option value="Frankrijk">Frankrijk</option>
-      <option value="Nederland">Nederland</option>
-      <option value="Italië">Italië</option>
-    </vl-multiselect>
-  </div>
-</div>
-
-<div>
-  <h2>Lit Element Demo</h2>
-  <pre>
-      <code
-          class="line-numbers language-markup">&lt;lit-element-demo&gt;&lt;/lit-element-demo&gt;</code>
-  </pre>
-  <div class="demo">
-    <lit-element-demo></lit-element-demo>
-  </div>
-</div>
 </body>
 </html>
