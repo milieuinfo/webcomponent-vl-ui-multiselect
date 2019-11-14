@@ -26,11 +26,37 @@ Promise.all([
  * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-multiselect.html|Demo}
  */
 export class VlMultiSelect extends VlSelect {
+  constructor() {
+    super();
+    this.setAttribute('data-vl-multiselect', '');
+  }
+
   connectedCallback() {
     this.classList.add('vl-multiselect');
     this.setAttribute('name', 'multiselect');
-    this.setAttribute('data-vl-multiselect', '');
     super.connectedCallback();
+  }
+
+  /**
+   * Zet het geselecteerd option element op basis van de option value.
+   *
+   * @param {string} de option value van het option element dat gekozen moet worden.
+   */
+  set values(values) {
+    values.forEach((value) => {
+      super.value = value;
+    });
+  }
+
+  /**
+   * Geeft de waarde van het eerst geselecteerde option element indien deze er is, anders een lege string.
+   *
+   * @returns {void}
+   */
+  get values() {
+    return [... this.selectedOptions].map((option) => {
+      return option.value || '';
+    });
   }
 
   get _stylePath() {
