@@ -32,13 +32,13 @@
     "@govflanders/vl-ui-core": "3.9.1",
     "@govflanders/vl-ui-multiselect": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
-    "vl-ui-core": "2.1.0",
-    "vl-ui-select": "github:milieuinfo/webcomponent-vl-ui-select"
+    "vl-ui-core": "^2.1.0",
+    "vl-ui-select": "^2.0.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^2.0.0",
     "vl-ui-util": "^2.0.0",
-    "vl-ui-select": "^1.2.0"
+    "vl-ui-select": "^2.0.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-form-structure": "3.9.1",
