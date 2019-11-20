@@ -55,7 +55,8 @@ export class VlMultiSelect extends VlSelect {
   /**
    * Zet het geselecteerd option element op basis van de option value.
    *
-   * @param {string} de option value van het option element dat gekozen moet worden.
+   * @param {string} values - De option value van het option element dat gekozen moet worden.
+   * @returns {void}
    */
   set values(values) {
     values.forEach((value) => {
@@ -64,9 +65,9 @@ export class VlMultiSelect extends VlSelect {
   }
 
   /**
-   * Geeft de waarde van het eerst geselecteerde option element indien deze er is, anders een lege string.
+   * Geeft de waarde van de geselecteerde option elementen.
    *
-   * @returns {void}
+   * @returns {string[]}
    */
   get values() {
     return [... this.selectedOptions].map((option) => {
