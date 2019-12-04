@@ -9,6 +9,7 @@
 <script type="module" src="/node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
 <script type="module" src="/node_modules/vl-ui-button/vl-button.js"></script>
 <script type="module" src="/node_modules/vl-ui-select/vl-select.js"></script>
+<script type="module" src="/node_modules/vl-ui-datepicker/vl-datepicker.js"></script>
 <script type="module" src="../vl-multiselect.src.js"></script>
 <link rel="stylesheet" type="text/css" href="../style.css">
 
@@ -150,6 +151,28 @@
         <option value="Duitsland">Duitsland</option>
         <option value="Frankrijk">Frankrijk</option>
       </select>
+    </div>
+  </div>
+
+  <div>
+    <h2>Multiselect boven een datepicker</h2>
+    <pre>
+      <code class="line-numbers language-markup">
+        &lt;select is="vl-multiselect" multiple&gt;
+          &lt;option value="België"&gt;België&lt;/option&gt;
+          &lt;option value="Duitsland"&gt;Duitsland&lt;/option&gt;
+          &lt;option value="Frankrijk"&gt;Frankrijk&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;vl-datepicker&gt;&lt;/vl-datepicker&gt;
+      </code>
+    </pre>
+    <div class="demo">
+        <select is="vl-multiselect" multiple>
+          <option value="België">België</option>
+          <option value="Duitsland">Duitsland</option>
+          <option value="Frankrijk">Frankrijk</option>
+        </select>
+        <vl-datepicker></vl-datepicker>
     </div>
   </div>
 

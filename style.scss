@@ -4,21 +4,6 @@
 @charset "utf-8";
 
 // ==========================================================================
-// Core
-// ==========================================================================
-@import "vl-ui-core/src/scss/core";
-
-// ==========================================================================
 // Dependencies
 // ==========================================================================
-@import "vl-ui-form-structure/src/scss/form-structure";
-@import "vl-ui-input-field/src/scss/input-field";
-
-@import "vl-ui-select/src/scss/select";
-@import "vl-ui-pill/src/scss/pill";
-@import "vl-ui-pill-input/src/scss/pill-input";
-
-// ==========================================================================
-// Util
-// ==========================================================================
-@import "vl-ui-util/src/scss/util";
+@import "node_modules/vl-ui-select/style.scss";
