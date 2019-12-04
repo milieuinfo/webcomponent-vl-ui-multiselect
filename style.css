@@ -5133,267 +5133,6 @@ img.vl-image--error {
   }
 }
 
-.vl-form {
-  font-size: 1.6rem;
-}
-@media screen and (max-width: 767px) {
-  .vl-form {
-    font-size: 1.5rem;
-  }
-}
-.vl-form__group {
-  background-color: #e8ebee;
-  padding: 2rem 1.5rem;
-  margin: 2rem 0 0;
-}
-@media screen and (max-width: 767px) {
-  .vl-form__group {
-    padding: 1.5rem 1rem;
-  }
-}
-@media screen and (max-width: 767px) {
-  .vl-form__group--mobile-full-width {
-    padding-left: 3%;
-    padding-right: 3%;
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-  }
-}
-.vl-form__row + .vl-form__row {
-  margin-top: 1.5rem;
-}
-@media screen and (max-width: 767px) {
-  .vl-form__row .vl-form__row__group + .vl-form__row__group {
-    margin-top: 1.5rem;
-  }
-}
-.vl-form__row--addon {
-  display: flex;
-  flex-direction: row;
-}
-.vl-form__row--addon .vl-form__addon {
-  flex-grow: 0;
-}
-.vl-form__row--inline {
-  display: flex;
-  margin-left: -3rem;
-}
-.vl-form__row--inline::before, .vl-form__row--inline::after {
-  content: "";
-  display: table;
-}
-.vl-form__row--inline::after {
-  clear: both;
-}
-@media screen and (max-width: 767px) {
-  .vl-form__row--inline {
-    display: block;
-    margin-left: -1.5rem;
-  }
-}
-.vl-form__row--inline .vl-form__label {
-  float: left;
-  width: 25%;
-  min-width: 25%;
-  max-width: 25%;
-  flex-basis: 25%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-top: 0.7rem;
-  padding-left: 3rem;
-}
-@media screen and (max-width: 767px) {
-  .vl-form__row--inline .vl-form__label {
-    display: block;
-    width: auto;
-    max-width: none;
-    padding-left: 1.5rem;
-  }
-}
-.vl-form__row--inline .vl-form__input {
-  float: right;
-  width: 75%;
-  margin-left: 3rem;
-}
-@media screen and (max-width: 767px) {
-  .vl-form__row--inline .vl-form__input {
-    width: auto;
-    margin-left: 1.5rem;
-  }
-}
-.vl-form__row--inline .vl-form__input .vl-radio,
-.vl-form__row--inline .vl-form__input .vl-checkbox,
-.vl-form__row--inline .vl-form__input input[type=file] {
-  margin-top: 0.6rem;
-}
-@media screen and (max-width: 767px) {
-  .vl-form__row--inline .vl-form__input,
-.vl-form__row--inline .vl-form__label {
-    float: none;
-    width: auto;
-  }
-}
-
-.vl-input-field {
-  display: inline-block;
-  background: #fff;
-  font-family: "Flanders Art Sans", sans-serif;
-  font-size: 1.6rem;
-  color: #333332;
-  max-width: 100%;
-  height: 3.5rem;
-  line-height: 3.5rem;
-  border-radius: 0;
-  border: 0.1rem solid #cbd2da;
-  -webkit-appearance: none;
-  padding: 0 1rem;
-}
-@media screen and (max-width: 767px) {
-  .vl-input-field {
-    font-size: 1.6rem;
-  }
-}
-.vl-input-field:hover {
-  box-shadow: none;
-}
-.vl-input-field:focus, .vl-input-field--focus {
-  outline: none;
-  border-color: #ffc515;
-  box-shadow: inset 0 0 0 0.1rem #ffc515;
-}
-.vl-input-field::placeholder {
-  color: #b2b2b2;
-}
-.vl-input-field::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-}
-.vl-input-field--block {
-  display: block;
-  width: 100%;
-}
-.vl-input-field--small {
-  max-width: 6rem;
-  padding: 0 0.8rem;
-}
-.vl-input-field.invalid.validated, .vl-input-field--error {
-  background-color: #fbe6e6;
-  border-color: #db3434;
-  box-shadow: inset 0 0 0 0.1rem #db3434;
-  display: inline;
-}
-.vl-input-field.invalid.validated:focus, .vl-input-field--error:focus {
-  background-color: #fff;
-}
-.vl-input-field.invalid.validated .vl-select, .vl-input-field--error .vl-select {
-  background-color: #fbe6e6;
-  border-color: #db3434;
-  box-shadow: inset 0 0 0 0.1rem #db3434;
-}
-.vl-input-field.invalid.validated .vl-select:focus, .vl-input-field--error .vl-select:focus {
-  background-color: #fff;
-}
-.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one], .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple], .vl-input-field--error .js-vl-select[data-type*=select-one], .vl-input-field--error .js-vl-select[data-type*=select-multiple] {
-  background-color: #fbe6e6;
-  border-color: #db3434;
-  box-shadow: inset 0 0 0 0.1rem #db3434;
-}
-.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one]:focus, .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple]:focus, .vl-input-field--error .js-vl-select[data-type*=select-one]:focus, .vl-input-field--error .js-vl-select[data-type*=select-multiple]:focus {
-  background-color: #fff;
-}
-.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple] .vl-select__inner, .vl-input-field--error .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field--error .js-vl-select[data-type*=select-multiple] .vl-select__inner {
-  background-color: #fbe6e6;
-  border-color: #db3434;
-  box-shadow: inset 0 0 0 0.1rem #db3434;
-  background-color: transparent;
-}
-.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one] .vl-select__inner:focus, .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple] .vl-select__inner:focus, .vl-input-field--error .js-vl-select[data-type*=select-one] .vl-select__inner:focus, .vl-input-field--error .js-vl-select[data-type*=select-multiple] .vl-select__inner:focus {
-  background-color: #fff;
-}
-.vl-input-field.valid.validated, .vl-input-field--success {
-  background-color: #f7fae5;
-  border-color: #8bae00;
-  box-shadow: inset 0 0 0 1px #8bae00;
-  display: inline;
-}
-.vl-input-field.valid.validated .vl-select, .vl-input-field--success .vl-select {
-  background-color: #f7fae5;
-  border-color: #8bae00;
-  box-shadow: inset 0 0 0 1px #8bae00;
-}
-.vl-input-field.valid.validated .js-vl-select[data-type*=select-one], .vl-input-field.valid.validated .js-vl-select[data-type*=select-multiple], .vl-input-field--success .js-vl-select[data-type*=select-one], .vl-input-field--success .js-vl-select[data-type*=select-multiple] {
-  background-color: #f7fae5;
-  border-color: #8bae00;
-  box-shadow: inset 0 0 0 1px #8bae00;
-}
-.vl-input-field.valid.validated .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field.valid.validated .js-vl-select[data-type*=select-multiple] .vl-select__inner, .vl-input-field--success .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field--success .js-vl-select[data-type*=select-multiple] .vl-select__inner {
-  background-color: #f7fae5;
-  border-color: #8bae00;
-  box-shadow: inset 0 0 0 1px #8bae00;
-  background-color: transparent;
-}
-.vl-input-field--disabled, .vl-input-field[disabled] {
-  background-color: #f4f5f7;
-}
-.vl-input-field--inline {
-  position: relative;
-  display: block;
-  max-width: 100%;
-}
-@media screen and (max-width: 767px) {
-  .vl-input-field--inline {
-    display: block;
-    width: auto;
-  }
-}
-.vl-input-field--inline .vl-input-field__submit {
-  position: absolute;
-  display: block;
-  color: #fff;
-  width: 4.3rem;
-  height: 3.5rem;
-  opacity: 0;
-  padding: 0;
-  margin-bottom: -2rem;
-  transform: translateX(100%);
-  top: 0;
-  right: 0;
-  z-index: -1;
-}
-.vl-input-field--inline .vl-input-field__submit:focus {
-  transform: translateX(0%);
-  transition: opacity 0.2s, transform 0.2s;
-  opacity: 1;
-  z-index: 1;
-}
-.vl-input-field--inline .vl-input-field__submit::before {
-  position: absolute;
-  font-size: 1.7rem;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-}
-.vl-input-field--inline .vl-input-field__input {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding-right: 5rem;
-}
-.vl-input-field--inline .vl-input-field__input:focus, .vl-input-field--inline .vl-input-field__input--focus {
-  width: calc(100% - 4.7rem);
-  padding-right: 0;
-  transition: width 0.2s;
-}
-.vl-input-field--inline .vl-input-field__input:focus + .vl-input-field__submit, .vl-input-field--inline .vl-input-field__input--focus + .vl-input-field__submit {
-  transform: translateX(0%);
-  transition: opacity 0.2s, transform 0.2s;
-  opacity: 1;
-  z-index: 1;
-}
-
 .vl-select {
   background-color: #fff;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3cpath d='M0.42,9.77a3.27,3.27,0,0,1,.91-2.21,3.12,3.12,0,0,1,4.41,0L16,17.82,26.25,7.56A3.12,3.12,0,0,1,30.67,12L18.2,24.44a3.12,3.12,0,0,1-4.41,0L1.33,12A3.17,3.17,0,0,1,.42,9.77'/%3e%3ctext y='90'%3e' %26apos; %23 %25 %26amp; %c2%bf %f0%9f%94%a3%3c/text%3e%3c/svg%3e");
@@ -5830,35 +5569,108 @@ select.vl-select--success, select.valid.validated {
   border-style: solid;
 }
 
-.vl-pill {
-  display: inline-flex;
-  align-items: center;
-  background-color: #e8ebee;
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #666;
-  height: 2.4rem;
+.no-js [data-vl-select] {
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3cpath d='M0.42,9.77a3.27,3.27,0,0,1,.91-2.21,3.12,3.12,0,0,1,4.41,0L16,17.82,26.25,7.56A3.12,3.12,0,0,1,30.67,12L18.2,24.44a3.12,3.12,0,0,1-4.41,0L1.33,12A3.17,3.17,0,0,1,.42,9.77'/%3e%3ctext y='90'%3e' %26apos; %23 %25 %26amp; %c2%bf %f0%9f%94%a3%3c/text%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 11px 11px;
+  background-position: calc(100% - 1.5rem) 50%;
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  padding: 0 6rem 0 1.5rem;
+  max-width: 100%;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  border: 1px solid #cbd2da;
+  border-radius: 0;
   text-decoration: none;
-  vertical-align: bottom;
-  border-radius: 0.6rem;
-  border: 0.1rem solid #cbd2da;
-  transition: color 0.2s, background-color 0.2s;
-  padding: 0 0.7rem;
+  color: #333332;
+  font-family: "Flanders Art Sans", sans-serif;
+  font-size: 1.6rem;
 }
-.vl-pill__close {
+
+.js-vl-select {
+  position: relative;
+}
+.js-vl-select.is-disabled {
+  border-color: #cbd2da;
+  background-color: #f4f5f7 !important;
+  outline: 0;
+}
+.js-vl-select.is-disabled .vl-select__item {
+  color: #cbd2da;
+  cursor: default;
+}
+.js-vl-select.is-focused {
+  outline: none;
+  border-color: #ffc515;
+  box-shadow: 0 0 0 0.2rem #ffc515;
+}
+.js-vl-select[data-type*=select-one] {
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3cpath d='M0.42,9.77a3.27,3.27,0,0,1,.91-2.21,3.12,3.12,0,0,1,4.41,0L16,17.82,26.25,7.56A3.12,3.12,0,0,1,30.67,12L18.2,24.44a3.12,3.12,0,0,1-4.41,0L1.33,12A3.17,3.17,0,0,1,.42,9.77'/%3e%3ctext y='90'%3e' %26apos; %23 %25 %26amp; %c2%bf %f0%9f%94%a3%3c/text%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1.5rem) 50%;
+  background-size: 11px 11px;
+  cursor: pointer;
+}
+.js-vl-select[data-type*=select-one] .vl-input-field {
+  display: block;
+  padding: 0;
+  color: #333332;
+}
+.js-vl-select[data-type*=select-one] .vl-input-field:focus {
+  outline: 2px solid #ffc515;
+}
+.js-vl-select[data-type*=select-one] .vl-select__list--dropdown .vl-input-field {
+  width: calc(100% - 20px);
+  margin: 10px;
+  padding: 0 1rem;
+  border: 1px solid #cbd2da;
+}
+.js-vl-select[data-type*=select-one] .vl-select__item--selectable {
+  display: flex;
+  line-height: 33px;
+}
+.js-vl-select[data-type*=select-one] .vl-select__inner {
+  height: 3.5rem;
+  line-height: 3.5rem;
+  padding-right: 35px;
+}
+.js-vl-select[data-type*=select-one].is-open::after {
+  transform: translateY(-7.5px);
+  border-color: transparent transparent #000;
+}
+.js-vl-select[data-type*=select-one][dir=rtl]::after {
+  right: auto;
+  left: 11.5px;
+}
+.js-vl-select[data-type*=select-one][dir=rtl] .vl-select__button {
+  right: auto;
+  left: 0;
+  margin-right: 0;
+  margin-left: 25px;
+}
+.js-vl-select[data-type*=select-one][dir=rtl] .vl-pill__close {
+  margin-right: auto;
+  margin-left: 0;
+}
+.js-vl-select[data-type*=select-one] .vl-select__button {
+  border: 0;
+}
+.js-vl-select[data-type*=select-one] .vl-pill__close {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #05c;
-  width: 2.4rem;
-  height: 2.4rem;
   border: 0;
-  border-left: #cbd2da 0.1rem solid;
   text-decoration: none;
-  margin-left: 0.4rem;
-  padding: 0;
+  margin-left: auto;
+  padding-top: 0;
+  padding-bottom: 0;
 }
-.vl-pill__close::before, .vl-pill__close::after {
+.js-vl-select[data-type*=select-one] .vl-pill__close::before, .js-vl-select[data-type*=select-one] .vl-pill__close::after {
   font-family: "vlaanderen-icon" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -5868,92 +5680,48 @@ select.vl-select--success, select.valid.validated {
   text-decoration: none;
   text-transform: none;
 }
-.vl-pill__close::before {
+.js-vl-select[data-type*=select-one] .vl-pill__close::before {
   content: "";
 }
-.vl-pill__close:hover, .vl-pill__close:focus {
-  color: #003bb0;
-}
-.vl-pill__close::before {
+.js-vl-select[data-type*=select-one] .vl-pill__close::before {
   display: inline-block;
   font-size: 1.1rem;
   text-indent: 0;
   line-height: 1;
 }
-[dir=rtl] .vl-pill__close {
-  border-left: 0;
-  border-right: #cbd2da 0.1rem solid;
-}
-.is-disabled .vl-pill__close {
-  color: #cbd2da;
-  cursor: default;
-}
-.vl-pill--success {
-  background-color: #8bae00;
-  color: #fff;
-}
-.vl-pill--warning {
-  background-color: #ffc515;
-  color: #fff;
-}
-.vl-pill--error {
-  background-color: #db3434;
-  color: #fff;
-}
-.vl-pill--closable {
-  padding-right: 0;
-}
-.vl-pill--clickable {
-  color: #05c;
-}
-.vl-pill--clickable:hover, .vl-pill--clickable:focus {
-  background-color: #f1f2f4;
+.js-vl-select[data-type*=select-one] .vl-pill__close:hover, .js-vl-select[data-type*=select-one] .vl-pill__close:focus, .js-vl-select[data-type*=select-one] .vl-pill__close:active {
   color: #003bb0;
 }
-.vl-pill--checkable {
-  position: relative;
+.js-vl-select[data-type*=select-one].is-disabled .vl-pill__close,
+.js-vl-select[data-type*=select-one] .vl-select__placeholder .vl-pill__close {
+  display: none;
+}
+.js-vl-select[data-type*=select-multiple] {
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3e%3cpath d='M0.42,9.77a3.27,3.27,0,0,1,.91-2.21,3.12,3.12,0,0,1,4.41,0L16,17.82,26.25,7.56A3.12,3.12,0,0,1,30.67,12L18.2,24.44a3.12,3.12,0,0,1-4.41,0L1.33,12A3.17,3.17,0,0,1,.42,9.77'/%3e%3ctext y='90'%3e' %26apos; %23 %25 %26amp; %c2%bf %f0%9f%94%a3%3c/text%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 1.5rem) 50%;
+  background-size: 11px 11px;
   cursor: pointer;
-  padding-left: 2.7rem;
-  margin-bottom: 0.3rem;
 }
-.vl-pill--checkable__checkbox {
-  position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  width: 0.1rem;
-  height: 0.1rem;
-  padding: 0;
-  margin: -0.1rem;
+.js-vl-select[data-type*=select-multiple], .js-vl-select[data-type*=text] {
+  background-color: #fff;
 }
-.vl-pill--checkable__checkbox:focus + span {
-  border-color: #ffc515;
-  outline: 0.2rem solid #ffc515;
+.js-vl-select[data-type*=select-multiple] .vl-select__inner, .js-vl-select[data-type*=text] .vl-select__inner {
+  cursor: text;
 }
-.vl-pill--checkable__checkbox:checked + span {
-  color: #05c;
-  background: #05c;
-  border: 0.1rem #05c solid;
-  box-shadow: 0 0 0 0.1rem #05c;
-}
-.vl-pill--checkable__checkbox:checked + span::before {
-  transform: translateZ(0) translate(-50%, -50%) scale(1);
-}
-.vl-pill--checkable__checkbox + span {
-  position: absolute;
+.js-vl-select[data-type*=select-multiple] .vl-select__button, .js-vl-select[data-type*=text] .vl-select__button {
   display: inline-block;
-  background: #fff;
   width: 2.2rem;
-  height: 2.2rem;
-  cursor: pointer;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
-  margin: 0 0.5rem 0 0;
-  left: 0;
+  height: 2.3rem;
+  margin-left: 0.5rem;
+  transform: translateY(-1px);
+  border-left: 1px solid #cbd2da;
+  color: #666;
+  text-align: center;
+  text-decoration: none;
 }
-.vl-pill--checkable__checkbox + span::before, .vl-pill--checkable__checkbox + span::after {
+.js-vl-select[data-type*=select-multiple] .vl-select__button::before, .js-vl-select[data-type*=select-multiple] .vl-select__button::after, .js-vl-select[data-type*=text] .vl-select__button::before, .js-vl-select[data-type*=text] .vl-select__button::after {
   font-family: "vlaanderen-icon" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -5963,157 +5731,365 @@ select.vl-select--success, select.valid.validated {
   text-decoration: none;
   text-transform: none;
 }
-.vl-pill--checkable__checkbox + span::before {
-  content: "";
+.js-vl-select[data-type*=select-multiple] .vl-select__button::before, .js-vl-select[data-type*=text] .vl-select__button::before {
+  content: "";
 }
-.vl-pill--checkable__checkbox + span::before {
-  position: absolute;
-  display: block;
-  font-size: 0.8rem;
-  color: #fff;
-  line-height: 1;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
-  transform: translateZ(0) translate(-50%, -50%) scale(0);
-  top: 50%;
-  left: 50%;
+.js-vl-select[data-type*=select-multiple] .vl-select__button::before, .js-vl-select[data-type*=text] .vl-select__button::before {
+  padding: 0 0.4rem;
+  font-size: 1.1rem;
+  text-indent: 0;
 }
-
-.vl-pill-input-wrapper {
-  position: relative;
-  min-height: 3.5rem;
-  padding: 0 1rem;
-  height: auto;
-  line-height: normal;
-  z-index: 0;
-}
-
-.vl-pill-input {
-  position: relative;
-}
-.vl-pill-input[data-type*=select-multiple] .vl-pill-input__inner, .vl-pill-input[data-type*=text] .vl-pill-input__inner {
-  cursor: text;
-}
-.vl-pill-input[data-type*=select-multiple] .vl-pill-input__button, .vl-pill-input[data-type*=text] .vl-pill-input__button {
-  position: relative;
-  display: inline-block;
-}
-.vl-pill-input[data-type*=select-multiple] .vl-pill-input__button:hover, .vl-pill-input[data-type*=select-multiple] .vl-pill-input__button:focus, .vl-pill-input[data-type*=text] .vl-pill-input__button:hover, .vl-pill-input[data-type*=text] .vl-pill-input__button:focus {
+.js-vl-select[data-type*=select-multiple] .vl-select__button:hover, .js-vl-select[data-type*=select-multiple] .vl-select__button:focus, .js-vl-select[data-type*=text] .vl-select__button:hover, .js-vl-select[data-type*=text] .vl-select__button:focus {
   opacity: 1;
 }
-.vl-pill-input .vl-pill {
-  padding-right: 0;
+.js-vl-select[data-type*=select-multiple] .vl-input-field, .js-vl-select[data-type*=text] .vl-input-field {
+  display: inline;
+  margin-top: 5px;
+  padding: 0;
+  height: 2.4rem;
+  line-height: 2.2rem;
 }
-.vl-pill-input .vl-form__annotation {
-  line-height: 2rem;
+.js-vl-select[data-type*=select-multiple] .vl-input-field:focus, .js-vl-select[data-type*=text] .vl-input-field:focus {
+  outline: 0;
+  box-shadow: none;
 }
-
-.vl-pill-input__inner {
+.js-vl-select__group {
+  padding: 0.3rem 0.5rem 0.3rem 0;
+  border-top: 1px solid #cbd2da;
+  text-decoration: none;
+}
+.js-vl-select .vl-select__inner {
   display: inline-block;
   width: 100%;
   max-width: 100%;
-  min-height: 3.5rem;
-  padding: 0 6rem 0.4rem 1rem;
+  padding: 0 6rem 5px 1.5rem;
   border: 1px solid #cbd2da;
   color: #666;
   font-family: "Flanders Art Sans", sans-serif;
   font-size: 1.6rem;
+  box-shadow: rgba(203, 210, 218, 0.6);
   overflow: hidden;
   vertical-align: top;
 }
-.vl-pill-input__inner .vl-pill__input {
-  border: 0;
-  outline: 0;
-  padding-left: 0;
-  background: transparent;
-  max-width: 100%;
-  height: 2.4rem;
-  line-height: 2.2rem;
-  transform: translateY(3px);
-  font-family: "Flanders Art Sans", sans-serif;
-  font-size: 1.6rem;
+.is-open .js-vl-select .vl-select__inner {
+  border-bottom: 0;
 }
-.is-focused .vl-pill-input__inner {
-  border-color: #ffc515;
-  box-shadow: inset 0 0 0 1px #ffc515;
-}
-[dir=rtl] .vl-pill-input__inner {
-  padding: 0 1rem 0 6rem;
-}
-
-.vl-pill-input__list {
+.js-vl-select .vl-select__list {
   margin: 0;
-  padding-left: 0;
+  padding: 0;
   list-style: none;
-  line-height: 1;
 }
-
-.vl-pill-input__list--single {
+.js-vl-select .vl-select__list--single {
   display: inline-block;
-  padding: 0.4rem 1.6rem 0.4rem 0.4rem;
   width: 100%;
 }
-[dir=rtl] .vl-pill-input__list--single {
-  padding-right: 0.4rem;
-  padding-left: 1.6rem;
+[dir=rtl] .js-vl-select .vl-select__list--single {
+  padding-right: 5px;
+  padding-left: 15px;
 }
-.vl-pill-input__list--single .vl-pill-input__item {
-  width: 100%;
+.js-vl-select .vl-select__list--multiple {
+  display: inline-flex;
+  align-content: center;
+  max-width: 100%;
 }
-
-.vl-pill-input__list--multiple {
-  display: inline;
-}
-.vl-pill-input__list--multiple .vl-pill {
-  vertical-align: middle;
-  font-weight: 500;
+.js-vl-select .vl-select__list--multiple .vl-select__item {
   margin: 0.5rem 0.6rem 0 0;
-  word-break: break-all;
 }
-.vl-pill-input__list--multiple .vl-pill[data-deletable] {
+.js-vl-select .vl-select__list--multiple .vl-select__item[data-deletable] {
   padding-right: 0;
 }
-[dir=rtl] .vl-pill-input__list--multiple .vl-pill[data-deletable] {
-  padding-right: 0.7rem;
-  padding-left: 0;
+[dir=rtl] .js-vl-select .vl-select__list--multiple--multiple {
+  margin-right: 0;
+  margin-left: 3.75px;
 }
-[dir=rtl] .vl-pill-input__list--multiple .vl-pill {
-  margin: 0.3rem 0 0 0.5rem;
+.js-vl-select .vl-select__list--multiple .vl-input-field {
+  margin-bottom: 5px;
+  padding: 4px 0 4px 2px;
 }
-
-.vl-pill-input__list--dropdown {
+.js-vl-select .vl-select__list--dropdown {
   display: none;
-  z-index: 1;
   position: absolute;
-  width: 100%;
   top: 100%;
-  margin-top: -1px;
-  overflow: hidden;
-  word-break: break-all;
+  width: 100%;
+  transform: translateY(-1px);
+  border: 1px #cbd2da solid;
+  background-color: #fff;
+  z-index: 1;
 }
-.vl-pill-input__list--dropdown.is-active {
+.js-vl-select .vl-select__list--dropdown.is-active {
   display: block;
 }
-.is-flipped .vl-pill-input__list--dropdown {
+.js-vl-select .vl-select__list--dropdown .vl-select__list {
+  position: relative;
+  max-height: 35vh;
+  overflow: auto;
+  will-change: scroll-position;
+  -webkit-overflow-scrolling: touch;
+}
+.js-vl-select .vl-select__list--dropdown .vl-input-field + .vl-select__list {
+  border-top: 1px solid #cbd2da;
+}
+.js-vl-select .vl-select__list--dropdown .vl-select__item {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 0.7rem 0 0.5rem 3.2rem;
+  border: 0;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+[dir=rtl] .js-vl-select .vl-select__list--dropdown .vl-select__item {
+  text-align: right;
+}
+@media screen and (min-width: 767px) {
+  .js-vl-select .vl-select__list--dropdown .vl-select__item--selectable {
+    padding-right: 100px;
+  }
+  .js-vl-select .vl-select__list--dropdown .vl-select__item--selectable::after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    content: attr("data-select-text");
+    opacity: 0;
+  }
+  [dir=rtl] .js-vl-select .vl-select__list--dropdown .vl-select__item--selectable {
+    padding-right: 10px;
+    padding-left: 100px;
+    text-align: right;
+  }
+  [dir=rtl] .js-vl-select .vl-select__list--dropdown .vl-select__item--selectable::after {
+    right: auto;
+    left: 10px;
+  }
+}
+.js-vl-select .vl-select__list--dropdown .vl-select__item--selectable.is-highlighted {
+  position: relative;
+  background-color: #e8ebee;
+}
+.js-vl-select .vl-select__list--dropdown .vl-select__item--selectable.is-highlighted::after {
+  opacity: 0.5;
+}
+.js-vl-select .vl-select__list--dropdown .vl-select__item--selectable.is-highlighted:hover {
+  color: #05c;
+  text-decoration: underline;
+}
+.js-vl-select.is-flipped .vl-select__list--dropdown {
   top: auto;
   bottom: 100%;
-  margin-top: 0;
-  margin-bottom: -1px;
-  border-radius: 0.25rem 0.25rem 0 0;
+  transform: translateY(1px);
 }
-.vl-pill-input__list--dropdown .vl-pill-input__list {
+.js-vl-select .vl-select__item--selectable {
+  cursor: pointer;
+}
+.js-vl-select .vl-select__item--disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  user-select: none;
+}
+.js-vl-select .vl-select__heading {
+  margin: 0 0 0 0.6rem;
+  padding: 0.3rem 2.6rem;
+  color: #666;
+  font-weight: 400;
+}
+.js-vl-select .vl-input-field {
+  display: inline-block;
+  max-width: 100%;
+  border: 0;
+  background-color: transparent;
+  vertical-align: baseline;
+}
+[dir=rtl] .js-vl-select .vl-input-field {
+  padding-right: 2px;
+  padding-left: 0;
+}
+.js-vl-select .vl-select__placeholder {
+  opacity: 0.5;
+}
+.js-vl-select .vl-select__group {
+  border-top: 1px solid #cbd2da;
+  padding-top: 0.5rem;
+  margin-top: 1rem;
+  font-size: 16px;
+}
+.js-vl-select .vl-select__group:first-of-type {
+  border-top: 0;
+}
+.vl-select--error .js-vl-select {
+  background-color: #fbe6e6;
+  border: 0.2rem solid #db3434;
+  box-shadow: inset 0 0 0 1px #db3434;
+}
+.vl-select--error .js-vl-select:focus {
+  background-color: #fff;
+}
+.vl-select--success .js-vl-select {
+  background-color: #f7fae5;
+  border-color: #8bae00;
+  box-shadow: inset 0 0 0 1px #8bae00;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.vl-input-field {
+  display: inline-block;
+  background: #fff;
+  font-family: "Flanders Art Sans", sans-serif;
+  font-size: 1.6rem;
+  color: #333332;
+  max-width: 100%;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  border-radius: 0;
+  border: 0.1rem solid #cbd2da;
+  -webkit-appearance: none;
+  padding: 0 1rem;
+}
+@media screen and (max-width: 767px) {
+  .vl-input-field {
+    font-size: 1.6rem;
+  }
+}
+.vl-input-field:hover {
+  box-shadow: none;
+}
+.vl-input-field:focus, .vl-input-field--focus {
+  outline: none;
+  border-color: #ffc515;
+  box-shadow: inset 0 0 0 0.1rem #ffc515;
+}
+.vl-input-field::placeholder {
+  color: #b2b2b2;
+}
+.vl-input-field::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.vl-input-field--block {
+  display: block;
+  width: 100%;
+}
+.vl-input-field--small {
+  max-width: 6rem;
+  padding: 0 0.8rem;
+}
+.vl-input-field.invalid.validated, .vl-input-field--error {
+  background-color: #fbe6e6;
+  border-color: #db3434;
+  box-shadow: inset 0 0 0 0.1rem #db3434;
+  display: inline;
+}
+.vl-input-field.invalid.validated:focus, .vl-input-field--error:focus {
+  background-color: #fff;
+}
+.vl-input-field.invalid.validated .vl-select, .vl-input-field--error .vl-select {
+  background-color: #fbe6e6;
+  border-color: #db3434;
+  box-shadow: inset 0 0 0 0.1rem #db3434;
+}
+.vl-input-field.invalid.validated .vl-select:focus, .vl-input-field--error .vl-select:focus {
+  background-color: #fff;
+}
+.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one], .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple], .vl-input-field--error .js-vl-select[data-type*=select-one], .vl-input-field--error .js-vl-select[data-type*=select-multiple] {
+  background-color: #fbe6e6;
+  border-color: #db3434;
+  box-shadow: inset 0 0 0 0.1rem #db3434;
+}
+.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one]:focus, .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple]:focus, .vl-input-field--error .js-vl-select[data-type*=select-one]:focus, .vl-input-field--error .js-vl-select[data-type*=select-multiple]:focus {
+  background-color: #fff;
+}
+.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple] .vl-select__inner, .vl-input-field--error .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field--error .js-vl-select[data-type*=select-multiple] .vl-select__inner {
+  background-color: #fbe6e6;
+  border-color: #db3434;
+  box-shadow: inset 0 0 0 0.1rem #db3434;
+  background-color: transparent;
+}
+.vl-input-field.invalid.validated .js-vl-select[data-type*=select-one] .vl-select__inner:focus, .vl-input-field.invalid.validated .js-vl-select[data-type*=select-multiple] .vl-select__inner:focus, .vl-input-field--error .js-vl-select[data-type*=select-one] .vl-select__inner:focus, .vl-input-field--error .js-vl-select[data-type*=select-multiple] .vl-select__inner:focus {
+  background-color: #fff;
+}
+.vl-input-field.valid.validated, .vl-input-field--success {
+  background-color: #f7fae5;
+  border-color: #8bae00;
+  box-shadow: inset 0 0 0 1px #8bae00;
+  display: inline;
+}
+.vl-input-field.valid.validated .vl-select, .vl-input-field--success .vl-select {
+  background-color: #f7fae5;
+  border-color: #8bae00;
+  box-shadow: inset 0 0 0 1px #8bae00;
+}
+.vl-input-field.valid.validated .js-vl-select[data-type*=select-one], .vl-input-field.valid.validated .js-vl-select[data-type*=select-multiple], .vl-input-field--success .js-vl-select[data-type*=select-one], .vl-input-field--success .js-vl-select[data-type*=select-multiple] {
+  background-color: #f7fae5;
+  border-color: #8bae00;
+  box-shadow: inset 0 0 0 1px #8bae00;
+}
+.vl-input-field.valid.validated .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field.valid.validated .js-vl-select[data-type*=select-multiple] .vl-select__inner, .vl-input-field--success .js-vl-select[data-type*=select-one] .vl-select__inner, .vl-input-field--success .js-vl-select[data-type*=select-multiple] .vl-select__inner {
+  background-color: #f7fae5;
+  border-color: #8bae00;
+  box-shadow: inset 0 0 0 1px #8bae00;
+  background-color: transparent;
+}
+.vl-input-field--disabled, .vl-input-field[disabled] {
+  background-color: #f4f5f7;
+}
+.vl-input-field--inline {
   position: relative;
-  max-height: 300px;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  will-change: scroll-position;
+  display: block;
+  max-width: 100%;
 }
-.vl-pill-input__list--dropdown .vl-pill-input__item {
-  position: relative;
-  padding: 1rem;
+@media screen and (max-width: 767px) {
+  .vl-input-field--inline {
+    display: block;
+    width: auto;
+  }
 }
-[dir=rtl] .vl-pill-input__list--dropdown .vl-pill-input__item {
-  text-align: right;
+.vl-input-field--inline .vl-input-field__submit {
+  position: absolute;
+  display: block;
+  color: #fff;
+  width: 4.3rem;
+  height: 3.5rem;
+  opacity: 0;
+  padding: 0;
+  margin-bottom: -2rem;
+  transform: translateX(100%);
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+.vl-input-field--inline .vl-input-field__submit:focus {
+  transform: translateX(0%);
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 1;
+  z-index: 1;
+}
+.vl-input-field--inline .vl-input-field__submit::before {
+  position: absolute;
+  font-size: 1.7rem;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+.vl-input-field--inline .vl-input-field__input {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding-right: 5rem;
+}
+.vl-input-field--inline .vl-input-field__input:focus, .vl-input-field--inline .vl-input-field__input--focus {
+  width: calc(100% - 4.7rem);
+  padding-right: 0;
+  transition: width 0.2s;
+}
+.vl-input-field--inline .vl-input-field__input:focus + .vl-input-field__submit, .vl-input-field--inline .vl-input-field__input--focus + .vl-input-field__submit {
+  transform: translateX(0%);
+  transition: opacity 0.2s, transform 0.2s;
+  opacity: 1;
+  z-index: 1;
 }
 
 .vl-u-visually-hidden {
@@ -7168,6 +7144,10 @@ mark,
   .vl-u-hidden--xs {
     display: none !important;
   }
+}
+
+.js-vl-select, .vl-select__list--dropdown {
+  z-index: 100;
 }
 
 /*# sourceMappingURL=style.css.map */
