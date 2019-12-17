@@ -7150,4 +7150,8 @@ mark,
   z-index: 100;
 }
 
+.js-vl-select.is-open, .vl-select__list--dropdown.is-active {
+  z-index: 101;
+}
+
 /*# sourceMappingURL=style.css.map */
