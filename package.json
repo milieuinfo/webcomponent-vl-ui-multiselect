@@ -56,7 +56,7 @@
     "@govflanders/vl-ui-select": "3.9.1",
     "vl-ui-button": "^2.0.1",
     "vl-ui-datepicker": "^1.1.0",
-    "vl-ui-util": "^3.4.2"
+    "vl-ui-util": "^3.4.4"
   },
   "publishConfig": {
     "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
