@@ -1,13 +1,8 @@
-import { define, awaitScript } from '/node_modules/vl-ui-core/vl-core.js';
+import { define } from '/node_modules/vl-ui-core/vl-core.js';
 import { VlSelect } from '/node_modules/vl-ui-select/vl-select.js';
-
-Promise.all([
-  awaitScript('util', '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js'),
-  awaitScript('core', '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js'),
-  awaitScript('multiselect', '/node_modules/@govflanders/vl-ui-multiselect/dist/js/multiselect.js')]
-).then(() => {
-  window.customElements.whenDefined('vl-select').then(() => define('vl-multiselect', VlMultiSelect, { extends: 'select' }))
-});
+import '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js';
+import '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js';
+import '/node_modules/@govflanders/vl-ui-multiselect/dist/js/multiselect.js';
 
 /**
  * VlMultiSelect
@@ -77,3 +72,5 @@ export class VlMultiSelect extends VlSelect {
     return this.getAttribute('data-vl-multiselect');
   }
 }
+
+window.customElements.whenDefined('vl-select').then(() => define('vl-multiselect', VlMultiSelect, { extends: 'select' }));
