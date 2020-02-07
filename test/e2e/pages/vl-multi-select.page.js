@@ -1,6 +1,5 @@
 const VlMultiSelect = require('../components/vl-multi-select');
-const { Page } = require('vl-ui-core');
-const { Config } = require('vl-ui-core');
+const { Page, Config } = require('vl-ui-core').Test;
 
 class VlMultiSelectPage extends Page {
     async _getMultiSelect(selector) {
