@@ -1,8 +1,8 @@
 import { define } from 'vl-ui-core';
 import { VlSelect } from 'vl-ui-select';
-import 'vl-ui-ui-util/dist/js/util.min.js';
-import 'vl-ui-ui-core/dist/js/core.min.js';
-import 'vl-ui-ui-multiselect/dist/js/multiselect.js';
+import '@govflanders/vl-ui-util/dist/js/util.min.js';
+import '@govflanders/vl-ui-core/dist/js/core.min.js';
+import '@govflanders/vl-ui-multiselect/dist/js/multiselect.js';
 
 /**
  * VlMultiSelect
