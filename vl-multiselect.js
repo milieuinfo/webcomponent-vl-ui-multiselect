@@ -64,10 +64,6 @@ export class VlMultiSelect extends VlSelect {
     });
   }
 
-  get _stylePath() {
-    return '/node_modules/vl-ui-multiselect/style.css';
-  }
-
   get _dataVlSelectAttribute() {
     return this.getAttribute('data-vl-multiselect');
   }
