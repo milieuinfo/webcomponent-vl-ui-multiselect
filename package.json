@@ -44,7 +44,7 @@
     "release:prepare:build:es6": "npm run release:prepare:build:es6:copy && npm run release:prepare:build:es6:replace",
     "release:prepare:build:es6:copy": "cp -R -f ./src/*.src.js ./vl-multiselect.js",
     "release:prepare:build:es6:replace": "npm run release:prepare:build:es6:replace:css && npm run release:prepare:build:es6:replace:dist && npm run release:prepare:build:es6:replace:src",
-    "release:prepare:build:es6:replace:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-multiselect/style.css' vl-multiselect.js",
+    "release:prepare:build:es6:replace:css": "replace \"'/style.css'\" \"'/node_modules/vl-ui-multiselect/style.css'\" vl-multiselect.js",
     "release:prepare:build:es6:replace:dist": "replace \"import ['\\\"]/dist/(.*)['\\\"]\" \"import '/node_modules/vl-ui-multiselect/dist/\\$1'\" vl-multiselect.js",
     "release:prepare:build:es6:replace:src": "replace \"from ['\\\"]/src/(.*)['\\\"]\" \"from '/node_modules/vl-ui-multiselect/src/\\$1'\" vl-multiselect.js",
     "release:prepare:build:es6:min": "npm run release:prepare:build:es6:min:copy && npm run release:prepare:build:es6:min:explode && npm run release:prepare:build:es6:min:minify",
@@ -69,20 +69,19 @@
     "@govflanders/vl-ui-multiselect": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
     "vl-ui-core": "^4.0.0",
-    "vl-ui-select": "^3.0.0"
+    "vl-ui-select": "^3.0.2"
   },
   "peerDependencies": {
     "vl-ui-core": "^4.0.0",
-    "vl-ui-util": "^3.0.0",
-    "vl-ui-select": "^3.0.0"
+    "vl-ui-select": "^3.0.2"
   },
   "devDependencies": {
     "@govflanders/vl-ui-form-structure": "3.9.1",
     "@govflanders/vl-ui-input-field": "3.9.1",
     "@govflanders/vl-ui-pill": "3.9.1",
     "@govflanders/vl-ui-select": "3.9.1",
-    "vl-ui-button": "^3.0.0",
-    "vl-ui-datepicker": "^2.0.0",
-    "vl-ui-util": "^4.0.0"
+    "vl-ui-button": "^3.0.1",
+    "vl-ui-datepicker": "^2.0.2",
+    "vl-ui-util": "^4.0.3"
   }
 }
