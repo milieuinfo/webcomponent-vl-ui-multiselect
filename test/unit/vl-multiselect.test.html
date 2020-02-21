@@ -7,6 +7,8 @@
   <script src="../../../web-component-tester/browser.js"></script>
   <script src="../../node_modules/sinon/pkg/sinon.js"></script>
   <script type="module" src="../../src/vl-multiselect.src.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
@@ -16,13 +18,21 @@
     </template>
   </test-fixture>
 
-  <test-fixture id="vl-multiselect-auto-dress-fixture">
+  <test-fixture id="vl-multiselect-fixture-success">
     <template>
-      <select id="multiselect-2" is="vl-multiselect" data-vl-multiselect/>
+      <select id="multiselect-1" multiple is="vl-multiselect" success data-vl-multiselect></select>
     </template>
   </test-fixture>
 
-  <script>
+  <test-fixture id="vl-multiselect-fixture-error">
+    <template>
+      <select id="multiselect-1" multiple is="vl-multiselect" error data-vl-multiselect></select>
+    </template>
+  </test-fixture>
+
+  <script type="module">
+    import { awaitUntil } from '/node_modules/vl-ui-core/vl-core.js';
+
     suite('vl-multiselect', () => {
       setup((done) => {
         customElements.whenDefined('vl-multiselect').then(done);
@@ -36,14 +46,32 @@
       });
 
       test('wanneer het vl-multiselect element volledig klaar is zal het een ready event versturen', (done) => {
-        const element1 = fixture('vl-multiselect-fixture');
-        element1.addEventListener(element1.readyEvent, () => {
-          const element2 = fixture('vl-multiselect-auto-dress-fixture');
-          element2.addEventListener(element2.readyEvent, () => {
+        const element = fixture('vl-multiselect-fixture');
+        element.addEventListener(element.readyEvent, () => {
+          done();
+        });
+        element.dress();
+      });
+
+      test('wanneer het vl-multiselect element success of error attribuut bevat zal dit zichtbaar zijn', (done) => {
+        let element = fixture('vl-multiselect-fixture-success');
+        element.addEventListener(element.readyEvent, async () => {
+          await awaitUntil(() => {
+            const container = element.parentElement.parentElement.parentElement;
+            return container.classList.contains('vl-select--success');
+          });
+          assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(247, 250, 229)');
+
+          element = fixture('vl-multiselect-fixture-error');
+          element.addEventListener(element.readyEvent, async () => {
+            await awaitUntil(() => {
+              const container = element.parentElement.parentElement.parentElement;
+              return container.classList.contains('vl-select--error');
+            });
+            assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(251, 230, 230)');
             done();
           });
         });
-        element1.dress();
       });
     });
   </script>
