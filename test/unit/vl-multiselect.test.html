@@ -6,9 +6,9 @@
   <script src="../../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../../../web-component-tester/browser.js"></script>
   <script src="../../node_modules/sinon/pkg/sinon.js"></script>
-  <script type="module" src="../../src/vl-multiselect.src.js"></script>
+  <script type="module" src="../../src/vl-multiselect.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/src/style.css">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
   </test-fixture>
 
   <script type="module">
-    import { awaitUntil } from '/node_modules/vl-ui-core/vl-core.js';
+    import { awaitUntil } from '/node_modules/vl-ui-core/dist/vl-core.js';
 
     suite('vl-multiselect', () => {
       setup((done) => {

@@ -10,7 +10,7 @@ describe('vl-multi-select', async () => {
     });
 
 
-    after(async () => {
-        returndriver.quit();
+    it("Dummy test om browsers te sluiten", () => {
+    	assert.isTrue(true);
     });
 });
