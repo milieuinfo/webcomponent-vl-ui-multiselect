@@ -2,20 +2,25 @@ const { VlSelect } = require('vl-ui-select').Test;
 const { Pill } = require('./pill');
 const { By } = require('selenium-webdriver');
 
-class VlMultiSelect extends VlSelect {  
+class VlMultiSelect extends VlSelect {
 
-    async _getCombobox() {
+    async _getRoot() {
         return this.findElement(By.xpath('../..'));
     }
 
     async _getSelectList() {
-        const combobox = await this._getCombobox();
-        return combobox.findElement(By.css('.vl-select__list > div'));
+        const root = await this._getRoot();
+        return root.findElement(By.css('.vl-select__list > div'));
+    }
+
+    async _getSelectListItems() {
+        const selectList = await this._getSelectList();
+        return selectList.findElements(By.css('.vl-select__item'));
     }
 
     async _getPills() {
-        const combobox = await this._getCombobox();
-        const pills = await combobox.findElements(By.css('.vl-pill'));
+        const root = await this._getRoot();
+        const pills = await root.findElements(By.css('.vl-pill'));
         return Promise.all(pills.map(o => new Pill(this.driver, o)));
     }
 
@@ -23,28 +28,81 @@ class VlMultiSelect extends VlSelect {
         const pills = await this._getPills();
         const elements = await Promise.all(pills.map(async (pill) => {
             const value = await pill.getValue();
-            return { webElement: pill, value: value};
+            return { webElement: pill, value: value };
         }));
         return elements.filter(e => e.value == value)[0].webElement;
-    }
-
-    async verwijder(innerText) {
-        const pill = await this._getPillByValue(innerText);
-        return pill.close();
     }
 
     async _getSelectedOptions() {
         return this.findElements(By.css('option'));
     }
 
+    async _getValue(element) {
+        return element.getAttribute('data-value');
+    }
+
+    async _getInput() {
+        const root = await this._getRoot();
+        return root.findElement(By.css(this.selector + ' ~ input'));
+    }
+
     async getSelectedOptionsByValue() {
-        const selectedOptions = await this.findElements(By.css('option'));
+        const selectedOptions = await this._getSelectedOptions();
         return Promise.all(selectedOptions.map(o => o.getAttribute('value')));
     }
-    
-    async getOptions() {
+
+    async delete(value) {
+        const pill = await this._getPillByValue(value);
+        return pill.close();
+    }
+
+    async values() {
+        const listItem = await this._getSelectListItems();
+        return Promise.all(listItem.map(option => this._getValue(option)));
+    }
+
+    async hasValue(value) {
+        const values = await this.values();
+        return values.includes(value);
+    }
+
+    async hasPartialValue(value) {
+        const values = await this.values();
+        return values.find(v => v.indexOf(value) > -1);
+    }
+
+    async searchByText(text) {
+        if ((await this.hasValue(text)) === false) {
+            return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
+        }
+        const input = await this._getInput();
+        await input.sendKeys(text);
+    }
+
+    async searchByPartialText(text) {
+        if ((await this.hasPartialValue(text)) === false) {
+            return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
+        }
+        const input = await this._getInput();
+        await input.sendKeys(text);
+    }
+
+    async getNumberOfSearchResults() {
         const selectList = await this._getSelectList();
-        return selectList.findElements(By.css('.vl-select__item'));
+        const searchResults = await selectList.findElements(By.css('div'));
+        return searchResults.length;
+    }
+
+    async isError() {
+        return this.hasAttribute('error');
+    }
+
+    async isSuccess() {
+        return this.hasAttribute('success');
+    }
+
+    async isDisabled() {
+        return this.hasAttribute('disabled');
     }
 
 }
