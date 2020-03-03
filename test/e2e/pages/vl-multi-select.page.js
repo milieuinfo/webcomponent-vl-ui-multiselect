@@ -1,13 +1,86 @@
 const VlMultiSelect = require('../components/vl-multi-select');
 const { Page, Config } = require('vl-ui-core').Test;
+const { By } = require('selenium-webdriver');
 
 class VlMultiSelectPage extends Page {
     async _getMultiSelect(selector) {
         return new VlMultiSelect(this.driver, selector);
     }
 
+    async getStandardMultiselect() {
+        return this._getMultiSelect('#multiselect');
+    }
+
+    async getVoorgeselecteerdeMultiselect() {
+        return this._getMultiSelect('#multiselect-voorgeselecteerd');
+    }
+
+    async getGegroepeerdeMultiselect() {
+        return this._getMultiSelect('#multiselect-gegroepeerd');
+    }
+
+    async getErrorMultiselect() {
+        return this._getMultiSelect('#multiselect-error');
+    }
+
+    async getSuccessMultiselect() {
+        return this._getMultiSelect('#multiselect-success');
+    }
+
+    async getDisabledMultiselect() {
+        return this._getMultiSelect('#multiselect-disabled');
+    }
+
+    async getMultiselectMetSpecifiekAantalResultaten() {
+        return this._getMultiSelect('#multiselect-specifiek');
+    }
+
+    async getMultiselectMetOnbeperkteResultaten() {
+        return this._getMultiSelect('#multiselect-onbeperkt');
+    }
+
+    async getDatepickerMultiselect() {
+        return this._getMultiSelect('#multiselect-datepicker');
+    }
+
+    async getChangeEventMultiselect() {
+        return this._getMultiSelect('#multiselect-change-listener');
+    }
+
+    async getEnableDisableMethodeMultiselect() {
+        return this._getMultiSelect('#vl-multiselect-enable-disable-methode');
+    }
+
+    async getSetGetMethodeMultiselect() {
+        return this._getMultiSelect('#vl-multiselect-set-get-meethode');
+    }
+
+    async openDatepicker() {
+        return this.driver.findElement(By.css('#button')).click();
+    }
+
+    async enable() {
+        return this.driver.findElement(By.css('#enable')).click();
+    }
+
+    async disable() {
+        return this.driver.findElement(By.css('#disable')).click();
+    }
+
+    async kiesDuitsland() {
+        return this.driver.findElement(By.css('#duitsland')).click();
+    }
+
+    async kiesBelgieEnNederland() {
+        return this.driver.findElement(By.css('#be-nl')).click();
+    }
+
+    async verwijderSelectie() {
+        return this.driver.findElement(By.css('#verwijder')).click();
+    }
+
     async load() {
-        await super.load(Config.baseUrl + '/demo/vl-multi-select.html');
+        await super.load(Config.baseUrl + '/demo/vl-multiselect.html');
     }
 }
 
