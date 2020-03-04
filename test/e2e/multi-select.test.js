@@ -26,13 +26,6 @@ describe('vl-multi-select', async () => {
         await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Germany');
     });
 
-    it('Als gebruiker kan ik een waarde uit de multiselect selecteren via value', async () => {
-        const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
-        await assert.eventually.notInclude(multiselect.getSelectedOptionsByValue(), 'aakstraat');
-        await multiselect.selectByValue('aakstraat');
-        await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'aakstraat');
-    });
-
     it('Als gebruiker kan ik een waarde uit de multiselect selecteren via text', async () => {
         const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
         await assert.eventually.notInclude(multiselect.getSelectedOptionsByValue(), 'aalmoezenierstraat');
@@ -78,8 +71,9 @@ describe('vl-multi-select', async () => {
         await assert.eventually.isTrue(multiselect.hasValue('France'));
     });
 
-    it('Als gebruiker kan ik luisteren naar een change event en onChange loggen naar de console', async () => {
+    it('Als gebruiker kan ik luisteren naar een change event en onChange zal er een extra attribuut gezet worden', async () => {
         const multiselect = await vlMultiSelectPage.getChangeEventMultiselect();
+        await assert.eventually.isFalse(multiselect.hasAttribute('changed'));
         await multiselect.selectByValue('Germany');
         await assert.eventually.isTrue(multiselect.hasAttribute('changed'));
     });
@@ -119,5 +113,9 @@ describe('vl-multi-select', async () => {
 
         await multiselect.selectByValue('Germany');
         await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Germany');
+    });
+
+    after(async () => {
+        return driver.quit();
     });
 });

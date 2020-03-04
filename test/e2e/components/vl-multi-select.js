@@ -8,13 +8,13 @@ class VlMultiSelect extends VlSelect {
         return this.findElement(By.xpath('../..'));
     }
 
-    async _getSelectList() {
+    async _getItemList() {
         const root = await this._getRoot();
         return root.findElement(By.css('.vl-select__list > div'));
     }
 
-    async _getSelectListItems() {
-        const selectList = await this._getSelectList();
+    async _getItemsToSelect() {
+        const selectList = await this._getItemList();
         return selectList.findElements(By.css('.vl-select__item'));
     }
 
@@ -54,7 +54,7 @@ class VlMultiSelect extends VlSelect {
     
     async delete(value) {
         const pill = await this._getPillByValue(value);
-        return pill.close();
+        return pill.remove();
     }
     
     async value(element) {
@@ -62,7 +62,7 @@ class VlMultiSelect extends VlSelect {
     }
     
     async values() {
-        const listItem = await this._getSelectListItems();
+        const listItem = await this._getItemsToSelect();
         return Promise.all(listItem.map(option => this.value(option)));
     }
 
@@ -92,7 +92,7 @@ class VlMultiSelect extends VlSelect {
     }
 
     async getNumberOfSearchResults() {
-        const selectList = await this._getSelectList();
+        const selectList = await this._getItemList();
         const searchResults = await selectList.findElements(By.css('div'));
         return searchResults.length;
     }
