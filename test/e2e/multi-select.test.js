@@ -1,6 +1,7 @@
 
 const { assert, driver } = require('vl-ui-core').Test.Setup;
 const VlMultiSelectPage = require('./pages/vl-multi-select.page');
+const { ElementNotInteractableError } = require('selenium-webdriver').error
 
 describe('vl-multi-select', async () => {
     const vlMultiSelectPage = new VlMultiSelectPage(driver);
@@ -65,8 +66,8 @@ describe('vl-multi-select', async () => {
         const multiselect = await vlMultiSelectPage.getMultiselectMetSpecifiekAantalResultaten();
         await multiselect.searchByPartialText('straat');
         await assert.eventually.equal(multiselect.getNumberOfSearchResults(), 5);
-    });    
-    
+    });
+
     it('Het aantal resultaten van een zoekopdracht is standaard niet beperkt', async () => {
         const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
         await multiselect.searchByPartialText('straat');
@@ -113,7 +114,7 @@ describe('vl-multi-select', async () => {
     it('Als een multiselect boven een datepicker gerenderd wordt, kunnen zowel de multiselect als de datepicker correct gebruikt worden', async () => {
         const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
         const datepicker = await vlMultiSelectPage.getDatepicker();
-        
+
         const date = new Date();
         const today = String(date.getDate()).padStart(1);
         const dd = String(date.getDate()).padStart(2, '0');
@@ -132,4 +133,11 @@ describe('vl-multi-select', async () => {
         await assert.eventually.isTrue(multiselect.isGrouped());
         await assert.eventually.isTrue(multiselect.hasHeadings());
     });
+
+    it('De datepicker kan niet geopend worden wanneer de multiselect geopend is', async () => {
+        const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
+        const datepicker = await vlMultiSelectPage.getDatepicker();
+        await multiselect.openDropdown()
+        assert.isRejected(datepicker.selectDay(4));
+    })
 });
