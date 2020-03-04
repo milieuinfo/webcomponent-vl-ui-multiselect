@@ -49,7 +49,7 @@ class VlMultiSelect extends VlSelect {
     
     async getSelectedOptionsByValue() {
         const selectedOptions = await this._getSelectedOptions();
-        return Promise.all(selectedOptions.map(o => o.getAttribute('value')));
+        return Promise.all(selectedOptions.map(option => option.getAttribute('value')));
     }
     
     async delete(value) {

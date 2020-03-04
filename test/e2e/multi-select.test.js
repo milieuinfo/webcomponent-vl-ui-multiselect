@@ -26,6 +26,12 @@ describe('vl-multi-select', async () => {
         await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Germany');
     });
 
+    it('De default multiselect heeft geen error of success attribuut', async () => {
+        const multiselect = await vlMultiSelectPage.getStandardMultiselect();
+        await assert.eventually.isFalse(multiselect.isError());
+        await assert.eventually.isFalse(multiselect.isSuccess());
+    });
+
     it('Als gebruiker kan ik een waarde uit de multiselect selecteren via text', async () => {
         const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
         await assert.eventually.notInclude(multiselect.getSelectedOptionsByValue(), 'aalmoezenierstraat');
@@ -59,6 +65,12 @@ describe('vl-multi-select', async () => {
         const multiselect = await vlMultiSelectPage.getMultiselectMetSpecifiekAantalResultaten();
         await multiselect.searchByPartialText('straat');
         await assert.eventually.equal(multiselect.getNumberOfSearchResults(), 5);
+    });    
+    
+    it('Het aantal resultaten van een zoekopdracht is standaard niet beperkt', async () => {
+        const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
+        await multiselect.searchByPartialText('straat');
+        await assert.eventually.isAbove(multiselect.getNumberOfSearchResults(), 5);
     });
 
     it('Als gebruiker kan ik de values van een select opvragen', async () => {
