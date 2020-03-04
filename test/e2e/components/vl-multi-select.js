@@ -73,7 +73,7 @@ class VlMultiSelect extends VlSelect {
 
     async hasPartialValue(value) {
         const values = await this.values();
-        return values.find(v => v.indexOf(value) > -1);
+        return values.find(v => v.indexOf(value) > -1).length > 0;
     }
 
     async searchByText(text) {

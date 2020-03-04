@@ -7,7 +7,7 @@ class Pill extends VlElement {
         return this.getAttribute('data-value');
     }
 
-    async close() {
+    async remove() {
         const closeButton = await this.findElement(By.css('.vl-pill__close'));
         return closeButton.click();
     }
