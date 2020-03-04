@@ -118,5 +118,6 @@ describe('vl-multi-select', async () => {
     it('Als gebruiker kan ik opties groeperen', async () => {
         const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
         await assert.eventually.isTrue(multiselect.isGrouped());
+        await assert.eventually.isTrue(multiselect.hasHeadings());
     });
 });

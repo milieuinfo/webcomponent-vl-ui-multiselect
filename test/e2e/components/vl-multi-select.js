@@ -21,7 +21,7 @@ class VlMultiSelect extends VlSelect {
     async _getPills() {
         const root = await this._getRoot();
         const pills = await root.findElements(By.css('.vl-pill'));
-        return Promise.all(pills.map(o => new Pill(this.driver, o)));
+        return Promise.all(pills.map(pill => new Pill(this.driver, pill)));
     }
 
     async _getPillByValue(value) {
@@ -113,6 +113,12 @@ class VlMultiSelect extends VlSelect {
         const itemList = await this._getItemList();
         const selectGroups = await itemList.findElements(By.css('.vl-select__group'));
         return selectGroups.length > 0;
+    }
+    
+    async hasHeadings() {
+        const itemList = await this._getItemList();
+        const headings = await itemList.findElements(By.css('.vl-select__heading'));
+        return headings.length > 0;
     }
 
 }
