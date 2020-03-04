@@ -115,7 +115,8 @@ describe('vl-multi-select', async () => {
         await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Germany');
     });
 
-    after(async () => {
-        return driver.quit();
+    it('Als gebruiker kan ik opties groeperen', async () => {
+        const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
+        await assert.eventually.isTrue(multiselect.isGrouped());
     });
 });

@@ -109,6 +109,12 @@ class VlMultiSelect extends VlSelect {
         return this.hasAttribute('disabled');
     }
 
+    async isGrouped() {
+        const itemList = await this._getItemList();
+        const selectGroups = await itemList.findElements(By.css('.vl-select__group'));
+        return selectGroups.length > 0;
+    }
+
 }
 
 module.exports = VlMultiSelect;
