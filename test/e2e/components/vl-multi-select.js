@@ -82,7 +82,8 @@ class VlMultiSelect extends VlSelect {
     }
 
     async searchByText(text) {
-        if ((await this.hasValue(text)) === false) {
+        const hasValue = await this.hasValue(text);
+        if (!hasValue) {
             return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
         }
         return this._enterSearchText(text);

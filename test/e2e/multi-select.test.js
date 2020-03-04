@@ -74,11 +74,6 @@ describe('vl-multi-select', async () => {
         await assert.eventually.isAbove(multiselect.getNumberOfSearchResults(), 5);
     });
 
-    it('Als gebruiker kan ik de values van een select opvragen', async () => {
-        const multiselect = await vlMultiSelectPage.getStandardMultiselect();
-        await assert.eventually.include(multiselect.values(), 'Belgium', 'France', 'Germany');
-    });
-
     it('Als gebruiker kan ik controleren of een bepaalde value in de select beschikbaar is', async () => {
         const multiselect = await vlMultiSelectPage.getStandardMultiselect();
         await assert.eventually.isTrue(multiselect.hasValue('France'));
