@@ -265,7 +265,7 @@
   </div>
 
   <div>
-    <h2>Multiselect luister naar change events (watch console logs)</h2>
+    <h2>Multiselect luister naar change events</h2>
     <pre>
       <code class="line-numbers language-markup">
         &lt;select id="change-listener" is="vl-multiselect" multiple&gt;
@@ -289,8 +289,7 @@
       </select>
       <script type="text/javascript">
         document.getElementById('change-listener').addEventListener('change', (e) => {
-          console.dir(`e.detail.value => ${e.detail.value}`);
-          console.dir(`e.target.value => ${e.target.value}`);
+          document.getElementById('change-listener').setAttribute('changed', '');
         });
       </script>
     </div>
@@ -354,9 +353,9 @@
         <option value="Italy">Italië</option>
       </select>
 
-      <button id="duitsland" is="vl-button" onclick="document.getElementById('vl-multiselect-set-get-methode').value = 'Duitsland'"
+      <button id="duitsland" is="vl-button" onclick="document.getElementById('vl-multiselect-set-get-methode').value = 'Germany'"
         type="button">Kies Duitsland</button>
-      <button id="be-nl" is="vl-button" onclick="document.getElementById('vl-multiselect-set-get-methode').values = ['België', 'Nederland']"
+      <button id="be-nl" is="vl-button" onclick="document.getElementById('vl-multiselect-set-get-methode').values = ['Belgium', 'Netherlands']"
         type="button">Kies België en Nederland</button>
       <button id="verwijder" is="vl-button" onclick="document.getElementById('vl-multiselect-set-get-methode').removeActive()"
         type="button">Verwijder selectie</button>

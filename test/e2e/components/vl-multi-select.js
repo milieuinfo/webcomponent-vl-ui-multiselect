@@ -37,28 +37,33 @@ class VlMultiSelect extends VlSelect {
         return this.findElements(By.css('option'));
     }
 
-    async _getValue(element) {
-        return element.getAttribute('data-value');
-    }
-
     async _getInput() {
         const root = await this._getRoot();
         return root.findElement(By.css(this.selector + ' ~ input'));
     }
 
+    async _enterSearchText(searchText) {
+        const input = await this._getInput();
+        return input.sendKeys(searchText);
+    }
+    
     async getSelectedOptionsByValue() {
         const selectedOptions = await this._getSelectedOptions();
         return Promise.all(selectedOptions.map(o => o.getAttribute('value')));
     }
-
+    
     async delete(value) {
         const pill = await this._getPillByValue(value);
         return pill.close();
     }
-
+    
+    async value(element) {
+        return element.getAttribute('data-value');
+    }
+    
     async values() {
         const listItem = await this._getSelectListItems();
-        return Promise.all(listItem.map(option => this._getValue(option)));
+        return Promise.all(listItem.map(option => this.value(option)));
     }
 
     async hasValue(value) {
@@ -75,16 +80,14 @@ class VlMultiSelect extends VlSelect {
         if ((await this.hasValue(text)) === false) {
             return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
         }
-        const input = await this._getInput();
-        await input.sendKeys(text);
+        return this._enterSearchText(text);
     }
 
     async searchByPartialText(text) {
         if ((await this.hasPartialValue(text)) === false) {
             return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
         }
-        const input = await this._getInput();
-        await input.sendKeys(text);
+        return this._enterSearchText(text);
     }
 
     async getNumberOfSearchResults() {
