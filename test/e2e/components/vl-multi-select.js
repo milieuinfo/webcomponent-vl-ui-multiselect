@@ -84,7 +84,8 @@ class VlMultiSelect extends VlSelect {
     }
 
     async searchByPartialText(text) {
-        if ((await this.hasPartialValue(text)) === false) {
+        const hasPartialValue = await this.hasPartialValue(text);
+        if (!hasPartialValue) {
             return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
         }
         return this._enterSearchText(text);
