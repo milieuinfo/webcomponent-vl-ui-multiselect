@@ -115,7 +115,7 @@ describe('vl-multi-select', async () => {
         const yyyy = date.getFullYear();
 
         await datepicker.selectDay(today);
-        await assert.eventually.equal(datepicker.getInputValue(), dd + '.' + mm + '.' + yyyy);
+        await assert.eventually.equal(datepicker.getInputValue(), `${dd}.${mm}.${yyyy}`);
 
         await multiselect.selectByValue('Germany');
         await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Germany');
