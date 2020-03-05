@@ -1,5 +1,5 @@
 const VlMultiSelect = require('../components/vl-multi-select');
-const { VlDatepicker } = require('vl-ui-datepicker').Test;
+//const { VlDatepicker } = require('vl-ui-datepicker').Test;
 const { Page, Config } = require('vl-ui-core').Test;
 const { By, Key } = require('selenium-webdriver');
 
@@ -56,9 +56,9 @@ class VlMultiSelectPage extends Page {
         return this._getMultiSelect('#vl-multiselect-set-get-methode');
     }
 
-    async getDatepicker() {
-        return new VlDatepicker(this.driver, '#datepicker');
-    }
+    // async getDatepicker() {
+    //     return new VlDatepicker(this.driver, '#datepicker');
+    // }
 
     async enable() {
         return this.driver.findElement(By.css('#enable')).click();

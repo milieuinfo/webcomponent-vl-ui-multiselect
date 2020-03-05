@@ -52,7 +52,7 @@
   },
   "peerDependencies": {
     "vl-ui-core": "^5.0.3",
-    "vl-ui-select": "^4.0.0"
+    "vl-ui-select": "^4.0.1"
   },
   "devDependencies": {
     "@govflanders/vl-ui-form-structure": "3.9.1",

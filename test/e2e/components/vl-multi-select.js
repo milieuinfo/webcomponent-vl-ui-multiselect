@@ -3,7 +3,6 @@ const { Pill } = require('./pill');
 const { By } = require('selenium-webdriver');
 
 class VlMultiSelect extends VlSelect {
-
     async _getRoot() {
         return this.findElement(By.xpath('../..'));
     }
