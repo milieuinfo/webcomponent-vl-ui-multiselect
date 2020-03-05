@@ -105,6 +105,7 @@ describe('vl-multi-select', async () => {
         await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Belgium', 'Netherlands');
     });
 
+    // Testen mogen terug uit commentaar gehaald worden wanneer er een stabiele versie van de datepicker is
     // it('Als een multiselect boven een datepicker gerenderd wordt, kunnen zowel de multiselect als de datepicker correct gebruikt worden', async () => {
     //     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
     //     const datepicker = await vlMultiSelectPage.getDatepicker();

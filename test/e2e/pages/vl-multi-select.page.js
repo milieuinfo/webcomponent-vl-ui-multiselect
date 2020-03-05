@@ -55,7 +55,7 @@ class VlMultiSelectPage extends Page {
     async getSetGetMethodeMultiselect() {
         return this._getMultiSelect('#vl-multiselect-set-get-methode');
     }
-
+    // Testen mogen terug uit commentaar gehaald worden wanneer er een stabiele versie van de datepicker is
     // async getDatepicker() {
     //     return new VlDatepicker(this.driver, '#datepicker');
     // }
