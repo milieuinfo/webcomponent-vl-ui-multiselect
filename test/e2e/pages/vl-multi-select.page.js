@@ -1,7 +1,7 @@
 const VlMultiSelect = require('../components/vl-multi-select');
 const { VlDatepicker } = require('vl-ui-datepicker').Test;
 const { Page, Config } = require('vl-ui-core').Test;
-const { By } = require('selenium-webdriver');
+const { By, Key } = require('selenium-webdriver');
 
 class VlMultiSelectPage extends Page {
     async _getMultiSelect(selector) {
@@ -78,6 +78,11 @@ class VlMultiSelectPage extends Page {
 
     async verwijderSelectie() {
         return this.driver.findElement(By.css('#verwijder')).click();
+    }
+
+    async closeAnyOpenDropdowns() {
+        const body = await this.driver.findElement(By.css('body'));
+        return body.sendKeys(Key.ESCAPE);
     }
 
     async load() {

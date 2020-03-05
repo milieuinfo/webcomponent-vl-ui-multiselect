@@ -1,7 +1,6 @@
 
 const { assert, driver } = require('vl-ui-core').Test.Setup;
 const VlMultiSelectPage = require('./pages/vl-multi-select.page');
-const { ElementNotInteractableError } = require('selenium-webdriver').error
 
 describe('vl-multi-select', async () => {
     const vlMultiSelectPage = new VlMultiSelectPage(driver);
@@ -121,6 +120,7 @@ describe('vl-multi-select', async () => {
 
         await multiselect.selectByValue('Germany');
         await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Germany');
+
     });
 
     it('Als gebruiker kan ik opties groeperen', async () => {
@@ -133,6 +133,24 @@ describe('vl-multi-select', async () => {
         const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
         const datepicker = await vlMultiSelectPage.getDatepicker();
         await multiselect.openDropdown()
-        assert.isRejected(datepicker.selectDay(4));
-    })
+        await assert.isRejected(datepicker.selectDay(4));
+
+        await vlMultiSelectPage.closeAnyOpenDropdowns();
+        await assert.eventually.isFalse(datepicker.isOpen());
+    });
+
+    it('Als de gebruiker de multiselect opent wanneer de datepicker zichtbaar is, zal de datepicker verdwijnen', async () => {
+        const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
+        const datepicker = await vlMultiSelectPage.getDatepicker();
+
+        await assert.eventually.isFalse(datepicker.isOpen());
+        await datepicker.open();
+        await assert.eventually.isTrue(datepicker.isOpen());
+        await multiselect.openDropdown();
+        await assert.eventually.isTrue(multiselect.isOpen());
+        await assert.eventually.isFalse(datepicker.isOpen());
+
+        await vlMultiSelectPage.closeAnyOpenDropdowns();
+        await assert.eventually.isFalse(multiselect.isOpen());
+    });
 });

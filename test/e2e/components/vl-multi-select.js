@@ -47,6 +47,11 @@ class VlMultiSelect extends VlSelect {
         return input.sendKeys(searchText);
     }
 
+    async isOpen() {
+        const root = await this._getRoot();
+        return root.hasClass('is-open');
+    }
+
     async openDropdown() {
         const input = await this._getInput();
         return input.click();
