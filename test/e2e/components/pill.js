@@ -1,16 +1,27 @@
-const { VlElement } = require('vl-ui-core').Test;
 const { By } = require('selenium-webdriver');
+class Pill {
+    constructor(webElement) {
+        this.webElement = webElement;
+        
+    }
 
-class Pill extends VlElement {
-    
-    async getValue() {
-        return this.getAttribute('data-value');
+    async value() {
+        return this.webElement.getAttribute('data-value');
+    }
+
+    async isSelected() {
+        return !!this.webElement.getAttribute('aria-selected');
+    }
+
+    async text() {
+        const span = await this.webElement.findElement(By.css('span'));
+        return span.getAttribute('innerText');
     }
 
     async remove() {
-        const closeButton = await this.findElement(By.css('.vl-pill__close'));
+        const closeButton = await this.webElement.findElement(By.css('.vl-pill__close'));
         return closeButton.click();
     }
 }
 
-module.exports = { Pill };
+module.exports = { Pill }
