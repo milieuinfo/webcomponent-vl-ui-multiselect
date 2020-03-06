@@ -18,8 +18,11 @@ describe('vl-multi-select', async () => {
     it('Als gebruiker kan ik een optie selecteren en deze zal dan in de combobox getoond worden', async () => {
         const multiselect = await vlMultiSelectPage.getStandardMultiselect();
         const selectedItems = await multiselect.getSelectedItems();
+        const unselectedItems = await multiselect.getUnselectedItems();
+        const itemToSelect = unselectedItems.find(item => item.text === 'Duitsland');
+       
         assert.isFalse(selectedItems.some(i => i.text === 'Duitsland'));
-        await multiselect.select('Duitsland');
+        await multiselect.select(itemToSelect);
         const selectedItemsAfterUpdate = await multiselect.getSelectedItems();
         assert.isTrue(selectedItemsAfterUpdate.some(i => i.text === 'Duitsland'));
     });
@@ -33,8 +36,10 @@ describe('vl-multi-select', async () => {
     it('Als gebruiker kan ik een gekozen optie verwijderen', async () => {
         const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
         const selectedItems = await multiselect.getSelectedItems();
+        const itemToUnSelect = selectedItems.find(item => item.text === 'Brugge');
+        
         assert.isTrue(selectedItems.some(i => i.text === 'Brugge'));
-        await multiselect.unselect('Brugge');
+        await multiselect.unselect(itemToUnSelect);
         const selectedItemsAfterUnselect = await multiselect.getSelectedItems();
         assert.isFalse(selectedItemsAfterUnselect.some(i => i.text === 'Brugge'));
     });

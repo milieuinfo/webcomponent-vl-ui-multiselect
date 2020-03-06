@@ -9,6 +9,11 @@ class VlMultiSelect extends VlSelect {
         return this.findElement(By.xpath('../..'));
     }
 
+    async _closeDropdown() {
+        const body = await this.driver.findElement(By.css('body'));
+        return body.sendKeys(Key.ESCAPE);
+    }
+
     async _getInput() {
         const root = await this.findElement(By.xpath('..'));
         return root.findElement(By.css('input.vl-input-field'));
@@ -24,15 +29,6 @@ class VlMultiSelect extends VlSelect {
         const text = await pillOrMultiselectItem.text();
         const isSelected = await pillOrMultiselectItem.isSelected();
         return new Item(value, text, isSelected, pillOrMultiselectItem);
-    }
-
-    async getUnselectedItems() {
-        const selectList = await this._getItemList();
-        const items = await selectList.findElements(By.css('.vl-select__item'));
-        return Promise.all(items.map(async (item) => {
-            const multiSelectItem = await new MultiselectItem(item);
-            return this._toItem(multiSelectItem);
-        }));
     }
 
     async _getUnselectedItems() {
@@ -67,12 +63,13 @@ class VlMultiSelect extends VlSelect {
     }
 
     async getSelectedItems() {
-        const root = await this._getRoot();
-        const selectedItems = await root.findElements(By.css('.vl-pill'));
-        return Promise.all(selectedItems.map(async (item) => {
-            const pill = await new Pill(item);
-            return this._toItem(pill);
-        }));
+        const pills = await this._getSelectedItems()
+        return Promise.all(pills.map(pill => this._toItem(pill)));
+    }
+
+    async getUnselectedItems() {
+        const multiselectItems = await this._getUnselectedItems();
+        return Promise.all(multiselectItems.map(multiselectItem => this._toItem(multiselectItem)));
     }
 
     async getAllItems() {
@@ -81,28 +78,29 @@ class VlMultiSelect extends VlSelect {
         return unselectedItems.concat(selectedItems);
     }
 
-    async select(text) {
+    async select(item) {
         const multiselect = await new VlSelect(this.driver, this);
-        return multiselect.selectByText(text);
+        await multiselect.selectByText(item.text);
+        return this._closeDropdown();
     }
 
-    async unselect(text) {
-        const selectedItems = await this._getSelectedItems();
-        const pills = await Promise.all(selectedItems.map(async (pill) => {
+    async unselect(item) {
+        const pills = await this._getSelectedItems();
+        const mappedPills = await Promise.all(pills.map(async (pill) => {
             const text = await pill.text();
-            return { text: text, pill: pill }
+            return {text: text, pill: pill}
         }));
-        const pill = pills.filter(pill => pill.text === text)[0].pill;
-        if (pill) {
-            return pill.remove();
+        const filteredPills = mappedPills.filter(p => p.text === item.text);
+        if(!filteredPills || filteredPills.length < 1) {
+            throw new Error('Item met text "' + item.text + '" kan niet gevonden worden!');
         }
-        throw new Error('Geen item gevonden met tekst: ' + text);
+        await filteredPills[0].pill.remove();
     }
 
     async searchByPartialText(text) {
         const hasPartialValue = await this._hasPartialValue(text);
         if (!hasPartialValue) {
-            return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
+            throw new Error('Waarde ' + text + ' niet gevonden in de dropdown!');
         }
         return this._enterSearchText(text);
     }
