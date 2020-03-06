@@ -54,17 +54,17 @@ describe('vl-multi-select', async () => {
         await assert.eventually.isTrue(multiselect.isDisabled());
     });
 
-    // it('Het aantal resultaten van een zoekopdracht kan beperkt worden', async () => {
-    //     const multiselect = await vlMultiSelectPage.getMultiselectMetSpecifiekAantalResultaten();
-    //     await multiselect.searchByPartialText('straat');
-    //     await assert.eventually.equal(multiselect.getNumberOfSearchResults(), 5);
-    // });
+    it('Het aantal resultaten van een zoekopdracht kan beperkt worden', async () => {
+        const multiselect = await vlMultiSelectPage.getMultiselectMetSpecifiekAantalResultaten();
+        await multiselect.searchByPartialText('straat');
+        await assert.eventually.equal(multiselect.getNumberOfSearchResults(), 5);
+    });
 
-    // it('Het aantal resultaten van een zoekopdracht is standaard niet beperkt', async () => {
-    //     const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
-    //     await multiselect.searchByPartialText('straat');
-    //     await assert.eventually.isAbove(multiselect.getNumberOfSearchResults(), 5);
-    // });
+    it('Het aantal resultaten van een zoekopdracht is standaard niet beperkt', async () => {
+        const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
+        await multiselect.searchByPartialText('straat');
+        await assert.eventually.isAbove(multiselect.getNumberOfSearchResults(), 5);
+    });
 
     it('Als gebruiker kan ik luisteren naar een change event en onChange zal er een extra attribuut gezet worden', async () => {
         const multiselect = await vlMultiSelectPage.getChangeEventMultiselect();

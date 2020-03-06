@@ -10,8 +10,8 @@ class VlMultiSelect extends VlSelect {
     }
 
     async _getInput() {
-        const root = await this._getRoot();
-        return root.findElement(By.css('.vl-input-field'));
+        const root = await this.findElement(By.xpath('..'));
+        return root.findElement(By.css('input.vl-input-field'));
     }
 
     async _getItemList() {
@@ -75,20 +75,17 @@ class VlMultiSelect extends VlSelect {
         const selectedItems = await this._getSelectedItems();
         const pills = await Promise.all(selectedItems.map(async (pill) => {
             const text = await pill.text();
-            return {text: text, pill: pill}
+            return { text: text, pill: pill }
         }));
         const pill = pills.filter(pill => pill.text === text)[0].pill;
-        if(pill) {
+        if (pill) {
             return pill.remove();
         }
         throw new Error('Geen item gevonden met tekst: ' + text);
     }
 
     async _enterSearchText(searchText) {
-        const body = await this.driver.findElement(By.css('body'));
-        await body.sendKeys(Key.ESCAPE);
         const input = await this._getInput();
-        await this.click();
         return input.sendKeys(searchText);
     }
 
@@ -101,21 +98,21 @@ class VlMultiSelect extends VlSelect {
     //     const input = await this._getInput();
     //     return input.click();
     // }
-    
+
     // async getSelectedValues() {
     //     const selectedOptions = await this._getSelectedOptions();
     //     return Promise.all(selectedOptions.map(option => option.getAttribute('value')));
     // }
-    
+
     // async delete(value) {
     //     const pill = await this._getPillByValue(value);
     //     return pill.remove();
     // }
-    
+
     // async value(item) {
     //     return item.webElement.getAttribute('data-value');
     // }
-    
+
     async values() {
         const listItem = await this.getAllItems();
         return Promise.all(listItem.map(item => item.value));
@@ -170,7 +167,7 @@ class VlMultiSelect extends VlSelect {
         const selectGroups = await itemList.findElements(By.css('.vl-select__group'));
         return selectGroups.length > 0;
     }
-    
+
     async hasHeadings() {
         const itemList = await this._getItemList();
         const headings = await itemList.findElements(By.css('.vl-select__heading'));
