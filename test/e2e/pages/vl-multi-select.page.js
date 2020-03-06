@@ -1,7 +1,8 @@
 const VlMultiSelect = require('../components/vl-multi-select');
 //const { VlDatepicker } = require('vl-ui-datepicker').Test;
 const { Page, Config } = require('vl-ui-core').Test;
-const { By, Key } = require('selenium-webdriver');
+const { Key } = require('selenium-webdriver');
+const { By } = require('vl-ui-core').Test.Setup;
 
 class VlMultiSelectPage extends Page {
     async _getMultiSelect(selector) {

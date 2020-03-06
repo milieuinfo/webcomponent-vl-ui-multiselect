@@ -1,11 +1,10 @@
 const { By } = require('selenium-webdriver');
 
 class Item {
-    constructor(value, text, isSelected, webElement) {
+    constructor(value, text, isSelected) {
         this.value = value;
         this.text = text;
         this.isSelected = isSelected;
-        this.webElement = webElement;
     }
     
 }

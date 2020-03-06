@@ -1,5 +1,6 @@
 const { VlSelect } = require('vl-ui-select').Test;
-const { By, Key } = require('selenium-webdriver');
+const { Key } = require('selenium-webdriver');
+const { By } = require('vl-ui-core').Test.Setup;
 const { Pill } = require('./pill');
 const { MultiselectItem } = require('./multiselect-item');
 const { Item } = require('./item');
@@ -80,7 +81,7 @@ class VlMultiSelect extends VlSelect {
 
     async select(item) {
         const multiselect = await new VlSelect(this.driver, this);
-        await multiselect.selectByText(item.text);
+        await multiselect.selectByValue(item.value);
         return this._closeDropdown();
     }
 
@@ -90,11 +91,11 @@ class VlMultiSelect extends VlSelect {
             const text = await pill.text();
             return {text: text, pill: pill}
         }));
-        const filteredPills = mappedPills.filter(p => p.text === item.text);
-        if(!filteredPills || filteredPills.length < 1) {
+        const filteredPills = mappedPills.find(p => p.text === item.text);
+        if(!filteredPills) {
             throw new Error('Item met text "' + item.text + '" kan niet gevonden worden!');
         }
-        await filteredPills[0].pill.remove();
+        await filteredPills.pill.remove();
     }
 
     async searchByPartialText(text) {

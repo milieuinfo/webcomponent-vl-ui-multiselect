@@ -13,6 +13,7 @@ describe('vl-multi-select', async () => {
         const multiselect = await vlMultiSelectPage.getVoorgeselecteerdeMultiselect();
         const selectedItems = await multiselect.getSelectedItems();
         assert.isTrue(selectedItems.some(item => item.text === 'Brugge'));
+        assert.isTrue(selectedItems.some(item => item.value === 'Bruges'));
     });
 
     it('Als gebruiker kan ik een optie selecteren en deze zal dan in de combobox getoond worden', async () => {

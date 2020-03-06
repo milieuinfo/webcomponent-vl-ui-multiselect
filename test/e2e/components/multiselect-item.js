@@ -8,7 +8,7 @@ class MultiselectItem {
     }
 
     async isSelected() {
-        return !!this.webElement.getAttribute('aria-selected');
+        return false;
     }
 
     async text() {

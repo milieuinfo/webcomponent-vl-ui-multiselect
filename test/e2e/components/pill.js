@@ -9,7 +9,7 @@ class Pill {
     }
 
     async isSelected() {
-        return !!this.webElement.getAttribute('aria-selected');
+        return true;
     }
 
     async text() {
