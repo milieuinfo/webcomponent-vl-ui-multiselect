@@ -43,20 +43,35 @@ class VlMultiSelect extends VlSelect {
         }));
     }
 
+    async _getSelectedItems() {
+        const root = await this._getRoot();
+        const selectedItems = await root.findElements(By.css('.vl-pill'));
+        return Promise.all(selectedItems.map(async (item) => {
+            return new Pill(item);
+        }));
+    }
+
+    async _enterSearchText(searchText) {
+        const input = await this._getInput();
+        return input.sendKeys(searchText);
+    }
+
+    async _values() {
+        const listItem = await this.getAllItems();
+        return Promise.all(listItem.map(item => item.value));
+    }
+
+    async _hasPartialValue(value) {
+        const values = await this._values();
+        return !!values.find(v => v.indexOf(value) > -1);
+    }
+
     async getSelectedItems() {
         const root = await this._getRoot();
         const selectedItems = await root.findElements(By.css('.vl-pill'));
         return Promise.all(selectedItems.map(async (item) => {
             const pill = await new Pill(item);
             return this._toItem(pill);
-        }));
-    }
-
-    async _getSelectedItems() {
-        const root = await this._getRoot();
-        const selectedItems = await root.findElements(By.css('.vl-pill'));
-        return Promise.all(selectedItems.map(async (item) => {
-            return new Pill(item);
         }));
     }
 
@@ -84,60 +99,8 @@ class VlMultiSelect extends VlSelect {
         throw new Error('Geen item gevonden met tekst: ' + text);
     }
 
-    async _enterSearchText(searchText) {
-        const input = await this._getInput();
-        return input.sendKeys(searchText);
-    }
-
-    // async isOpen() {
-    //     const root = await this._getRoot();
-    //     return root.hasClass('is-open');
-    // }
-
-    // async openDropdown() {
-    //     const input = await this._getInput();
-    //     return input.click();
-    // }
-
-    // async getSelectedValues() {
-    //     const selectedOptions = await this._getSelectedOptions();
-    //     return Promise.all(selectedOptions.map(option => option.getAttribute('value')));
-    // }
-
-    // async delete(value) {
-    //     const pill = await this._getPillByValue(value);
-    //     return pill.remove();
-    // }
-
-    // async value(item) {
-    //     return item.webElement.getAttribute('data-value');
-    // }
-
-    async values() {
-        const listItem = await this.getAllItems();
-        return Promise.all(listItem.map(item => item.value));
-    }
-
-    // async hasValue(value) {
-    //     const values = await this.values();
-    //     return values.includes(value);
-    // }
-
-    async hasPartialValue(value) {
-        const values = await this.values();
-        return !!values.find(v => v.indexOf(value) > -1);
-    }
-
-    // async searchByText(text) {
-    //     const hasValue = await this.hasValue(text);
-    //     if (!hasValue) {
-    //         return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
-    //     }
-    //     return this._enterSearchText(text);
-    // }
-
     async searchByPartialText(text) {
-        const hasPartialValue = await this.hasPartialValue(text);
+        const hasPartialValue = await this._hasPartialValue(text);
         if (!hasPartialValue) {
             return Promise.reject('Waarde ' + text + ' niet gevonden in de dropdown!');
         }
