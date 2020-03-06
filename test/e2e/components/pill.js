@@ -2,7 +2,6 @@ const { By } = require('selenium-webdriver');
 class Pill {
     constructor(webElement) {
         this.webElement = webElement;
-        
     }
 
     async value() {
@@ -16,11 +15,6 @@ class Pill {
     async text() {
         const span = await this.webElement.findElement(By.css('span'));
         return span.getAttribute('innerText');
-    }
-
-    async remove() {
-        const closeButton = await this.webElement.findElement(By.css('.vl-pill__close'));
-        return closeButton.click();
     }
 }
 

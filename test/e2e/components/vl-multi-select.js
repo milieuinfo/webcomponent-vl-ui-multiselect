@@ -2,6 +2,7 @@ const { VlSelect } = require('vl-ui-select').Test;
 const { By } = require('selenium-webdriver');
 const { Pill } = require('./pill');
 const { MultiselectItem } = require('./multiselect-item');
+const { Item } = require('./item');
 
 class VlMultiSelect extends VlSelect {
     async _getRoot() {
@@ -13,11 +14,19 @@ class VlMultiSelect extends VlSelect {
         return root.findElement(By.css('.vl-select__list > div'));
     }
 
+    async _toItem(pillOrMultiselectItem) {
+        const value = await pillOrMultiselectItem.value();
+        const text = await pillOrMultiselectItem.text();
+        const isSelected = await pillOrMultiselectItem.isSelected();
+        return new Item(value, text, isSelected, pillOrMultiselectItem);
+    }
+
     async getUnselectedItems() {
         const selectList = await this._getItemList();
         const items = await selectList.findElements(By.css('.vl-select__item'));
         return Promise.all(items.map(async (item) => {
-            return new MultiselectItem(item);
+            const multiSelectItem = await new MultiselectItem(item);
+            return this._toItem(multiSelectItem);
         }));
     }
 
@@ -25,7 +34,8 @@ class VlMultiSelect extends VlSelect {
         const root = await this._getRoot();
         const selectedItems = await root.findElements(By.css('.vl-pill'));
         return Promise.all(selectedItems.map(async (item) => {
-            return new Pill(item);
+            const pill = await new Pill(item);
+            return this._toItem(pill);
         }));
     }
 
@@ -42,12 +52,8 @@ class VlMultiSelect extends VlSelect {
 
     async unselect(text) {
         const selectedItems = await this.getSelectedItems();
-        const items = await Promise.all(selectedItems.map(async (pill) => {
-            const text = await pill.text();
-            return {text: text, pill: pill};
-        }));
-        const pill = items.filter(i => i.text == text)[0].pill;
-        return pill.remove();
+        const item = selectedItems.filter(i => i.text == text)[0];
+        return item.remove();
     }
 
     // async _enterSearchText(searchText) {

@@ -12,36 +12,32 @@ describe('vl-multi-select', async () => {
     it('Als gebruiker kan ik de geselecteerde items opvragen', async () => {
         const multiselect = await vlMultiSelectPage.getVoorgeselecteerdeMultiselect();
         const selectedItems = await multiselect.getSelectedItems();
-        const pillTexts = await Promise.all(selectedItems.map(async (pill) => {
-            const text = await pill.text();
-            return {pill: pill, text: text}
-        }));
-        assert.isTrue(pillTexts.some(p => p.text === 'Brugge'));
+        assert.isTrue(selectedItems.some(item => item.text === 'Brugge'));
     });
 
-    // it('Als gebruiker kan ik een optie selecteren en deze zal dan in de combobox getoond worden', async () => {
-    //     const multiselect = await vlMultiSelectPage.getStandardMultiselect();
-    //     const selectedItems = await multiselect.getSelectedItems();
-    //     assert.isFalse(selectedItems.some(i => i.text === 'Duitsland'));
-    //     await multiselect.select('Duitsland');
-    //     const selectedItemsAfterUpdate = await multiselect.getSelectedItems();
-    //     assert.isTrue(selectedItemsAfterUpdate.some(i => i.text === 'Duitsland'));
-    // });
+    it('Als gebruiker kan ik een optie selecteren en deze zal dan in de combobox getoond worden', async () => {
+        const multiselect = await vlMultiSelectPage.getStandardMultiselect();
+        const selectedItems = await multiselect.getSelectedItems();
+        assert.isFalse(selectedItems.some(i => i.text === 'Duitsland'));
+        await multiselect.select('Duitsland');
+        const selectedItemsAfterUpdate = await multiselect.getSelectedItems();
+        assert.isTrue(selectedItemsAfterUpdate.some(i => i.text === 'Duitsland'));
+    });
 
-    // it('De default multiselect heeft geen error of success attribuut', async () => {
-    //     const multiselect = await vlMultiSelectPage.getStandardMultiselect();
-    //     await assert.eventually.isFalse(multiselect.isError());
-    //     await assert.eventually.isFalse(multiselect.isSuccess());
-    // });
+    it('De default multiselect heeft geen error of success attribuut', async () => {
+        const multiselect = await vlMultiSelectPage.getStandardMultiselect();
+        await assert.eventually.isFalse(multiselect.isError());
+        await assert.eventually.isFalse(multiselect.isSuccess());
+    });
 
-    // it('Als gebruiker kan ik een gekozen optie verwijderen', async () => {
-    //     const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
-    //     const selectedItems = await multiselect.getSelectedItems();
-    //     assert.isTrue(selectedItems.some(i => i.text === 'Brugge'));
-    //     await multiselect.unselect('Brugge');
-    //     const selectedItemsAfterUnselect = await multiselect.getSelectedItems();
-    //     assert.isFalse(selectedItemsAfterUnselect.some(i => i.text === 'Brugge'));
-    // });
+    it('Als gebruiker kan ik een gekozen optie verwijderen', async () => {
+        const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
+        const selectedItems = await multiselect.getSelectedItems();
+        assert.isTrue(selectedItems.some(i => i.text === 'Brugge'));
+        await multiselect.unselect('Brugge');
+        const selectedItemsAfterUnselect = await multiselect.getSelectedItems();
+        assert.isFalse(selectedItemsAfterUnselect.some(i => i.text === 'Brugge'));
+    });
 
     // it('Als gebruiker kan ik een multiselect definieren als error multiselect', async () => {
     //     const multiselect = await vlMultiSelectPage.getErrorMultiselect();
