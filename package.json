@@ -60,7 +60,7 @@
     "@govflanders/vl-ui-pill": "3.9.1",
     "@govflanders/vl-ui-select": "3.9.1",
     "vl-ui-button": "^4.0.1",
-    "vl-ui-datepicker": "github:milieuinfo/webcomponent-vl-ui-datepicker#increase-timeout",
-    "vl-ui-util": "^5.0.8"
+    "vl-ui-datepicker": "^3.0.1",
+    "vl-ui-util": "^5.0.9"
   }
 }
