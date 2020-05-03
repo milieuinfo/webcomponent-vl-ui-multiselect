@@ -51,7 +51,7 @@
     "vl-ui-select": "^4.0.1"
   },
   "peerDependencies": {
-    "vl-ui-core": "^5.0.3",
+    "vl-ui-core": "^5.1.2",
     "vl-ui-select": "^4.0.1"
   },
   "devDependencies": {
@@ -61,6 +61,6 @@
     "@govflanders/vl-ui-select": "3.9.1",
     "vl-ui-button": "^5.0.0",
     "vl-ui-datepicker": "^3.0.1",
-    "vl-ui-util": "^5.1.6"
+    "vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#deleted-demo-code"
   }
 }
