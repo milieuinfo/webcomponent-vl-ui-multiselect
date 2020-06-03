@@ -1,12 +1,9 @@
-const { By } = require('selenium-webdriver');
-
 class Item {
-    constructor(value, text, isSelected) {
-        this.value = value;
-        this.text = text;
-        this.isSelected = isSelected;
-    }
-    
+  constructor(value, text, isSelected) {
+    this.value = value;
+    this.text = text;
+    this.isSelected = isSelected;
+  }
 }
 
-module.exports = { Item };
+module.exports = {Item};
