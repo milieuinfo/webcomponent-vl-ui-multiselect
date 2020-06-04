@@ -94,12 +94,14 @@ describe('vl-multi-select', async () => {
     await vlMultiSelectPage.kiesDuitsland();
     const de = await multiselect.getSelectedItems();
     assert.isTrue(de.some((i) => i.text === 'Duitsland'));
-    await vlMultiSelectPage.verwijderSelectie();
-    await assert.eventually.isEmpty(multiselect.getSelectedItems());
     await vlMultiSelectPage.kiesBelgieEnNederland();
     const nlBe = await multiselect.getSelectedItems();
+    assert.isTrue(de.some((i) => i.text === 'Duitsland'));
     assert.isTrue(nlBe.some((i) => i.text === 'België'));
     assert.isTrue(nlBe.some((i) => i.text === 'Nederland'));
+    await assert.eventually.lengthOf(multiselect.getSelectedItems(), 3);
+    await vlMultiSelectPage.verwijderSelectie();
+    await assert.eventually.lengthOf(multiselect.getSelectedItems(), 2);
   });
 
   // Testen mogen terug uit commentaar gehaald worden wanneer er een stabiele versie van de datepicker is

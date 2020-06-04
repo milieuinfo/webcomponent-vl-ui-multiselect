@@ -1,5 +1,5 @@
-import { define } from 'vl-ui-core';
-import { VlSelect } from 'vl-ui-select';
+import {define} from 'vl-ui-core';
+import {VlSelect} from 'vl-ui-select';
 import '@govflanders/vl-ui-util/dist/js/util.js';
 import '@govflanders/vl-ui-core/dist/js/core.js';
 import '@govflanders/vl-ui-multiselect/dist/js/multiselect.js';
@@ -10,7 +10,7 @@ import '@govflanders/vl-ui-multiselect/dist/js/multiselect.js';
  * @classdesc Gebruik een multiselect om een gebruiker toe te laten om in een lijst van vooropgestelde keuzes te zoeken, en enkele of alle passende keuzes te selecteren.
  *
  * @extends VlSelect
- * 
+ *
  * @property {boolean} block - Attribuut wordt gebruikt om ervoor te zorgen dat de textarea getoond wordt als een block element en bijgevolg de breedte van de parent zal aannemen.
  * @property {boolean} error - Attribuut wordt gebruikt om aan te duiden dat het select element verplicht is of ongeldige tekst bevat.
  * @property {boolean} success - Attribuut wordt gebruikt om aan te duiden dat het select element correct werd ingevuld.
@@ -38,8 +38,8 @@ export class VlMultiSelect extends VlSelect {
 
   /**
    * Geeft de ready event naam.
-   * 
-   * @returns {string}
+   *
+   * @return {string}
    */
   get readyEvent() {
     return VlMultiSelect.readyEvent;
@@ -49,7 +49,7 @@ export class VlMultiSelect extends VlSelect {
    * Zet het geselecteerd option element op basis van de option value.
    *
    * @param {string} values - De option value van het option element dat gekozen moet worden.
-   * @returns {void}
+   * @return {void}
    */
   set values(values) {
     values.forEach((value) => {
@@ -60,10 +60,10 @@ export class VlMultiSelect extends VlSelect {
   /**
    * Geeft de waarde van de geselecteerde option elementen.
    *
-   * @returns {string[]}
+   * @return {string[]}
    */
   get values() {
-    return [... this.selectedOptions].map((option) => {
+    return [...this.selectedOptions].map((option) => {
       return option.value || '';
     });
   }
@@ -73,4 +73,5 @@ export class VlMultiSelect extends VlSelect {
   }
 }
 
-window.customElements.whenDefined('vl-select').then(() => define('vl-multiselect', VlMultiSelect, { extends: 'select' }));
+window.customElements.whenDefined('vl-select').then(() => define('vl-multiselect', VlMultiSelect, {extends: 'select'}));
+
