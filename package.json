@@ -48,7 +48,7 @@
     "vl-ui-select": "^4.1.0"
   },
   "devDependencies": {
-    "@govflanders/vl-ui-form-structure": "3.9.2",
+    "@govflanders/vl-ui-form-structure": "3.11.5",
     "@govflanders/vl-ui-input-field": "3.9.2",
     "@govflanders/vl-ui-pill": "^3.9.2",
     "@govflanders/vl-ui-select": "3.9.1",
