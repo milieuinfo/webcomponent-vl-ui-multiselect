@@ -51,7 +51,7 @@
     "@govflanders/vl-ui-form-structure": "3.11.5",
     "@govflanders/vl-ui-input-field": "3.11.5",
     "@govflanders/vl-ui-pill": "^3.9.2",
-    "@govflanders/vl-ui-select": "3.9.1",
+    "@govflanders/vl-ui-select": "3.11.5",
     "vl-ui-button": "^5.0.5",
     "vl-ui-datepicker": "^3.0.5",
     "vl-ui-util": "^5.2.10"
