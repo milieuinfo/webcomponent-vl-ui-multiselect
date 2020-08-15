@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@govflanders/vl-ui-core": "^3.10.1",
-    "@govflanders/vl-ui-multiselect": "3.9.1",
+    "@govflanders/vl-ui-multiselect": "3.11.5",
     "@govflanders/vl-ui-util": "^3.10.1",
     "vl-ui-core": "^5.6.2",
     "vl-ui-select": "^4.1.0"
