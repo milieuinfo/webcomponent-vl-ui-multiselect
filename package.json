@@ -48,12 +48,13 @@
     "vl-ui-select": "^4.1.0"
   },
   "devDependencies": {
-    "@govflanders/vl-ui-form-structure": "3.11.5",
-    "@govflanders/vl-ui-input-field": "3.11.5",
-    "@govflanders/vl-ui-pill": "^3.9.2",
+    "@govflanders/vl-ui-form-structure": "^3.11.5",
+    "@govflanders/vl-ui-input-field": "^3.11.5",
+    "@govflanders/vl-ui-pill": "^3.11.5",
+    "@govflanders/vl-ui-pill-input": "^3.11.5",
     "@govflanders/vl-ui-select": "3.11.5",
     "vl-ui-button": "^5.0.5",
     "vl-ui-datepicker": "^3.0.5",
-    "vl-ui-util": "^5.2.10"
+    "vl-ui-util": "^5.2.12"
   }
 }
