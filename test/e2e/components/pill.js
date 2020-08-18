@@ -1,4 +1,5 @@
-const {By} = require('selenium-webdriver');
+const {By} = require('vl-ui-core').Test.Setup;
+
 class Pill {
   constructor(webElement) {
     this.webElement = webElement;
