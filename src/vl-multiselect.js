@@ -2,7 +2,6 @@ import {define} from '/node_modules/vl-ui-core/dist/vl-core.js';
 import {VlSelect} from '/node_modules/vl-ui-select/dist/vl-select.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
 import '/node_modules/@govflanders/vl-ui-core/dist/js/core.js';
-import '/node_modules/@govflanders/vl-ui-multiselect/dist/js/multiselect.js';
 
 /**
  * VlMultiSelect
