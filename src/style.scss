@@ -31,6 +31,27 @@
     z-index: 101;
 }
 
+.vl-select__item {
+    max-width: 100%;
+    padding: 0 1.4rem;
+
+    &[data-deletable] {
+        > span {
+            max-width: calc(100% - 3.5rem);
+        }
+    }
+
+    > span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.vl-pill__close {
+    margin-left: 1.4rem;
+}
+
 .js-vl-select .vl-input-field {
     margin-top: 5px;
 }
