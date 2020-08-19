@@ -1,8 +1,8 @@
 
 const {assert, driver} = require('vl-ui-core').Test.Setup;
-const VlMultiSelectPage = require('./pages/vl-multi-select.page');
+const VlMultiSelectPage = require('./pages/vl-multiselect.page');
 
-describe('vl-multi-select', async () => {
+describe('vl-multiselect', async () => {
   const vlMultiSelectPage = new VlMultiSelectPage(driver);
 
   before(async () => {
@@ -69,7 +69,7 @@ describe('vl-multi-select', async () => {
   it('Het aantal resultaten van een zoekopdracht is standaard niet beperkt', async () => {
     const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
     await multiselect.searchByPartialText('straat');
-    await assert.eventually.isAbove(multiselect.getNumberOfSearchResults(), 5);
+    await assert.eventually.isAbove(multiselect.getNumberOfSearchResults(), 4);
   });
 
   it('Als gebruiker kan ik luisteren naar een change event en onChange zal er een extra attribuut gezet worden', async () => {
@@ -104,24 +104,23 @@ describe('vl-multi-select', async () => {
     await assert.eventually.lengthOf(multiselect.getSelectedItems(), 2);
   });
 
-  // Testen mogen terug uit commentaar gehaald worden wanneer er een stabiele versie van de datepicker is
-  // it('Als een multiselect boven een datepicker gerenderd wordt, kunnen zowel de multiselect als de datepicker correct gebruikt worden', async () => {
-  //     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
-  //     const datepicker = await vlMultiSelectPage.getDatepicker();
+  it('Als een multiselect boven een datepicker gerenderd wordt, kunnen zowel de multiselect als de datepicker correct gebruikt worden', async () => {
+    const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
+    const datepicker = await vlMultiSelectPage.getDatepicker();
 
-  //     const date = new Date();
-  //     const today = String(date.getDate()).padStart(1);
-  //     const dd = String(date.getDate()).padStart(2, '0');
-  //     const mm = String(date.getMonth() + 1).padStart(2, '0');
-  //     const yyyy = date.getFullYear();
+    const date = new Date();
+    const today = String(date.getDate()).padStart(1);
+    const dd = String(date.getDate()).padStart(2, '0');
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const yyyy = date.getFullYear();
 
-  //     await datepicker.selectDay(today);
-  //     await assert.eventually.equal(datepicker.getInputValue(), `${dd}.${mm}.${yyyy}`);
+    await datepicker.selectDay(today);
+    await assert.eventually.equal(datepicker.getInputValue(), `${dd}.${mm}.${yyyy}`);
 
-  //     await multiselect.selectByValue('Germany');
-  //     await assert.eventually.include(multiselect.getSelectedOptionsByValue(), 'Germany');
-
-  // });
+    await multiselect.selectByValue('Germany');
+    const selectedItems = await multiselect.getSelectedItems();
+    assert.isTrue(selectedItems.some((item) => item.text === 'Duitsland'));
+  });
 
   it('Als gebruiker kan ik opties groeperen', async () => {
     const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
@@ -129,28 +128,28 @@ describe('vl-multi-select', async () => {
     await assert.eventually.isTrue(multiselect.hasHeadings());
   });
 
-  // // it('De datepicker kan niet geopend worden wanneer de multiselect geopend is', async () => {
-  // //     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
-  // //     const datepicker = await vlMultiSelectPage.getDatepicker();
-  // //     await multiselect.openDropdown()
-  // //     await assert.isRejected(datepicker.selectDay(4));
+  it('De datepicker kan niet geopend worden wanneer de multiselect geopend is', async () => {
+    const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
+    const datepicker = await vlMultiSelectPage.getDatepicker();
+    await multiselect.open();
+    await assert.isRejected(datepicker.selectDay(4));
 
-  // //     await vlMultiSelectPage.closeAnyOpenDropdowns();
-  // //     await assert.eventually.isFalse(datepicker.isOpen());
-  // // });
+    await vlMultiSelectPage.closeAnyOpenDropdowns();
+    await assert.eventually.isFalse(datepicker.isOpen());
+  });
 
-  // // it('Als de gebruiker de multiselect opent wanneer de datepicker zichtbaar is, zal de datepicker verdwijnen', async () => {
-  // //     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
-  // //     const datepicker = await vlMultiSelectPage.getDatepicker();
+  it('Als de gebruiker de multiselect opent wanneer de datepicker zichtbaar is, zal de datepicker verdwijnen', async () => {
+    const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
+    const datepicker = await vlMultiSelectPage.getDatepicker();
 
-  // //     await assert.eventually.isFalse(datepicker.isOpen());
-  // //     await datepicker.open();
-  // //     await assert.eventually.isTrue(datepicker.isOpen());
-  // //     await multiselect.openDropdown();
-  // //     await assert.eventually.isTrue(multiselect.isOpen());
-  // //     await assert.eventually.isFalse(datepicker.isOpen());
+    await assert.eventually.isFalse(datepicker.isOpen());
+    await datepicker.open();
+    await assert.eventually.isTrue(datepicker.isOpen());
+    await multiselect.open();
+    await assert.eventually.isTrue(multiselect.isOpen());
+    await assert.eventually.isFalse(datepicker.isOpen());
 
-  // //     await vlMultiSelectPage.closeAnyOpenDropdowns();
-  // //     await assert.eventually.isFalse(multiselect.isOpen());
-  // // });
+    await vlMultiSelectPage.closeAnyOpenDropdowns();
+    await assert.eventually.isFalse(multiselect.isOpen());
+  });
 });

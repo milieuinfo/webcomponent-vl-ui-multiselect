@@ -1,6 +1,5 @@
 const {VlSelect} = require('vl-ui-select').Test;
-const {Key} = require('selenium-webdriver');
-const {By} = require('vl-ui-core').Test.Setup;
+const {By, Key} = require('vl-ui-core').Test.Setup;
 const {Pill} = require('./pill');
 const {MultiselectItem} = require('./multiselect-item');
 const {Item} = require('./item');
@@ -128,6 +127,10 @@ class VlMultiSelect extends VlSelect {
     const itemList = await this._getItemList();
     const selectGroups = await itemList.findElements(By.css('.vl-select__group'));
     return selectGroups.length > 0;
+  }
+
+  async isOpen() {
+    return this._isOpen();
   }
 
   async hasHeadings() {

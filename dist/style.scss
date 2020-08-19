@@ -1,5 +1,5 @@
 // ==========================================================================
-// Vlaanderen UI -- Data-table
+// Vlaanderen UI -- MultiSelect
 // ==========================================================================
 @charset "utf-8";
 
@@ -11,14 +11,12 @@
 // ==========================================================================
 // Components
 // ==========================================================================
-@import "vl-ui-select/src/scss/select";
-@import "vl-ui-select/src/scss/js-select";
-
-// ==========================================================================
-// Dependencies
-// ==========================================================================
+@import "vl-ui-form-structure/src/scss/form-structure";
 @import "vl-ui-input-field/src/scss/input-field";
+@import "vl-ui-select/src/scss/select";
 @import "vl-ui-pill/src/scss/pill";
+@import "vl-ui-pill-input/src/scss/pill-input";
+@import "vl-ui-multiselect/src/scss/multiselect";
 
 // ==========================================================================
 // Util
