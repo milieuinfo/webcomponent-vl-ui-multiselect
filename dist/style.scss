@@ -1,0 +1,57 @@
+// ==========================================================================
+// Vlaanderen UI -- MultiSelect
+// ==========================================================================
+@charset "utf-8";
+
+// ==========================================================================
+// Core
+// ==========================================================================
+@import "vl-ui-core/src/scss/core";
+
+// ==========================================================================
+// Components
+// ==========================================================================
+@import "vl-ui-form-structure/src/scss/form-structure";
+@import "vl-ui-input-field/src/scss/input-field";
+@import "vl-ui-select/src/scss/select";
+@import "vl-ui-pill/src/scss/pill";
+@import "vl-ui-pill-input/src/scss/pill-input";
+@import "vl-ui-multiselect/src/scss/multiselect";
+
+// ==========================================================================
+// Util
+// ==========================================================================
+@import "vl-ui-util/src/scss/util";
+
+.js-vl-select, .vl-select__list--dropdown {
+    z-index: 100;
+}
+
+.js-vl-select.is-open, .vl-select__list--dropdown.is-active {
+    z-index: 101;
+}
+
+.vl-select__item {
+    max-width: 100%;
+    padding: 0 1.4rem;
+
+    &[data-deletable] {
+        > span {
+            max-width: calc(100% - 3.5rem);
+        }
+    }
+
+    > span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.vl-pill__close {
+    margin-left: 1.4rem;
+}
+
+.js-vl-select .vl-input-field {
+    margin-top: 5px;
+}
