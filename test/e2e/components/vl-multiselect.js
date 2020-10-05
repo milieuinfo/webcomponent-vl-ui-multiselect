@@ -129,10 +129,6 @@ class VlMultiSelect extends VlSelect {
     return selectGroups.length > 0;
   }
 
-  async isOpen() {
-    return this._isOpen();
-  }
-
   async hasHeadings() {
     const itemList = await this._getItemList();
     const headings = await itemList.findElements(By.css('.vl-select__heading'));
