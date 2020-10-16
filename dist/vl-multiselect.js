@@ -24,13 +24,9 @@ export class VlMultiSelect extends VlSelect {
     return 'VlMultiSelectReady';
   }
 
-  constructor() {
-    super();
-    this.setAttribute('data-vl-multiselect', '');
-  }
-
   connectedCallback() {
     this.classList.add('vl-multiselect');
+    this.setAttribute('data-vl-multiselect', '');
     this.setAttribute('name', 'multiselect');
     super.connectedCallback();
   }
