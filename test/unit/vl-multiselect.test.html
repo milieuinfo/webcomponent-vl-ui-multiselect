@@ -73,6 +73,14 @@
           });
         });
       });
+
+      test('kan programmatisch focus activeren', (done) => {
+        const element = fixture('vl-multiselect-fixture');
+        element.addEventListener(element.readyEvent, async () => {
+          element._inputElement.addEventListener('focus', () => done());
+          element.focus();
+        });
+      });
     });
   </script>
 </body>
