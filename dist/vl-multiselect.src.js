@@ -1,7 +1,5 @@
 import {define} from 'vl-ui-core';
 import {VlSelect} from 'vl-ui-select';
-import '@govflanders/vl-ui-util/dist/js/util.js';
-import '@govflanders/vl-ui-core/dist/js/core.js';
 
 /**
  * VlMultiSelect
@@ -27,7 +25,6 @@ export class VlMultiSelect extends VlSelect {
   connectedCallback() {
     this.classList.add('vl-multiselect');
     this.setAttribute('data-vl-multiselect', '');
-    this.setAttribute('name', 'multiselect');
     super.connectedCallback();
   }
 
