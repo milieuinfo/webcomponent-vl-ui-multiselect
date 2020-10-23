@@ -9,14 +9,14 @@ describe('vl-multiselect', async () => {
     return vlMultiSelectPage.load();
   });
 
-  it('Als gebruiker kan ik de geselecteerde items opvragen', async () => {
+  it('als gebruiker kan ik de geselecteerde items opvragen', async () => {
     const multiselect = await vlMultiSelectPage.getVoorgeselecteerdeMultiselect();
     const selectedItems = await multiselect.getSelectedItems();
     assert.isTrue(selectedItems.some((item) => item.text === 'Brugge'));
     assert.isTrue(selectedItems.some((item) => item.value === 'Bruges'));
   });
 
-  it('Als gebruiker kan ik een optie selecteren en deze zal dan in de combobox getoond worden', async () => {
+  it('als gebruiker kan ik een optie selecteren en deze zal dan in de combobox getoond worden', async () => {
     const multiselect = await vlMultiSelectPage.getStandardMultiselect();
     const selectedItems = await multiselect.getSelectedItems();
     const unselectedItems = await multiselect.getUnselectedItems();
@@ -28,13 +28,13 @@ describe('vl-multiselect', async () => {
     assert.isTrue(selectedItemsAfterUpdate.some((i) => i.text === 'Duitsland'));
   });
 
-  it('De default multiselect heeft geen error of success attribuut', async () => {
+  it('de default multiselect heeft geen error of success attribuut', async () => {
     const multiselect = await vlMultiSelectPage.getStandardMultiselect();
     await assert.eventually.isFalse(multiselect.isError());
     await assert.eventually.isFalse(multiselect.isSuccess());
   });
 
-  it('Als gebruiker kan ik een gekozen optie verwijderen', async () => {
+  it('als gebruiker kan ik een gekozen optie verwijderen', async () => {
     const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
     const selectedItems = await multiselect.getSelectedItems();
     const itemToUnSelect = selectedItems.find((item) => item.text === 'Brugge');
@@ -45,41 +45,41 @@ describe('vl-multiselect', async () => {
     assert.isFalse(selectedItemsAfterUnselect.some((i) => i.text === 'Brugge'));
   });
 
-  it('Als gebruiker kan ik een multiselect definieren als error multiselect', async () => {
+  it('als gebruiker kan ik een multiselect definieren als error multiselect', async () => {
     const multiselect = await vlMultiSelectPage.getErrorMultiselect();
     await assert.eventually.isTrue(multiselect.isError());
   });
 
-  it('Als gebruiker kan ik een multiselect definieren als success multiselect', async () => {
+  it('als gebruiker kan ik een multiselect definieren als success multiselect', async () => {
     const multiselect = await vlMultiSelectPage.getSuccessMultiselect();
     await assert.eventually.isTrue(multiselect.isSuccess());
   });
 
-  it('Als gebruiker kan ik een multiselect definieren als disabled', async () => {
+  it('als gebruiker kan ik een multiselect definieren als disabled', async () => {
     const multiselect = await vlMultiSelectPage.getDisabledMultiselect();
     await assert.eventually.isTrue(multiselect.isDisabled());
   });
 
-  it('Het aantal resultaten van een zoekopdracht kan beperkt worden', async () => {
+  it('het aantal resultaten van een zoekopdracht kan beperkt worden', async () => {
     const multiselect = await vlMultiSelectPage.getMultiselectMetSpecifiekAantalResultaten();
     await multiselect.searchByPartialText('straat');
     await assert.eventually.equal(multiselect.getNumberOfSearchResults(), 5);
   });
 
-  it('Het aantal resultaten van een zoekopdracht is standaard niet beperkt', async () => {
+  it('het aantal resultaten van een zoekopdracht is standaard niet beperkt', async () => {
     const multiselect = await vlMultiSelectPage.getMultiselectMetOnbeperkteResultaten();
     await multiselect.searchByPartialText('straat');
     await assert.eventually.isAbove(multiselect.getNumberOfSearchResults(), 4);
   });
 
-  it('Als gebruiker kan ik luisteren naar een change event en onChange zal er een extra attribuut gezet worden', async () => {
+  it('als gebruiker kan ik luisteren naar een change event en onChange zal er een extra attribuut gezet worden', async () => {
     const multiselect = await vlMultiSelectPage.getChangeEventMultiselect();
     await assert.eventually.isFalse(multiselect.hasAttribute('changed'));
     await multiselect.selectByValue('Germany');
     await assert.eventually.isTrue(multiselect.hasAttribute('changed'));
   });
 
-  it('Als gebruiker kan ik de multiselect via enable/disable-methode in/uit-schakelen', async () => {
+  it('als gebruiker kan ik de multiselect via enable/disable-methode in/uit-schakelen', async () => {
     const multiselect = await vlMultiSelectPage.getEnableDisableMethodeMultiselect();
     await assert.eventually.isFalse(multiselect.isDisabled());
     await vlMultiSelectPage.disable();
@@ -88,7 +88,7 @@ describe('vl-multiselect', async () => {
     await assert.eventually.isFalse(multiselect.isDisabled());
   });
 
-  it('Als gebruiker kan ik programmatorisch (een) waarde(s) toevoegen/verwijderen in de multiselect', async () => {
+  it('als gebruiker kan ik programmatorisch (een) waarde(s) toevoegen/verwijderen in de multiselect', async () => {
     const multiselect = await vlMultiSelectPage.getSetGetMethodeMultiselect();
     await assert.eventually.isEmpty(multiselect.getSelectedItems());
     await vlMultiSelectPage.kiesDuitsland();
@@ -104,7 +104,7 @@ describe('vl-multiselect', async () => {
     await assert.eventually.lengthOf(multiselect.getSelectedItems(), 2);
   });
 
-  it('Als een multiselect boven een datepicker gerenderd wordt, kunnen zowel de multiselect als de datepicker correct gebruikt worden', async () => {
+  it('als een multiselect boven een datepicker gerenderd wordt, kunnen zowel de multiselect als de datepicker correct gebruikt worden', async () => {
     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
     const datepicker = await vlMultiSelectPage.getDatepicker();
 
@@ -122,13 +122,13 @@ describe('vl-multiselect', async () => {
     assert.isTrue(selectedItems.some((item) => item.text === 'Duitsland'));
   });
 
-  it('Als gebruiker kan ik opties groeperen', async () => {
+  it('als gebruiker kan ik opties groeperen', async () => {
     const multiselect = await vlMultiSelectPage.getGegroepeerdeMultiselect();
     await assert.eventually.isTrue(multiselect.isGrouped());
     await assert.eventually.isTrue(multiselect.hasHeadings());
   });
 
-  it('De datepicker kan niet geopend worden wanneer de multiselect geopend is', async () => {
+  it('de datepicker kan niet geopend worden wanneer de multiselect geopend is', async () => {
     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
     const datepicker = await vlMultiSelectPage.getDatepicker();
     await multiselect.open();
@@ -138,7 +138,7 @@ describe('vl-multiselect', async () => {
     await assert.eventually.isFalse(datepicker.isOpen());
   });
 
-  it('Als de gebruiker de multiselect opent wanneer de datepicker zichtbaar is, zal de datepicker verdwijnen', async () => {
+  it('als de gebruiker de multiselect opent wanneer de datepicker zichtbaar is, zal de datepicker verdwijnen', async () => {
     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
     const datepicker = await vlMultiSelectPage.getDatepicker();
 
