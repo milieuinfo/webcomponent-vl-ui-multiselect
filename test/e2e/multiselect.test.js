@@ -9,6 +9,10 @@ describe('vl-multiselect', async () => {
     return vlMultiSelectPage.load();
   });
 
+  afterEach(async () => {
+    await vlMultiSelectPage.closeAnyOpenDropdowns();
+  });
+
   it('als gebruiker kan ik de geselecteerde items opvragen', async () => {
     const multiselect = await vlMultiSelectPage.getVoorgeselecteerdeMultiselect();
     const selectedItems = await multiselect.getSelectedItems();
@@ -133,9 +137,6 @@ describe('vl-multiselect', async () => {
     const datepicker = await vlMultiSelectPage.getDatepicker();
     await multiselect.open();
     await assert.isRejected(datepicker.selectDay(4));
-
-    await vlMultiSelectPage.closeAnyOpenDropdowns();
-    await assert.eventually.isFalse(datepicker.isOpen());
   });
 
   it('als de gebruiker de multiselect opent wanneer de datepicker zichtbaar is, zal de datepicker verdwijnen', async () => {
@@ -148,8 +149,5 @@ describe('vl-multiselect', async () => {
     await multiselect.open();
     await assert.eventually.isTrue(multiselect.isOpen());
     await assert.eventually.isFalse(datepicker.isOpen());
-
-    await vlMultiSelectPage.closeAnyOpenDropdowns();
-    await assert.eventually.isFalse(multiselect.isOpen());
   });
 });
