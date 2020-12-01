@@ -35,7 +35,7 @@
 
     suite('vl-multiselect', () => {
       setup((done) => {
-        customElements.whenDefined('vl-multiselect').then(done);
+        customElements.whenDefined('vl-multiselect').then(() => done());
       });
 
       test('heeft de vl-multiselect class en attributen', () => {
