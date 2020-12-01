@@ -1,11 +1,12 @@
 
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlMultiSelectPage = require('./pages/vl-multiselect.page');
 
 describe('vl-multiselect', async () => {
-  const vlMultiSelectPage = new VlMultiSelectPage(driver);
+  let vlMultiSelectPage;
 
   before(async () => {
+    vlMultiSelectPage = new VlMultiSelectPage(getDriver());
     return vlMultiSelectPage.load();
   });
 
