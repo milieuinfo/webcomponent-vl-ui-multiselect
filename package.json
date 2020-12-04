@@ -40,11 +40,11 @@
     "@govflanders/vl-ui-core": "^4.0.5",
     "@govflanders/vl-ui-multiselect": "^3.11.5",
     "@govflanders/vl-ui-util": "^3.11.5",
-    "vl-ui-core": "^6.2.3",
+    "vl-ui-core": "^7.0.0",
     "vl-ui-select": "^4.1.5"
   },
   "peerDependencies": {
-    "vl-ui-core": "^6.0.1",
+    "vl-ui-core": "^7.0.0",
     "vl-ui-select": "^4.1.5"
   },
   "devDependencies": {
