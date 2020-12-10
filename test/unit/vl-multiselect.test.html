@@ -60,7 +60,7 @@
             const container = element.parentElement.parentElement.parentElement;
             return container.classList.contains('vl-select--success');
           });
-          assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(247, 250, 229)');
+          assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(236, 246, 238)');
 
           element = fixture('vl-multiselect-fixture-error');
           element.addEventListener(element.readyEvent, async () => {
@@ -68,7 +68,7 @@
               const container = element.parentElement.parentElement.parentElement;
               return container.classList.contains('vl-select--error');
             });
-            assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(251, 230, 230)');
+            assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(217, 71, 75)');
             done();
           });
         });
