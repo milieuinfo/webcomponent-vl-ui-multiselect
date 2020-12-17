@@ -1,3 +1,3 @@
 module.exports = {
-  VlMultiSelect: require('../dist/vl-multi-select.src.js').VlMultiSelect,
+  VlMultiSelect: require('../dist/vl-multiselect.src.js').VlMultiSelect,
 };
