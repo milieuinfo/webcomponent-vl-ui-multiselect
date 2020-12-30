@@ -58,6 +58,6 @@
     "vl-ui-button": "^5.0.8",
     "vl-ui-datepicker": "^3.2.2",
     "vl-ui-form-grid": "^3.0.7",
-    "vl-ui-util": "^5.3.4"
+    "vl-ui-util": "^5.3.5"
   }
 }
