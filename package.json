@@ -41,13 +41,13 @@
     "@govflanders/vl-ui-multiselect": "^3.11.5",
     "@govflanders/vl-ui-util": "^3.12.3",
     "vl-ui-core": "^7.0.1",
-    "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation#form-validation",
-    "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#form-validation"
+    "vl-ui-form-validation": "^3.4.0",
+    "vl-ui-select": "^4.2.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^7.0.1",
-    "vl-ui-form-validation": "milieuinfo/webcomponent-vl-ui-form-validation#form-validation",
-    "vl-ui-select": "milieuinfo/webcomponent-vl-ui-select#form-validation"
+    "vl-ui-form-validation": "^3.4.0",
+    "vl-ui-select": "^4.2.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-form-structure": "^3.12.3",
