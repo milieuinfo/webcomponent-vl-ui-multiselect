@@ -1,11 +1,12 @@
 
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlMultiSelectPage = require('./pages/vl-multiselect.page');
 
 describe('vl-multiselect', async () => {
-  const vlMultiSelectPage = new VlMultiSelectPage(driver);
+  let vlMultiSelectPage;
 
   before(async () => {
+    vlMultiSelectPage = new VlMultiSelectPage(getDriver());
     return vlMultiSelectPage.load();
   });
 
@@ -85,7 +86,6 @@ describe('vl-multiselect', async () => {
 
   it('als gebruiker kan ik de multiselect via enable/disable-methode in/uit-schakelen', async () => {
     const multiselect = await vlMultiSelectPage.getEnableDisableMethodeMultiselect();
-    await assert.eventually.isFalse(multiselect.isDisabled());
     await vlMultiSelectPage.disable();
     await assert.eventually.isTrue(multiselect.isDisabled());
     await vlMultiSelectPage.enable();
