@@ -41,11 +41,13 @@
     "@govflanders/vl-ui-multiselect": "^3.11.5",
     "@govflanders/vl-ui-util": "^3.12.3",
     "vl-ui-core": "^7.0.1",
-    "vl-ui-select": "^4.1.6"
+    "vl-ui-form-validation": "^3.4.0",
+    "vl-ui-select": "^4.2.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^7.0.1",
-    "vl-ui-select": "^4.1.6"
+    "vl-ui-form-validation": "^3.4.0",
+    "vl-ui-select": "^4.2.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-form-structure": "^3.12.3",
@@ -58,6 +60,6 @@
     "vl-ui-button": "^5.0.8",
     "vl-ui-datepicker": "^3.2.2",
     "vl-ui-form-grid": "^3.0.7",
-    "vl-ui-util": "^5.3.5"
+    "vl-ui-util": "^5.3.6"
   }
 }

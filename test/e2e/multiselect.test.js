@@ -82,7 +82,6 @@ describe('vl-multiselect', async () => {
 
   it('Als gebruiker kan ik de multiselect via enable/disable-methode in/uit-schakelen', async () => {
     const multiselect = await vlMultiSelectPage.getEnableDisableMethodeMultiselect();
-    await assert.eventually.isFalse(multiselect.isDisabled());
     await vlMultiSelectPage.disable();
     await assert.eventually.isTrue(multiselect.isDisabled());
     await vlMultiSelectPage.enable();
