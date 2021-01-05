@@ -83,7 +83,7 @@ class VlMultiSelectPage extends Page {
 
   async closeAnyOpenDropdowns() {
     const body = await this.driver.findElement(By.css('body'));
-    return body.sendKeys(Key.ESCAPE);
+    await body.sendKeys(Key.ESCAPE);
   }
 
   async load() {

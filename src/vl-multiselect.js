@@ -63,6 +63,17 @@ export class VlMultiSelect extends VlSelect {
   get _dataVlSelectAttribute() {
     return this.getAttribute('data-vl-multiselect');
   }
+
+  get _inputElement() {
+    return this.parentElement.querySelector('input');
+  }
+
+  /**
+   * Geef focus aan het select input element.
+   */
+  focus() {
+    this._inputElement.focus();
+  }
 }
 
 window.customElements.whenDefined('vl-select').then(() => define('vl-multiselect', VlMultiSelect, {extends: 'select'}));
