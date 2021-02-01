@@ -112,14 +112,10 @@ describe('vl-multiselect', async () => {
     const multiselect = await vlMultiSelectPage.getDatepickerMultiselect();
     const datepicker = await vlMultiSelectPage.getDatepicker();
 
-    const date = new Date();
-    const today = String(date.getDate()).padStart(1);
-    const dd = String(date.getDate()).padStart(2, '0');
-    const mm = String(date.getMonth() + 1).padStart(2, '0');
-    const yyyy = date.getFullYear();
-
-    await datepicker.selectDay(today);
-    await assert.eventually.equal(datepicker.getInputValue(), `${dd}.${mm}.${yyyy}`);
+    await datepicker.selectYear(2018);
+    await datepicker.selectMonth('augustus');
+    await datepicker.selectDay(29);
+    await assert.eventually.equal(datepicker.getInputValue(), `29.08.2018`);
 
     await multiselect.selectByValue('Germany');
     const selectedItems = await multiselect.getSelectedItems();
