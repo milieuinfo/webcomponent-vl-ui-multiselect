@@ -42,7 +42,7 @@
     "@govflanders/vl-ui-util": "^3.12.3",
     "vl-ui-core": "^7.1.1",
     "vl-ui-form-validation": "^3.4.3",
-    "vl-ui-select": "^4.2.0"
+    "vl-ui-select": "git+https://github.com/milieuinfo/webcomponent-vl-ui-select.git#UIG-1186-select-search-placeholders"
   },
   "peerDependencies": {
     "vl-ui-core": "^7.1.0",
@@ -60,6 +60,6 @@
     "vl-ui-button": "^5.0.9",
     "vl-ui-datepicker": "^3.2.4",
     "vl-ui-form-grid": "^3.0.8",
-    "vl-ui-util": "^5.3.7"
+    "vl-ui-util": "^5.3.11"
   }
 }
