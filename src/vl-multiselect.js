@@ -12,12 +12,17 @@ import {VlSelect} from '/node_modules/vl-ui-select/dist/vl-select.js';
  * @property {boolean} data-vl-error - Attribuut wordt gebruikt om aan te duiden dat het select element verplicht is of ongeldige tekst bevat.
  * @property {boolean} data-vl-success - Attribuut wordt gebruikt om aan te duiden dat het select element correct werd ingevuld.
  * @property {boolean} disabled - Attribuut wordt gebruikt om te voorkomen dat de gebruiker iets kan kiezen uit het select element.
- *
+ * @property {string} data-vl-placeholder - Attribuut bepaalt de placeholder in het zoek element.
+
  * @see {@link http://www.github.com/milieuinfo/webcomponent-vl-ui-multiselect/releases/latest|Release notes}
  * @see {@link http://www.github.com/milieuinfo/webcomponent-vl-ui-multiselect/issues|Issues}
  * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-multiselect.html|Demo}
  */
 export class VlMultiSelect extends VlSelect {
+  static get DEFAULT_PLACEHOLDER_VALUE() {
+    return 'Selecteer item';
+  }
+
   static get readyEvent() {
     return 'VlMultiSelectReady';
   }
@@ -66,6 +71,23 @@ export class VlMultiSelect extends VlSelect {
 
   get _inputElement() {
     return this.parentElement.querySelector('input');
+  }
+
+  get __placeholder() {
+    return this.getAttribute('data-vl-placeholder');
+  }
+
+  set __placeholderTranslation(value) {
+    this._changeTranslation('select.placeholder_value', value);
+  }
+
+  _setTranslations() {
+    super._setTranslations();
+    if (this.__placeholder) {
+      this.__placeholderTranslation = this.__placeholder;
+    } else {
+      this.__placeholderTranslation = VlMultiSelect.DEFAULT_PLACEHOLDER_VALUE;
+    }
   }
 
   /**

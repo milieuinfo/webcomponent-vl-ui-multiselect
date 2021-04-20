@@ -30,8 +30,34 @@
     </template>
   </test-fixture>
 
+  <test-fixture id="vl-multiselect-custom-placeholder-fixture">
+    <template>
+      <select id="multiselect" multiple is="vl-multiselect" data-vl-placeholder="Gelieve een item te selecteren"></select>
+    </template>
+  </test-fixture>
+
+
+  <test-fixture id="multiple-vl-multiselect-met-custom-placeholder-fixture">
+    <template>
+      <div>
+        <select id="multiselect1" multiple is="vl-multiselect" data-vl-placeholder="Gelieve een item te selecteren"></select>
+        <select id="multiselect2" multiple is="vl-multiselect" data-vl-placeholder="Gelieve hier ook een item te selecteren"></select>
+      </div>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="multiple-vl-multiselect-met-custom-en-default-placeholder-fixture">
+    <template>
+      <div>
+        <select id="multiselect1" multiple is="vl-multiselect" data-vl-placeholder="Gelieve een item te selecteren"></select>
+        <select id="multiselect2" multiple is="vl-multiselect"></select>
+      </div>
+    </template>
+  </test-fixture>
+
   <script type="module">
     import {awaitUntil} from 'vl-ui-core/dist/vl-core';
+    import {VlMultiSelect} from '../../src/vl-multiselect';
 
     suite('vl-multiselect', () => {
       setup((done) => {
@@ -78,6 +104,44 @@
           element.focus();
         });
       });
+
+      test('De default tekst die aangeeft om een item te selecteren is zoals verwacht', async () => {
+        const element = fixture('vl-multiselect-fixture');
+        await element.ready();
+        assert.equal(element._inputElement.getAttribute('placeholder'), vl.i18n.i18n['select.placeholder_value']);
+      });
+
+      test('Kan de default tekst die aangeeft om een item te selecteren wijzigen via een attribuut', async () => {
+        const element = fixture('vl-multiselect-custom-placeholder-fixture');
+        await element.ready();
+        assert.equal(element._inputElement.getAttribute('placeholder'), element.getAttribute('data-vl-placeholder'));
+      });
+
+      test('Wanneer meerdere multiselects een verschillende placeholder value hebben worden deze ook correct getoond', async () => {
+        const element = fixture('multiple-vl-multiselect-met-custom-placeholder-fixture');
+        const multiselect1 = element.querySelector('#multiselect1');
+        const multiselect2 = element.querySelector('#multiselect2');
+
+        await assertThatMultiSelectExpectedPlaceholderToont(multiselect1, multiselect1.getAttribute('data-vl-placeholder'));
+        await assertThatMultiSelectExpectedPlaceholderToont(multiselect2, multiselect2.getAttribute('data-vl-placeholder'));
+      });
+
+      test('Wanneer een tweede multiselect geen custom tekst heeft voor de placeholder, wordt hier de default waarde getoond', async () => {
+        const element = fixture('multiple-vl-multiselect-met-custom-en-default-placeholder-fixture');
+        const multiselect1 = element.querySelector('#multiselect1');
+        const multiselect2 = element.querySelector('#multiselect2');
+
+        await assertThatMultiSelectExpectedPlaceholderToont(multiselect1, multiselect1.getAttribute('data-vl-placeholder'));
+        await assertThatMultiSelectExpectedPlaceholderToont(multiselect2, VlMultiSelect.DEFAULT_PLACEHOLDER_VALUE);
+      });
+
+      function assertThatMultiSelectExpectedPlaceholderToont(multiselect, placeholderText) {
+        return new Promise(async (resolve, reject) => {
+          await multiselect.ready();
+          assert.equal(multiselect._inputElement.getAttribute('placeholder'), placeholderText);
+          resolve();
+        });
+      }
     });
   </script>
 </body>
