@@ -24,8 +24,15 @@ export class VlMultiSelect extends VlSelect {
 
   connectedCallback() {
     this.classList.add('vl-multiselect');
+    this.setAttribute('multiple', 'multiple');
     this.setAttribute('data-vl-multiselect', '');
-    this.setAttribute('multiple', '');
+    const options = Array.from(this.querySelectorAll('option'));
+
+    const hasSelected = options.some((option) => {
+      return option.hasAttribute('selected') === true;
+    });
+    if (!hasSelected) this.value = undefined;
+
     super.connectedCallback();
   }
 
