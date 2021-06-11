@@ -25,6 +25,7 @@ export class VlMultiSelect extends VlSelect {
   connectedCallback() {
     this.classList.add('vl-multiselect');
     this.setAttribute('data-vl-multiselect', '');
+    this.setAttribute('multiple', '');
     super.connectedCallback();
   }
 
@@ -76,4 +77,6 @@ export class VlMultiSelect extends VlSelect {
   }
 }
 
-window.customElements.whenDefined('vl-select').then(() => define('vl-multiselect', VlMultiSelect, {extends: 'select'}));
+window.customElements
+    .whenDefined('vl-select')
+    .then(() => define('vl-multiselect', VlMultiSelect, {extends: 'select'}));
