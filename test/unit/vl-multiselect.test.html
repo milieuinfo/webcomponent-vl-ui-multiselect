@@ -1,106 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <script src="../../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../../web-component-tester/browser.js"></script>
-    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
-    <script type="module" src="../../src/vl-multiselect.js"></script>
+  
+<head>
+  <meta charset="utf-8" />
+  <script src="../../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../../web-component-tester/browser.js"></script>
+  <script src="../../node_modules/sinon/pkg/sinon.js"></script>
+  <script type="module" src="../../src/vl-multiselect.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/src/style.css" />
-  </head>
+  <link rel="stylesheet" type="text/css" href="/src/style.css" />
+</head>
 
-  <body>
-    <test-fixture id="vl-multiselect-fixture">
-      <template>
-        <select id="multiselect" is="vl-multiselect"></select>
-      </template>
-    </test-fixture>
+<body>
+  <test-fixture id="vl-multiselect-fixture">
+    <template>
+      <select id="multiselect" is="vl-multiselect"></select>
+    </template>
+  </test-fixture>
 
-    <test-fixture id="vl-multiselect-fixture-success">
-      <template>
-        <select
-          id="multiselect"
-          is="vl-multiselect"
-          data-vl-success
-          data-vl-multiselect
-        ></select>
-      </template>
-    </test-fixture>
+  <test-fixture id="vl-multiselect-fixture-success">
+    <template>
+      <select id="multiselect" is="vl-multiselect" data-vl-success data-vl-multiselect
+      ></select>
+    </template>
+  </test-fixture>
 
-    <test-fixture id="vl-multiselect-fixture-error">
-      <template>
-        <select
-          id="multiselect"
-          is="vl-multiselect"
-          data-vl-error
-          data-vl-multiselect
-        ></select>
-      </template>
-    </test-fixture>
+  <test-fixture id="vl-multiselect-fixture-error">
+    <template>
+      <select id="multiselect" is="vl-multiselect" data-vl-error data-vl-multiselect></select>
+    </template>
+  </test-fixture>
 
-    <script type="module">
-      import {awaitUntil} from 'vl-ui-core/dist/vl-core';
+  <script type="module">
+    import {awaitUntil} from 'vl-ui-core/dist/vl-core';
 
-      suite('vl-multiselect', () => {
-        setup((done) => {
-          customElements.whenDefined('vl-multiselect').then(() => done());
-        });
+    suite('vl-multiselect', () => {
+      setup((done) => {
+        customElements.whenDefined('vl-multiselect').then(() => done());
+      });
 
-        test('heeft de vl-multiselect class en attributen', () => {
-          const element = fixture('vl-multiselect-fixture');
-          assert.isTrue(element.classList.contains('vl-multiselect'));
-          assert.isTrue(element.hasAttribute('data-vl-multiselect'));
-        });
+      test('heeft de vl-multiselect class en attributen', () => {
+        const element = fixture('vl-multiselect-fixture');
+        assert.isTrue(element.classList.contains('vl-multiselect'));
+        assert.isTrue(element.hasAttribute('data-vl-multiselect'));
+      });
 
-        test('wanneer het vl-multiselect element volledig klaar is zal het een ready event versturen', (done) => {
-          const element = fixture('vl-multiselect-fixture');
-          element.addEventListener(element.readyEvent, () => done());
-          element.dress();
-        });
+      test('wanneer het vl-multiselect element volledig klaar is zal het een ready event versturen', (done) => {
+        const element = fixture('vl-multiselect-fixture');
+        element.addEventListener(element.readyEvent, () => done());
+        element.dress();
+      });
 
-        test('wanneer het vl-multiselect element success of error attribuut bevat zal dit zichtbaar zijn', (done) => {
-          let element = fixture('vl-multiselect-fixture-success');
+      test('wanneer het vl-multiselect element success of error attribuut bevat zal dit zichtbaar zijn', (done) => {
+        let element = fixture('vl-multiselect-fixture-success');
+        element.addEventListener(element.readyEvent, async () => {
+          await awaitUntil(() => {
+            const container = element.parentElement.parentElement.parentElement;
+            return container.classList.contains('vl-input-field--success');
+          });
+          assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(236, 246, 238)');
+
+          element = fixture('vl-multiselect-fixture-error');
           element.addEventListener(element.readyEvent, async () => {
             await awaitUntil(() => {
-              const container =
-                element.parentElement.parentElement.parentElement;
-              return container.classList.contains('vl-input-field--success');
+              const container = element.parentElement.parentElement.parentElement;
+              return container.classList.contains('vl-input-field--error');
             });
-            assert.equal(
-                getComputedStyle(element.parentElement.parentElement)[
-                    'background-color'
-                ],
-                'rgb(236, 246, 238)',
-            );
-
-            element = fixture('vl-multiselect-fixture-error');
-            element.addEventListener(element.readyEvent, async () => {
-              await awaitUntil(() => {
-                const container =
-                  element.parentElement.parentElement.parentElement;
-                return container.classList.contains('vl-input-field--error');
-              });
-              assert.equal(
-                  getComputedStyle(element.parentElement.parentElement)[
-                      'background-color'
-                  ],
-                  'rgb(251, 235, 235)',
-              );
-              done();
-            });
-          });
-        });
-
-        test('kan programmatisch focus activeren', (done) => {
-          const element = fixture('vl-multiselect-fixture');
-          element.addEventListener(element.readyEvent, async () => {
-            element._inputElement.addEventListener('focus', () => done());
-            element.focus();
+            assert.equal(getComputedStyle(element.parentElement.parentElement)['background-color'], 'rgb(251, 235, 235)');
+            done();
           });
         });
       });
-    </script>
-  </body>
+
+      test('kan programmatisch focus activeren', (done) => {
+        const element = fixture('vl-multiselect-fixture');
+        element.addEventListener(element.readyEvent, async () => {
+          element._inputElement.addEventListener('focus', () => done());
+          element.focus();
+        });
+      });
+    });
+  </script>
+</body>
 </html>
 
