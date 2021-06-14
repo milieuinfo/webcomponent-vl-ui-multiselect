@@ -40,62 +40,62 @@
     </test-fixture>
 
     <script type="module">
-      import { awaitUntil } from "vl-ui-core/dist/vl-core";
+      import {awaitUntil} from 'vl-ui-core/dist/vl-core';
 
-      suite("vl-multiselect", () => {
+      suite('vl-multiselect', () => {
         setup((done) => {
-          customElements.whenDefined("vl-multiselect").then(() => done());
+          customElements.whenDefined('vl-multiselect').then(() => done());
         });
 
-        test("heeft de vl-multiselect class en attributen", () => {
-          const element = fixture("vl-multiselect-fixture");
-          assert.isTrue(element.classList.contains("vl-multiselect"));
-          assert.isTrue(element.hasAttribute("data-vl-multiselect"));
+        test('heeft de vl-multiselect class en attributen', () => {
+          const element = fixture('vl-multiselect-fixture');
+          assert.isTrue(element.classList.contains('vl-multiselect'));
+          assert.isTrue(element.hasAttribute('data-vl-multiselect'));
         });
 
-        test("wanneer het vl-multiselect element volledig klaar is zal het een ready event versturen", (done) => {
-          const element = fixture("vl-multiselect-fixture");
+        test('wanneer het vl-multiselect element volledig klaar is zal het een ready event versturen', (done) => {
+          const element = fixture('vl-multiselect-fixture');
           element.addEventListener(element.readyEvent, () => done());
           element.dress();
         });
 
-        test("wanneer het vl-multiselect element success of error attribuut bevat zal dit zichtbaar zijn", (done) => {
-          let element = fixture("vl-multiselect-fixture-success");
+        test('wanneer het vl-multiselect element success of error attribuut bevat zal dit zichtbaar zijn', (done) => {
+          let element = fixture('vl-multiselect-fixture-success');
           element.addEventListener(element.readyEvent, async () => {
             await awaitUntil(() => {
               const container =
                 element.parentElement.parentElement.parentElement;
-              return container.classList.contains("vl-input-field--success");
+              return container.classList.contains('vl-input-field--success');
             });
             assert.equal(
-              getComputedStyle(element.parentElement.parentElement)[
-                "background-color"
-              ],
-              "rgb(236, 246, 238)"
+                getComputedStyle(element.parentElement.parentElement)[
+                    'background-color'
+                ],
+                'rgb(236, 246, 238)',
             );
 
-            element = fixture("vl-multiselect-fixture-error");
+            element = fixture('vl-multiselect-fixture-error');
             element.addEventListener(element.readyEvent, async () => {
               await awaitUntil(() => {
                 const container =
                   element.parentElement.parentElement.parentElement;
-                return container.classList.contains("vl-input-field--error");
+                return container.classList.contains('vl-input-field--error');
               });
               assert.equal(
-                getComputedStyle(element.parentElement.parentElement)[
-                  "background-color"
-                ],
-                "rgb(251, 235, 235)"
+                  getComputedStyle(element.parentElement.parentElement)[
+                      'background-color'
+                  ],
+                  'rgb(251, 235, 235)',
               );
               done();
             });
           });
         });
 
-        test("kan programmatisch focus activeren", (done) => {
-          const element = fixture("vl-multiselect-fixture");
+        test('kan programmatisch focus activeren', (done) => {
+          const element = fixture('vl-multiselect-fixture');
           element.addEventListener(element.readyEvent, async () => {
-            element._inputElement.addEventListener("focus", () => done());
+            element._inputElement.addEventListener('focus', () => done());
             element.focus();
           });
         });
