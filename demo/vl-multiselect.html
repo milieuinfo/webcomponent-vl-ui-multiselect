@@ -12,18 +12,18 @@
 
     <script type="module" src="/src/vl-multiselect.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/src/style.css">
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css">
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-demo/dist/style.css">
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-form-grid/dist/style.css">
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-action-group/dist/style.css">
-    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css">
+    <link rel="stylesheet" type="text/css" href="/src/style.css" />
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-demo/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-form-grid/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-action-group/dist/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css"/>
 </head>
 
 <body is="vl-body">
     <vl-demo-page data-vl-webcomponent="vl-multiselect" data-vl-link="https://overheid.vlaanderen.be/webuniversum/v3/documentation/forms/vl-ui-multiselect">
         <vl-demo data-vl-title="Multiselect met meerdere opties">
-            <select id="multiselect" is="vl-multiselect" multiple>
+            <select id="multiselect" is="vl-multiselect">
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
@@ -31,7 +31,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect met een voorgeselecteerde optie">
-            <select id="multiselect-voorgeselecteerd" is="vl-multiselect" multiple>
+            <select id="multiselect-voorgeselecteerd" is="vl-multiselect">
                 <option selected value="Bruges">Brugge</option>
                 <option value="Brussels">Brussel</option>
                 <option value="Ghent">Gent</option>
@@ -39,7 +39,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect met gegroepeerde opties">
-            <select id="multiselect-gegroepeerd" is="vl-multiselect" multiple>
+            <select id="multiselect-gegroepeerd" is="vl-multiselect">
                 <optgroup label="Landen">
                     <option selected value="Belgium">België</option>
                     <option value="Germany">Duitsland</option>
@@ -54,7 +54,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect met error">
-            <select id="multiselect-error" is="vl-multiselect" multiple data-vl-error>
+            <select id="multiselect-error" is="vl-multiselect" data-vl-error>
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
@@ -62,7 +62,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect met success">
-            <select id="multiselect-success" is="vl-multiselect" multiple data-vl-success>
+            <select id="multiselect-success" is="vl-multiselect" data-vl-success>
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
@@ -70,7 +70,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect met disabled">
-            <select id="multiselect-disabled" is="vl-multiselect" multiple disabled>
+            <select id="multiselect-disabled" is="vl-multiselect" disabled>
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
@@ -78,7 +78,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Select van straten met specifiek aantal resultaten">
-            <select id="multiselect-specifiek" is="vl-multiselect" data-vl-select data-vl-select-search-result-limit="5" multiple>
+            <select id="multiselect-specifiek" is="vl-multiselect" data-vl-select data-vl-select-search-result-limit="5">
                 <option placeholder value="">Kies een straat</option>
                 <option value="aakstraat">Aakstraat</option>
                 <option value="aalmoezenierstraat">Aalmoezenierstraat</option>
@@ -98,7 +98,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Select van straten met een onbeperkt aantal resultaten">
-            <select id="multiselect-onbeperkt" is="vl-multiselect" data-vl-select data-vl-select-search-no-result-limit multiple>
+            <select id="multiselect-onbeperkt" is="vl-multiselect" data-vl-select data-vl-select-search-no-result-limit>
                 <option placeholder value="">Kies een straat</option>
                 <option value="aakstraat">Aakstraat</option>
                 <option value="aalmoezenierstraat">Aalmoezenierstraat</option>
@@ -120,7 +120,7 @@
         <vl-demo data-vl-title="Multiselect boven een datepicker">
             <div is="vl-form-grid" data-vl-is-stacked>
                 <div is="vl-form-column" data-vl-size="12">
-                    <select id="multiselect-datepicker" is="vl-multiselect" multiple>
+                    <select id="multiselect-datepicker" is="vl-multiselect">
                         <option value="Belgium">België</option>
                         <option value="Germany">Duitsland</option>
                         <option value="France">Frankrijk</option>
@@ -133,7 +133,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect luister naar change events">
-            <select id="change-listener" is="vl-multiselect" multiple>
+            <select id="change-listener" is="vl-multiselect">
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
@@ -146,7 +146,7 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect enable en disable methode">
-            <select id="vl-multiselect-enable-disable-methode" is="vl-multiselect" multiple>
+            <select id="vl-multiselect-enable-disable-methode" is="vl-multiselect">
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
@@ -155,13 +155,17 @@
             </select>
 
             <div is="vl-action-group" slot="actions">
-                <button id="enable" is="vl-button" onclick="document.getElementById('vl-multiselect-enable-disable-methode').enable()" type="button">Enable</button>
-                <button id="disable" is="vl-button" onclick="document.getElementById('vl-multiselect-enable-disable-methode').disable()" type="button">Disable</button>
+                <button id="enable" is="vl-button" onclick="document.getElementById('vl-multiselect-enable-disable-methode').enable()" type="button">
+                    Enable
+                </button>
+                <button id="disable" is="vl-button" onclick="document.getElementById('vl-multiselect-enable-disable-methode').disable()" type="button">
+                    Disable
+                </button>
             </div>
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect zet en verwijder keuze methoden">
-            <select id="vl-multiselect-set-get-methode" is="vl-multiselect" multiple>
+            <select id="vl-multiselect-set-get-methode" is="vl-multiselect">
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
@@ -183,14 +187,15 @@
         </vl-demo>
 
         <vl-demo data-vl-title="Multiselect focus">
-            <select id="vl-multiselect-focus" is="vl-multiselect" multiple>
+            <select id="vl-multiselect-focus" is="vl-multiselect">
                 <option value="Belgium">België</option>
                 <option value="Germany">Duitsland</option>
                 <option value="France">Frankrijk</option>
             </select>
-            <button is="vl-button" onclick="document.getElementById('vl-multiselect-focus').focus()" slot="actions">Focus</button>
+            <button is="vl-button" onclick="document.getElementById('vl-multiselect-focus').focus()" slot="actions">
+                Focus
+            </button>
         </vl-demo>
     </vl-demo-page>
 </body>
-
 </html>

@@ -1,5 +1,5 @@
-import {define} from '/node_modules/vl-ui-core/dist/vl-core.js';
-import {VlSelect} from '/node_modules/vl-ui-select/dist/vl-select.js';
+import { define } from '/node_modules/vl-ui-core/dist/vl-core.js';
+import { VlSelect } from '/node_modules/vl-ui-select/dist/vl-select.js';
 
 /**
  * VlMultiSelect
@@ -24,9 +24,22 @@ export class VlMultiSelect extends VlSelect {
 
   connectedCallback() {
     this.classList.add('vl-multiselect');
+    this.setAttribute('multiple', '');
     this.setAttribute('data-vl-multiselect', '');
+
+    const hasSelected = this.hasSelected();
+    if (!hasSelected) this.value = undefined;
+
     super.connectedCallback();
   }
+
+  hasSelected = () => {
+    const options = Array.from(this.querySelectorAll('option'));
+
+    return options.some((option) => {
+      return option.hasAttribute('selected');
+    });
+  };
 
   /**
    * Geeft de ready event naam.
@@ -76,4 +89,6 @@ export class VlMultiSelect extends VlSelect {
   }
 }
 
-window.customElements.whenDefined('vl-select').then(() => define('vl-multiselect', VlMultiSelect, {extends: 'select'}));
+window.customElements
+  .whenDefined('vl-select')
+  .then(() => define('vl-multiselect', VlMultiSelect, { extends: 'select' }));
