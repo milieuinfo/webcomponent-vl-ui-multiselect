@@ -39,7 +39,7 @@
   "dependencies": {
     "@govflanders/vl-ui-core": "^4.1.24",
     "@govflanders/vl-ui-multiselect": "^3.11.5",
-    "@govflanders/vl-ui-util": "^3.12.24",
+    "@govflanders/vl-ui-util": "^11.0.0",
     "vl-ui-core": "^7.1.0",
     "vl-ui-form-validation": "^4.0.0",
     "vl-ui-select": "^4.2.0"
