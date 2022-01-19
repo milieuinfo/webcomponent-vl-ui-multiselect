@@ -53,7 +53,7 @@
     "@govflanders/vl-ui-form-structure": "^3.12.24",
     "@govflanders/vl-ui-input-field": "^3.12.24",
     "@govflanders/vl-ui-pill": "^3.12.17",
-    "@govflanders/vl-ui-pill-input": "^3.12.3",
+    "@govflanders/vl-ui-pill-input": "^11.0.0",
     "@govflanders/vl-ui-select": "^3.12.24",
     "vl-ui-action-group": "^3.1.4",
     "vl-ui-body": "^1.0.8",
