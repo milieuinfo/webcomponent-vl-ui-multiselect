@@ -41,12 +41,12 @@
     "@govflanders/vl-ui-multiselect": "^3.11.5",
     "@govflanders/vl-ui-util": "^3.12.24",
     "vl-ui-core": "^7.1.0",
-    "vl-ui-form-validation": "^4.0.0",
+    "vl-ui-form-validation": "^1.0.0-art-external1",
     "vl-ui-select": "^4.2.0"
   },
   "peerDependencies": {
     "vl-ui-core": "^7.1.0",
-    "vl-ui-form-validation": "^4.0.0",
+    "vl-ui-form-validation": "^1.0.0-art-external1",
     "vl-ui-select": "^4.2.0"
   },
   "devDependencies": {
